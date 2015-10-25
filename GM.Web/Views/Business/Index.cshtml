@@ -1,0 +1,281 @@
+﻿@model GM.ViewModels.BusinessHomeViewModel
+@{
+    ViewBag.Title = "GreenMoney - Promote your Business";
+}
+@Html.HiddenFor(m => m.SupplierRegistrationIsNotValid)
+
+@functions{
+    public string CheckValidationErrors(string propertyKey){
+        string errorState = ViewData.ModelState[propertyKey] != null && ViewData.ModelState[propertyKey].Errors.Count > 0
+            ? ViewData.ModelState[propertyKey].Errors[0].ErrorMessage
+            : null;
+        return errorState;
+    }
+}
+
+	<!--Header part starts here -->
+
+<script src="//cdn.optimizely.com/js/3027340575.js"></script>
+
+<!-- Facebook for Business Centre Key Page Views -->
+<script>(function () {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+    }
+})();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6025315896896', { 'value': '0.00', 'currency': 'AUD' }]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6025315896896&amp;cd[value]=0.00&amp;cd[currency]=AUD&amp;noscript=1" /></noscript>
+
+	<div class="header businesshomePage">
+		<div class="container businesshomePage navigation-login">
+			<div class="logo homePage">
+				<a class="businesshomepagelogo" href="@Url.Action("Index", "Home")"><img src="~/Images/logo-white.png"/></a>
+				<a class="businesshomepagelogin" href="#"  data-popup-target="#log-in-fb-or-member-popup">Log in</a>
+				<a class="businesshomepagesignup" href="#" data-popup-target="#suplier-signin-popup">Sign up</a>
+				@*<a class="businesshomepageaddbusiness" href="#" data-popup-target="#suplier-signin-popup">Add your business</a>*@
+			</div>
+		</div>
+
+
+	 <!-- Full Page Image Background Carousel Header -->
+	    <header id="myCarousel" class="carousel carousel-fade">
+	        <!-- Indicators -->
+	        <!-- <ol class="carousel-indicators">
+	            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	            <li data-target="#myCarousel" data-slide-to="1"></li>
+	            <li data-target="#myCarousel" data-slide-to="2"></li>
+	            <li data-target="#myCarousel" data-slide-to="3"></li>
+	        </ol> -->
+
+	        <!-- Wrapper for Slides -->
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <!-- Set the first background image using inline CSS below. -->
+	                <img src="~/Images/business_slide1.jpg" class="fill">
+	                <div class="carousel-caption">
+		                <div class="header-matter">
+							<h1>Promote your business<br></h1>
+							<h1>to thousands of locals.<br></h1>
+							<h3>Connect your business with households in your area.</h3>
+							<p class="as-devider"></p>
+							<br>
+							<a href="#" class="links business slider-title-button" data-popup-target="#suplier-signin-popup">Get Started - it&#146;s FREE</a>
+							<p class="text-left memberlogin-homepage">Have a business account? <a href="@Url.Action("Login", "Account")" title="login" class="links" data-popup-target="#log-in-fb-or-member-popup"><b>Log in</b></a>
+			                </p>
+						</div>
+					</div>
+	            </div>
+	    </header>
+
+	</div>
+	<!--Header part Ends here -->
+	<!-- Services part strts Here -->
+	<div class="Services">
+		<div class="container homePage">
+			<div class="what-we-do" id="what">
+				<div class="row">
+					<div class="development">
+						<div class="col-md-3 sign-up-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/pencil.png" alt="" />
+							</div>
+							<div class="col-md-10 sign-up-widget-descr">
+								<h2>Promote <br>your business</h2>
+								<h4>Promote your business or venue to thousands of local households in your area.</h4>
+							</div>
+						</div>
+						<div class="col-md-5 earn-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/money.png" alt="" />
+							</div>
+							<div class="col-md-10 earn-widget-descr">
+								<h2>Convert more<br>local sales</h2>
+								<h4>Reach local households around you. Promote to generate more local customer traffic and sales.</h4>
+	
+							</div>
+						</div>
+						<div class="col-md-4 save-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/heart.png" alt="" />
+							</div>
+							<div class="col-md-10 save-widget-descr">
+								<h2>Connect with<br> new customers</h2>
+								<h4>Connect with new local customers that will love what you do and spread the word!</h4>
+					</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="your-city">
+		<div class="container homePage">
+			<div class="your-city-top">
+				<h1>These businesses love it.</h1>
+				<img src="~/Images/buscentre_homepage-logos.png" />
+
+                </p>
+			</div>
+		</div>
+	</div>
+	<!--- Slow life Ends Here -->				
+	<div class="create">
+	<h1>Ready to get more customers?</h1>
+	<br>
+        <a class="links create-account-button" data-popup-target="#suplier-signin-popup" href="/Account/Login">Get Started - it&#146;s Free</a>
+	</div>
+
+<!-- *************** Log in(fb or member) popup -->
+    <div id="log-in-fb-or-member-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Business Login</h2>
+                <p class="popup-subtitle">Don't have an login? <a href="#" data-popup-target="#suplier-signin-popup">Create a page</a></p>
+                    @using (Html.BeginForm("LoginTop", "Account", FormMethod.Post, new { role = "form"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p class="form-group">
+                            <label class="popup-input-labels">Email address</label>
+                            @Html.TextBoxFor(m => m.LoginViewModel.UserName, new {Class = "mailRgtrForm-field", type="email"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                        </p>
+                        <p class="form-group">
+                            <label class="popup-input-labels">Password</label>
+                            @Html.PasswordFor(m => m.LoginViewModel.Password, new {Class = "mailRgtrForm-field"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.Password)                            
+                        </p>
+
+                        <input type="submit" class="btn popupBtn" value="Log in"/>
+                        <input type="checkbox" name="remember" id="remember" class="vhide" style="background-color: red;float: left;margin: 0;">
+                        <label class="rememberme-checkbox-label" for="remember">
+                            <i class="octicon octicon-check"></i>Remember me
+                        </label>
+                        <a class="links pull-right" href="@Url.Action("ForgotPassword", "Account")">Forgot password?</a>
+                    }
+            </div>
+        </div>
+    </div>
+    <!-- <div class="popup-overlay"></div> -->
+    <!-- *************** -->
+
+    <!-- *************** Suplier log in popup -->
+    <div id="suplier-signin-popup" class="popup">
+            <div class="popup-body"><span class="popup-exit"></span>
+                <div class="popup-content">
+                    <h2 class="popup-title">Get Started!</h2>
+                    @using (Html.BeginForm("RegisterSupplier", "Business", FormMethod.Post, new { id = "supplierRgtrForm" }))
+                    {
+                        <fieldset>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Choose a location</label>
+                                @Html.DropDownListFor(m => m.RegistrationSupplierViewModel.InstanceId, Model.RegistrationSupplierViewModel.Instances, "Select city", 
+                                    new { 
+                                        @class = "empty custom-dropdown business-select-city-dropdownarrow mailRgtrForm-field"
+                                    })
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Business name</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.BusinessName,
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.BusinessName"),
+                                        @class = "mailRgtrForm-field"                                            
+                                    })
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Email address</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.BusinessEmail, 
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.BussinesEmail"),
+                                        @class = "mailRgtrForm-field"                                      
+                                    })  
+                            </p>
+                            <p class="form-group reset-margin col-md-3">
+                                <label class="popup-input-labels">Area</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.BussinesPhoneArea,
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.BussinesPhoneArea"),
+                                        @class = "areaRgtrForm-field"                                            
+                                    })
+                            </p>
+                            <p class="form-group reset-margin col-md-9">
+                                <label class="popup-input-labels">Business phone</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.BusinessPhone,
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.BusinessPhone"),
+                                        @class = "businessPhoneRgtrForm-field"                                            
+                                    })
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">First name</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.FirstName,
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.FirstName"),
+                                        @class = "mailRgtrForm-field"                                            
+                                    })
+                            </p>
+                           <p class="form-group reset-margin">
+                               <label class="popup-input-labels">Last name</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.LastName, 
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.LastName"),
+                                        @class = "mailRgtrForm-field"                                            
+                                    })  
+                            </p>
+         
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Password</label>
+                                @Html.TextBoxFor(m => m.RegistrationSupplierViewModel.Password, 
+                                    new
+                                    {
+                                        data_content = CheckValidationErrors("registrationSupplierViewModel.Password"),
+                                        @class = "mailRgtrForm-field"                                      
+                                    })      
+                            </p>
+                            <p class="text-center privacy">
+                                By clicking sign up, I agree to the <a href="@Url.Action("TermsAndConditions", "Home")" title="Terms of use">terms of use</a> and <a href="@Url.Action("PrivacyPolicy", "Home")" title="Privacy policy">privacy policy</a>.
+                            </p>
+                            <p class="sign-up-buttons">
+                                <input type="submit" id="btnSubmitMailRgtr" class="btn popupBtn" value="Sign Up">
+                            </p>
+                        </fieldset>
+                    }
+                    
+                    <hr>
+                    <p class="text-center memberlogin"> Already have an account? <a class="links" href="@Url.Action("Login", "Account")" data-popup-target="#log-in-fb-or-member-popup" title="login">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+     <div class="popup-overlay"></div>
+
+
+
+<style type="text/css">
+.form-group.error input {
+    border: 1px solid #b94a48;
+}
+.field-validation-error {
+    font-size: 10px;
+}
+.custom-dropdown
+{
+    background: url("../Images/dropdown-arrow.png") no-repeat scroll 100% center #f3f3f4;
+}
+</style>

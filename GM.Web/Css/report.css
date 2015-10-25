@@ -1,0 +1,136 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 18px/24px Arial, sans-serif;
+}
+.wrapper {
+	width: 100%;
+	min-width: 1366px;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	height: 110px;
+	background: #FFFFFF;
+}
+
+.container {
+  width: 750px;
+  margin: 0 auto;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+
+.tg td {
+	font-family:Arial,
+	sans-serif;
+	font-size:18px;
+	padding-top: 5px;
+	overflow:hidden;
+	word-break:normal;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 18px; 
+	font-weight: normal;
+	padding-top: 5px;
+	overflow: hidden;
+	word-break: normal;
+	text-align: left;
+}
+.tg-031e {padding-left: 15px;}
+.tg .tg-k6pi{font-size:18px}
+
+/*Table
+----------------------------------------------*/
+table#challenge-report-pdf {
+    margin-bottom: 65px;
+}
+table#challenge-report-pdf thead tr th {
+	border-bottom: 1px solid #ddd;
+}
+table#challenge-report-pdf thead tr th:first-child {
+    font-size: 16px;
+    color: #58595B;
+    padding-bottom: 12px;
+    font-weight: 600;
+}
+table#challenge-report-pdf thead tr th + th {
+    font-size: 16px;
+    color: #58595B;
+    /* padding-bottom: 8px; */
+    vertical-align: middle;
+    font-weight: 600;
+}
+table#challenge-report-pdf tbody tr {
+    border-bottom: 1px solid #BBBDBF;
+}
+table#challenge-report-pdf tbody tr td {
+    color: #231f20;
+    height: 38px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    vertical-align: middle;
+}
+table#challenge-report-pdf tbody tr td div.row div:first-child {
+    width: 8.3%;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 4px;
+}
+table#challenge-report-pdf tbody tr td div.row div img.img-responsive {
+    width: 23px;
+    height: 24px;
+    border: 1px solid #A6A8AB;
+    border-radius: 2px;
+}
+table#challenge-report-pdf tbody tr td div.row div:last-child {
+    padding-left: 9px;
+}
+table#challenge-report-pdf tbody tr td div.row div h5.nomargin {
+    color: #58595B;
+    margin: 0px;
+}
+table#challenge-report-pdf tbody tr td div.row div p.small-description {
+    font-size: 12px;
+    color: #929497;
+    padding-top: 5px;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+table#challenge-report-pdf tbody tr td[data-th="Points"] {
+    font-size: 16px;
+    color: #929497;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+table#challenge-report-pdf tbody tr td[data-th="Redemptions sent to"] {
+    font-size: 16px;
+    color: #929497;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+table#challenge-report-pdf tbody tr td[data-th="Status"] {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	height: 100px;
+	background: #BFF08E;
+}

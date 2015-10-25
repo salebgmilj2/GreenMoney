@@ -1,0 +1,310 @@
+﻿@model GM.ViewModels.Council.ChallengesIndexViewModel
+
+@{
+    ViewBag.Title = "Manage challenges";
+}
+@section Styles {
+   <link href="~/Css/admin-challenges.css" rel="stylesheet" />
+}
+  <form>   
+          
+    <div class="row">
+         
+        <div class="myaccountmenu supplier">
+          @ViewBag.Error 
+
+            @if (!Model.IsInitialRegistrationStep)
+            {
+                @Html.Partial("_LeftNavigation", Model)
+            }
+            else
+            {
+                @Html.Partial("~/Views/Shared/Supplier/_TopRegistrationStepsPartial.cshtml", Model)
+            }
+            <div class="container admin-manage-challenges-container">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading manage-challenges-heading">
+                            <div id="admin-manage-challenges-header" class="col-md-12 col-lg-12">
+                                <h1 class="panel-title">Manage challenges</h1>
+                                <a href="@Url.Action("Create", "ChallengesAdmin")" class="addUserBtn btn pull-right"><span></span>Create new challenge</a>
+                                <div class="col-md-12 col-lg-12 search-options">
+
+                                    <p class="search-options-title">Search options</p>
+                                    <div class="col-md-2 col-lg-2 challengesort">
+
+                                        @Html.DropDownListFor(model => model.SelectedOrderBy, Model.OrderBy, new { @class = "empty custom-dropdown  admin-challenge-select-stateManageOrder" })
+
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengestatus">
+                                        @Html.DropDownListFor(model => model.SelectedStatus, Model.Status, new { @class = "empty custom-dropdown  admin-challenge-select-stateManageStatus" })
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengecategory">
+                                        @Html.DropDownListFor(m => m.SelectedChallengeCategory, Model.ChallengeCategory, new { @class = "empty custom-dropdown  admin-challenge-select-stateManageCategory" })
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengesearchfield">
+                                        @Html.TextBoxFor(model => model.SearchString, new { @class = "form-control challange-search text-field", placeholder = "Key word, e.g. water saving" })
+
+                                        @*<input type="text" class="form-control challange-search text-field" placeholder="Key word, e.g. water saving">*@
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 challengesearchsubmitbuttons pull-right">
+                                        <input type="button" id="clearButton" class="btn clearBtn" value="Clear" />
+                                        <input type="submit" class="btn searchBtn pull-right" value="Search" name="submitBtn" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="panel-body admin-manage-challenges-content">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <table id="manage-challanges" class="table table-hover table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 30%">Description</th>
+                                                    <th style="width: 6%" class="text-center">Participants</th>
+                                                    <th style="width: 13%" class="text-center">End date</th>
+                                                    <th style="width: 9%" class="text-center">Status</th>
+                                                    <th style="width: 9%" class="text-center">Category</th>
+                                                    <th style="width: 8%" class="text-center">Points</th>
+                                                    <th style="width: 7%" class="text-center"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Challenges.ChallengesList)
+                                                {
+                                                    <tr>
+                                                        <td data-th="Description">
+                                                            <div class="row">
+                                                                <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                                    @if (item.LogoImageId != null)
+                                                                 {
+                                                                    <img src="@Url.Action("Upload", "General", new { id = item.LogoImageId })"  class="img-responsive" />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if (item.ChallengeCategoryId == 1)
+                                                                        {
+                                                                         <img src="~/Images/default-challange-icon-action.jpg"  class="img-responsive" />
+                                                                        }
+                                                                        if (item.ChallengeCategoryId == 2)
+                                                                        { 
+                                                                          <img src="~/Images/default-challange-icon-pledge.jpg"  class="img-responsive" />
+                                                                        }
+                                                                        if (item.ChallengeCategoryId == 3)
+                                                                        { 
+                                                                        <img src="~/Images/default-challange-icon-learn.jpg"  class="img-responsive" />
+                                                                        }
+                                                                         if (item.ChallengeCategoryId == 4)
+                                                                        { 
+                                                                        <img src="~/Images/invite-neighbour-default@3x.png"  class="img-responsive" />
+                                                                        }
+                                                                    }
+
+
+                                                                </div>
+                                                                @*<img src="Images/ride-to-work.png" alt="" class="img-responsive"/></div>*@
+                                                                <div class="col-sm-10">
+                                                                    <h5 class="nomargin">@Html.DisplayFor(modelItem => item.Name)</h5>
+                                                                    <p class="small-description">@((item.About != null && item.About.Length > 80) ? item.About.Substring(0, 80) + "..." : item.About)</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td data-th="Participants" class="text-center notactive-completed">@Html.DisplayFor(modelItem => item.Participants)</td>
+                                                        <td data-th="End date" class="text-center enddate"><span >@(item.EndDate != null ? ((DateTime)item.EndDate).ToString("dd MMMM yyyy") : "")</span></td>
+                                                        <td data-th="Status" class="@(item.ChallengeStatus == "Active" ? "remove-actions text-center status-active" : "remove-actions text-center notactive-completed")">@Html.DisplayFor(modelItem => item.ChallengeStatus)</td>
+                                                        <td data-th="Category" class="remove-actions text-center status-live" style="color: #929497;">@Html.DisplayFor(modelItem => item.ChallengeCategory)</td>
+                                                        <td data-th="Points" class="remove-actions text-center status-live">@Html.DisplayFor(modelItem => item.Points)</td>
+                                                 <td data-th="" class="remove-actions text-center" >
+                                                            <div class="dropdown challenge-buttons">
+                                                                <button class="dropdown-preview" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><span class="preview"></span></button>
+                                                                <ul class="dropdown-menu challenge-preview" role="menu" aria-labelledby="dropdownMenu1">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Report", "ChallengesAdmin", new { id = item.Id })">View report</a></li>
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Details", "Challenges", new { id = item.Id })">Preview page</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="dropdown challenge-buttons">
+                                                                <button class="dropdown-edit" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="edit"></span></button>
+                                                                <ul class="dropdown-menu challenge-edit" role="menu" aria-labelledby="dropdownMenu2">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Create", "ChallengesAdmin", new { id = item.Id })">Edit challenge</a></li>
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" id="copyActionTrigger" onclick="putHiddenValueCopy(@item.Id)" href="#">Make a copy</a></li>
+                                                                     @if (item.Participants == 0)
+                                                                        {
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" id="deleteActionTrigger" onclick="putHiddenValue(@item.Id)" href="#">Delete</a></li>
+                                                                     }
+                                                                    else
+                                                                    {
+                                                                         <li role="presentation"><label style="color:silver; display: block; padding: 3px 20px;   clear: both;  font-weight: 400;  line-height: 1.42857143;  white-space: nowrap; font-size:12px;" >Delete</label></li>                                                                     }
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                        @*<td data-th="" class="remove-actions text-center" >
+                                                            <div class="dropdown challenge-buttons">
+                                                                <button class="dropdown-preview" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><span class="preview"></span></button>
+                                                                <ul id="menuIndex1" class="dropdown-menu challenge-preview" role="menu" aria-labelledby="dropdownMenu1">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Report", "Challenge", new {id= item.Id })">View report</a></li>
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Preview page</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="dropdown challenge-buttons">
+                                                                <button class="dropdown-edit" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="edit"></span></button>
+                                                                <ul id="menuIndex2" class="dropdown-menu challenge-edit" role="menu" aria-labelledby="dropdownMenu2">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Create", "Challenge", new {id= item.Id })">Edit challenge</a></li>
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make a copy</a></li>
+                                                                    <li role="presentation"><a role="menuitem" id="deleteActionTrigger" onclick="putHiddenValue(@item.Id)" tabindex="-1" href="#">Delete</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>*@
+                                                       
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-12 col-lg-12 bottom-pagination">
+                            @if (Model.Challenges.NumChallenges > 0)
+                            {
+                                var dict = new RouteValueDictionary();
+
+                                if (!string.IsNullOrWhiteSpace(Model.SearchString))
+                                {
+                                    dict.Add("SearchString", Model.SearchString);
+                                }
+                                if (Model.SelectedStatus != null)
+                                {
+                                    dict.Add("SelectedStatus", Model.SelectedStatus);
+                                }
+                                if (Model.SelectedChallengeCategory != null)
+                                {
+                                    dict.Add("SelectedChallengeCategory", Model.SelectedChallengeCategory);
+                                }
+
+                                if (Model.SelectedOrderBy != null)
+                                {
+                                    dict.Add("SelectedOrderBy", Model.SelectedOrderBy);
+                                }
+                                dict.Add("page", Model.Challenges.Page - 1);
+                                if (Model.Challenges.Page > 1)
+                                {
+                                <a href="@Url.Action("Index", dict)" class="previous" data-action="previous"><span></span></a>
+                                }
+
+                                if (true)
+                                {
+                                    dict.Remove("page");
+                                }
+                                <span>Page</span>
+                                <input type="text" data-url="@Url.Action("Index", dict)" class="js-page-change-submit" name="Page" value="@Model.Challenges.Page"/>                                       
+                                <span>of @Model.Challenges.NumPages</span>
+                                if (Model.Challenges.Page < Model.Challenges.NumPages)
+                                {
+                                    dict["page"] = Model.Challenges.Page + 1;
+                                <a href="@Url.Action("Index", dict)" class="next pull-right" data-action="next"><span></span></a>
+                                }
+                            }
+                            else
+                            {
+                                <p>No results</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<input type="hidden" id="hiddenChallengeId" />
+<!-- *************** Delete page popup -->
+    <div id="delete-page-popup" class="popup">
+        <div class="popup-body">
+            <span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Are you sure you want to delete?</h2>
+                <hr>
+                <p class="popup-subtitle">Deleting is permanent, so we <br /> just need to make sure.</p>
+                <a id="submitDelete" class="btn popupBtn" onclick="submitDelete()" >Yes, delete</a>
+                <a class="btn popupBtnCancel" onclick="popupBtnDelete()">No</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- *************** Make copy page popup -->
+    <div id="copy-page-popup" class="popup">
+        <div class="popup-body">
+            <span class="popup-exit"></span>
+          
+            <div class="popup-content">
+                <span class="popup-img"></span>                
+                <h2 class="popup-title">Replicate challenge?</h2>
+                <hr>
+                <p class="popup-subtitle">Generating a copy may take a few minutes.
+    Once completed, you will automatically be
+    taken to the ‘Edit challenge page’.</p>
+                <a id="submitCopy" class="btn popupBtn" onclick="submitCopy()" >Yes, duplicate</a>
+                <a class="btn popupBtnCancel" onclick="popupBtnCopy()">No</a>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+@section Scripts {
+
+     <script>
+         $(function () {
+             $('[data-toggle="tooltip"]').tooltip()
+         })
+    </script>
+  <script type="text/javascript">
+      //delete pop up
+      function putHiddenValue(vv) {
+          $("#hiddenChallengeId").val(vv);
+          $("#delete-page-popup").addClass("visible");
+      };
+
+      function popupBtnDelete() {
+          $("#delete-page-popup").removeClass("visible");
+          return false;
+      };
+
+      function submitDelete() {
+          var vuna = $("#hiddenChallengeId").val();
+          window.location.href = '/ChallengesAdmin/Delete/' + vuna;
+      };
+      //copy pop up
+
+      function putHiddenValueCopy(vv) {
+          $("#hiddenChallengeId").val(vv);
+          $("#copy-page-popup").addClass("visible");
+      };
+
+      function popupBtnCopy() {
+          $("#copy-page-popup").removeClass("visible");
+          return false;
+      };
+
+      function submitCopy() {
+          var vuna = $("#hiddenChallengeId").val();
+          window.location.href = '/ChallengesAdmin/Copy/' + vuna;
+      };
+
+
+      $("#clearButton").click(function () {
+
+
+          $("#SelectedChallengeCategory").val("0");
+
+          $("#SelectedStatus").val("0");
+          $("#SelectedOrderBy").val("0");
+          $("#SearchString").val("");
+      });
+ </script>
+}

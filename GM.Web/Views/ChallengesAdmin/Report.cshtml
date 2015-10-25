@@ -1,0 +1,333 @@
+﻿@model GM.ViewModels.Council.ChallengeReportViewModel
+
+@{
+    ViewBag.Title = "Challenge report - GreenMoney";
+}
+@section Styles {
+   <link href="~/Css/admin-challenges.css" rel="stylesheet" />
+}
+<form>
+    <div class="row">
+        <div class="myaccountmenu supplier">
+
+            @if (!Model.IsInitialRegistrationStep)
+            {
+                @Html.Partial("_LeftNavigation", Model)
+            }
+            else
+            {
+                @Html.Partial("~/Views/Shared/Supplier/_TopRegistrationStepsPartial.cshtml", Model)
+            }
+            <div class="container admin-challenge-report-container">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading challenge-report-heading">
+                            <div id="admin-challenge-report-header" class="col-md-12 col-lg-12">
+                                <h1 class="panel-title">Challenge report</h1>
+                                <a href="@Url.Action("Index", "ChallengesAdmin")" class="links backto">< Back to Manage challenges</a>
+                                <div class="col-md-4 col-lg-4 pull-right" style="margin-right: 10px;">
+                                    <div class="col-md-2 col-lg-2 downloadcsv">
+                                        <div id="csvadmin"><b id="csvadmin_text">Download CSV</b></div>
+                                        <div id="csvsettings" class="fa fa-cog"></div>
+                                        <div id="csvmenu">
+                                            <a href="@Url.Action("DownloadCsv", "ChallengesAdmin", new { id = Model.ChallengeId, instance = Model.Challenge.Instance_Id, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 7, pageSize = 0 })">Last 7 days</a>
+                                            <a href="@Url.Action("DownloadCsv", "ChallengesAdmin", new { id = Model.ChallengeId, instance = Model.Challenge.Instance_Id, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 28, pageSize = 0 })">Last 28 days</a>
+                                            <a href="@Url.Action("DownloadCsv", "ChallengesAdmin", new { id = Model.ChallengeId, instance = Model.Challenge.Instance_Id, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 0, pageSize = 0 })">Complete history</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 downloadpdf">
+                                        <div id="pdfadmin"><b id="pdfadmin_text">Download PDF</b></div>
+                                        <div id="pdfsettings" class="fa fa-cog"></div>
+                                        <div id="pdfmenu">
+                                            <a href="@Url.Action("ReportPdf", "ChallengesAdmin", new { id = Model.ChallengeId, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 7, pageSize = 0 })">Last 7 days</a>
+                                            <a href="@Url.Action("ReportPdf", "ChallengesAdmin", new { id = Model.ChallengeId, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 28, pageSize = 0 })">Last 28 days</a>
+                                            <a href="@Url.Action("ReportPdf", "ChallengesAdmin", new { id = Model.ChallengeId, SelectedOrderBy = Model.SelectedOrderBy, SelectedChallengeStatus = Model.SelectedChallengeStatus, SelectedSuburb = Model.SelectedSuburb, SearchString = Model.SearchString, timerange = 0, pageSize = 0 })">Complete history</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div>
+                                    <div class="col-md-12 col-lg-12 change-challenge">
+                                            <div class="dropdown" id="change-challenge-dropdown">                                  
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="change-challenge-dropdown">@Model.Challenge.Name<i></i>
+                                                 <br> <small>@((Model.Challenge.About != null && Model.Challenge.About.Length > 22) ? Model.Challenge.About.Substring(0, 22) + "..." : Model.Challenge.About)</small></a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var challenge in Model.ChallengesList.ChallengesList)
+                                                    {
+                                                        <li><a href="@Url.Action("Report", "ChallengesAdmin",
+                                                     new
+                                                     {
+                                                         id = @challenge.Id
+                                                     })">@challenge.Name</a></li>      
+                                                    }
+                                                </ul>
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 search-options">
+                                    <p class="search-options-title">Search options</p>
+                                    <div class="col-md-2 col-lg-2 challengesort">
+                                        @Html.DropDownListFor(model => model.SelectedOrderBy, Model.OrderBy, new { @class = "empty custom-dropdown admin-challenge-select-stateManageOrder" })
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengestatus">
+                                        @Html.DropDownListFor(model => model.SelectedChallengeStatus, Model.ChallengeStatus, new { @class = "empty custom-dropdown admin-challenge-select-stateManageStatus" })
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengecategory">
+                                        @Html.DropDownListFor(model => model.SelectedSuburb, Model.Suburbs, new { @class = "empty custom-dropdown admin-challenge-select-stateManageOrder" })
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 challengesearchfield">
+                                        @Html.TextBoxFor(model => model.SearchString, Model.SearchString, new { @class = "form-control challange-search text-field", placeholder = "Search for participant" })
+
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 challengesearchsubmitbuttons pull-right">
+                                        <input type="button" id="clearButton" class="btn clearBtn" value="Clear" />
+                                        <input type="submit" class="btn searchBtn pull-right" value="Search">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body admin-challenge-report-content">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <table id="challenge-report" class="table table-hover table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 11%">Date/time</th>
+                                                    <th style="width: 12%" class="text-center">Participant</th>
+                                                    @if (Model.Challenge.Instance_Id == 5)
+                                                    { 
+                                                     <th style="width:12%" class="text-center">Workplace</th>
+                                                    }
+                                                    else
+                                                    {
+						                             <th style="width:12%" class="text-center">Suburb</th>
+                                                    }                                                   
+                                                    <th style="width: 3%" class="text-center">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.UsersList.UserChallengeList)
+                                                {
+                                                    <tr>
+                                                        <td data-th="Date/time">@item.Issued.ToString("dd/MM/yyyy hh:mm")<span class="new-reward-label" style="@(DateTime.Now.Date.AddDays(-7) >= item.Issued.Date ? "display:none" : "")">New</span></td>
+                                                        <td data-th="Participant" class="text-center">@item.UserName</td>
+                                                        @if (Model.Challenge.Instance_Id == 5)
+                                                        { 
+                                                         <td data-th="Suburb" class="text-center">@item.Workplace</td>
+                                                        }
+                                                        else
+                                                        {
+						                                 <td data-th="Suburb" class="text-center">@item.Suburb</td>
+                                                        }      
+                                                        
+
+                                                        <td data-th="Status">
+                                                            @if (item.PointsClaimed == true )
+                                                            {
+                                                            <div class="remove-actions text-center status-active" style="text-align:center">Completed</div>
+                                                            }
+                                                            else if (item.PointsClaimed == false)
+
+                                                            {
+                                                            <div class="dropdown" style="text-align:center">
+                                                                <button type="button" class="btn challenge-report-dropdown" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
+                                                                    Update status
+                                                                    <span class="challenge-report-btn-dropdown"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu challenge-report-dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" id="awardActionTrigger" onclick="putHiddenValueAward(@(item.Id.ToString() + ',' + item.ChallengeId.ToString()))"  href="#">Mark as completed</a></li>
+
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" id="deleteActionTrigger" onclick="putHiddenValue(@item.Id)" href="#">Delete participant</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            }
+
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                        <div class="col-md-12 col-lg-12 bottom-pagination">
+                                            @if (Model.UsersList.NumChallenges > 0)
+                                            {
+                                                var dict = new RouteValueDictionary();
+                                                dict.Add("page", Model.UsersList.Page - 1);
+                                                if (!string.IsNullOrWhiteSpace(Model.SearchString))
+                                                {
+                                                    dict.Add("SearchString", Model.SearchString);
+                                                }
+                                                if (!string.IsNullOrWhiteSpace(Model.SelectedSuburb))
+                                                {
+                                                    dict.Add("SelectedSuburb", Model.SelectedSuburb);
+                                                }
+                                                if (Model.SelectedChallengeStatus != null)
+                                                {
+                                                    dict.Add("SelectedChallengeStatus", Model.SelectedChallengeStatus);
+                                                }
+                                                if (Model.SelectedOrderBy != null)
+                                                {
+                                                    dict.Add("SelectedOrderBy", Model.SelectedOrderBy);
+                                                }
+                                                if (Model.UsersList.NumChallenges != null)
+                                                {
+                                                    dict.Add("pageSize", Model.UsersList.NumChallenges);
+                                                }
+                                                if (Model.ChallengeId != null)
+                                                {
+                                                    dict.Add("id", Model.ChallengeId);
+                                                }
+                                                if (Model.UsersList.Page > 1)
+                                                {
+                                                <a href="@Url.Action("Report", dict)" class="previous" data-action="previous"><span>Previous</span></a>
+                                                }
+                                                if (true)
+                                                {
+                                                    dict.Remove("page");
+                                                }
+                                                <span>Page</span>
+                                                <input type="text" data-url="@Url.Action("Report", dict)" class="js-page-change-submit" name="Page" value="@Model.UsersList.Page"/>                                       
+                                                <span>of @Model.UsersList.NumPages</span>
+                                                if (Model.UsersList.Page < Model.UsersList.NumPages)
+                                                {
+                                                    dict["page"] = Model.UsersList.Page + 1;
+                                                <a href="@Url.Action("Report", dict)" class="next pull-right" data-action="next"><span>Next</span></a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p>No results</p>
+                                            }
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <input type="hidden" id="hiddenChallengeId" />
+
+    <input type="hidden" id="hiddenChallengeId2" />
+    <!-- *************** Delete page popup -->
+    <div id="delete-page-popup" class="popup">
+        <div class="popup-body">
+            <span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Confirm deletion.</h2>
+                <hr>
+                <p class="popup-subtitle">
+                    Deleting the particpant will remove them
+from the challenge report.
+                </p>
+                <a id="submitDelete" class="btn popupBtn" onclick="submitDelete()">Yes, delete participant</a>
+                <a class="btn popupBtnCancel" onclick="popupBtnDelete()">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <!-- *************** Award points page popup -->
+    <div id="awardpoints-page-popup" class="popup">
+        <div class="popup-body">
+            <span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Award points to
+the participant.</h2>
+                <hr>
+                <p class="popup-subtitle">
+                    By marking as completed the participant will
+automatically receive points in their account.
+                </p>
+                <a id="submitAwardpoints" class="btn popupBtn" onclick="submitAwardpoints()">Yes, mark as completed</a>
+                <a class="btn popupBtnCancel" onclick="popupBtnAwardpoints()">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+
+    <script src="">
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+          })
+    </script>
+
+    <script type="text/javascript">
+        function redirectPdf(dropDownValue, challengeId, selectedOrderBy, selectedChallengeStatus, selectedsuburb, searchString) {
+            var vuna = challengeId + '?SelectedOrderBy=' + selectedOrderBy + '&SelectedChallengeStatus=' + selectedChallengeStatus + '&SelectedSuburb=' + selectedsuburb + '&SearchString=' + searchString + '&timeRange=' + dropDownValue;
+
+            window.location.href = '/ChallengesAdmin/ReportPdf/' + vuna;
+        }
+    </script>
+    <script type="text/javascript">
+        function redirectCsv(dropDownValue, challengeId, selectedOrderBy, selectedChallengeStatus, selectedsuburb, searchString) {
+            var vuna = challengeId + '?SelectedOrderBy=' + selectedOrderBy + '&SelectedChallengeStatus=' + selectedChallengeStatus + '&SelectedSuburb=' + selectedsuburb + '&SearchString=' + searchString + '&timeRange=' + dropDownValue;
+
+            window.location.href = '/ChallengesAdmin/DownloadCsv/' + vuna;
+        }
+
+        function redirect(dropDownValue) {
+
+            window.location.href = '/ChallengesAdmin/Report/' + dropDownValue;
+        }
+    </script>
+    <script type="text/javascript">
+        $("#clearButton").click(function () {
+
+
+            $("#SelectedOrderBy").val("0");
+
+            $("#SelectedChallengeStatus").val("0");
+            $("#SelectedSuburb").val("Suburb");
+            $("#SearchString").val("");
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        //delete popup
+        function putHiddenValue(vv) {
+            $("#hiddenChallengeId").val(vv);
+            $("#delete-page-popup").addClass("visible");
+        };
+
+        function popupBtnDelete() {
+            $("#delete-page-popup").removeClass("visible");
+            return false;
+        };
+
+        function submitDelete() {
+            var vuna = $("#hiddenChallengeId").val();
+            window.location.href = '/ChallengesAdmin/DeleteUserChallenge/' + vuna;
+        };
+        //award points popup
+        function putHiddenValueAward(vv, cvv) {
+            // var comma = vv.indexOf(",");
+            //var str1 = vv.substring(0, comma);
+            // var str2 = vv.substring(comma, length);
+            $("#hiddenChallengeId").val(vv);
+            $("#hiddenChallengeId2").val(cvv);
+            $("#awardpoints-page-popup").addClass("visible");
+        };
+
+        function popupBtnAwardpoints() {
+            $("#awardpoints-page-popup").removeClass("visible");
+            return false;
+        };
+
+        function submitAwardpoints() {
+            var vuna = $("#hiddenChallengeId").val();
+            var vuna2 = $("#hiddenChallengeId2").val();
+            window.location.href = '/ChallengesAdmin/MarkCompleted/' + vuna + '?challengeId=' + vuna2;
+        };
+
+    </script>
+
+
+}

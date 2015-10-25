@@ -1,0 +1,105 @@
+﻿@model GM.ViewModels.MyWalletViewModel
+@{
+    ViewBag.Title = "MyWallet - challenges";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation")
+        <div class="container my-wallet-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div id="mycart" class="col-md-4 col-lg-4">My wallet</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="rewards-bar col-md-12 col-lg-12">
+                                <ul class="nav nav-pills category-tabs">
+                                    <li class="@(!Model.ShowChallengesView ? "active" : null)"><a href="@Url.Action("Wallet")">Rewards</a></li>
+                                    <li class="@(Model.ShowChallengesView ? "active" : null)"><a href="@Url.Action("Wallet", new {challenges = true})">Challenges</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <table id="wallet" class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="width:40%">Challenge</th>
+                                        <th style="width:10%" class="text-center">Date joined</th>
+                                        <th style="width:10%" class="text-center">Date ending</th>
+                                        <th style="width:8%" class="text-center">Type</th>
+                                        <th style="width:11%" class="text-center">View details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.CartModel.Items)
+                                    {
+                                        <tr>
+                                            <td data-th="Challenge">
+                                                <div class="row challenge-description">
+                                                    <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                        @if (item.ImageId != null)
+                                                        {
+                                                            <img src="@Url.Action("Upload", "General", new {id = item.ImageId})?width=139" alt="" class="img-responsive"/>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ChallengeCategoryShortName == "Action")
+                                                            {
+                                                                <img src="~/Images/default-challange-icon-action.jpg" alt="" class="img-responsive">
+                                                            }
+                                                            else if (item.ChallengeCategoryShortName == "Pledge")
+                                                            {
+                                                                <img src="~/Images/default-challange-icon-pledge.jpg" alt="" class="img-responsive">
+                                                            }
+                                                            else if (item.ChallengeCategoryShortName == "Learn")
+                                                            {
+                                                                <img src="~/Images/default-challange-icon-learn.jpg" alt="" class="img-responsive">
+                                                            }                                                            
+                                                        }
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <h5 class="nomargin">@item.Name@*<span class="new-reward-label">New</span>*@</h5>
+                                                        <p>@item.Description</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Date joined" class="text-center">@(item.DateAdded.HasValue ? item.DateAdded.Value.ToString("dd MMM yyyy") : null)</td>
+                                            <td data-th="Expiry date" class="text-center">@(item.DateExpired.HasValue ? item.DateExpired.Value.ToString("dd MMM yyyy") : null)</td>
+                                            <td data-th="Type" class="text-center">
+                                                @item.ChallengeCategoryShortName
+                                            </td>
+                                            @if(!item.PointsClaimed)
+                                            {
+                                                <td data-th="View details" class="remove-actions text-center">
+                                                    <a href="@Url.Action("Details", "Challenges", new { id = item.Id })" class="textBtn">View Challenge</a>
+                                                </td>  
+                                            }
+                                            else
+                                            {
+                                                <td data-th="" class="remove-actions text-center">
+                                                    <button class="not-available">Not available</button>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @if (!Model.CartModel.Items.Any())
+                            {
+                                <p>You have (0) challenges in your wallet.</p>
+                            }
+                            <div class="row continue-shopping">
+                                <div class="col-md-12 col-lg-12 pull-right">
+                                    <a href="@Url.Action("Index", "Challenges")" class="btn mainBtn pull-right">View Challenges</a>
+                                </div>
+                            </div>
+                        </div><!-- /.col-lg-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container My wallet -->
+    </div>
+</div>

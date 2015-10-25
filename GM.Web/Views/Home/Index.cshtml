@@ -1,0 +1,482 @@
+﻿@model GM.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "GreenMoney - Home Page";
+}
+@Html.HiddenFor(m => m.RegistrationIsNotValid)
+@Html.HiddenFor(m => m.SupplierRegistrationIsNotValid)
+@Html.HiddenFor(m => m.PostCodeIsNotMatching)
+@Html.HiddenFor(m => m.EnterFbRgstrPostCode)
+
+@functions{
+    public string CheckValidationErrors(string propertyKey){
+        string errorState = ViewData.ModelState[propertyKey] != null && ViewData.ModelState[propertyKey].Errors.Count > 0
+            ? ViewData.ModelState[propertyKey].Errors[0].ErrorMessage
+            : null;
+        return errorState;
+    }
+}
+
+	<!--Header part starts here -->
+
+<!-- Facebook Conversion Code for GM convert -->
+<script>(function () {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+    }
+})();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6018686142096', { 'value': '0.00', 'currency': 'AUD' }]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6018686142096&amp;cd[value]=0.00&amp;cd[currency]=AUD&amp;noscript=1" /></noscript>
+
+@*Home page on mobile------
+                --------------------------------------*@
+        <section class="home-page-mobile visible-xs" style="background-image: url(/Images/sign-in-bckg.png); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+            @*<div class="row"></div>*@
+            <div class="container homePage navigation-login visible-xs">
+			    <div class="logo homePage">
+				    <a href="/"><img src="~/Images/logo-white.png"/></a>
+                </div>
+			    <a class="userhomepagesignup" href="#"  data-popup-target="#signin">Sign up</a>
+                <a class="userhomepagelogin" href="@Url.Action("Login", "Account")" data-popup-target="#log-in-fb-or-member-popup-mobile">Log in</a>
+                <p class="text-center privacy">
+                    By clicking sign up, I agree to the <a href="https://www.greenmoney.com.au/General/Page/terms-and-conditions" title="Terms of use" class="links">Terms of use</a> and <a href="https://www.greenmoney.com.au/General/Page/privacy-policy" title="Privacy policy" class="links">Privacy policy</a>.
+                </p>
+            </div>
+        </section>
+
+	<div class="header homePage hidden-xs">
+		<div class="container homePage navigation-login hidden-xs">
+			<div class="logo homePage">
+				<a href="/"><img src="~/Images/logo-white.png"/></a>
+				<a class="userhomepagelogin" href="@Url.Action("Login", "Account")" data-popup-target="#log-in-fb-or-member-popup">Log in</a>
+				<a class="userhomepagesignup" href="#"  data-popup-target="#signin">Sign up</a>
+				<a class="userhomepageaddbusiness" href="@Url.Action("Index", "Business")">For Business</a>		
+            </div>
+		</div>
+
+	 <!-- Full Page Image Background Carousel Header -->
+	    <header id="myCarousel" class="carousel carousel-fade hidden-xs">
+	        <!-- Indicators -->
+	        <ol class="carousel-indicators">
+	            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	            <li data-target="#myCarousel" data-slide-to="1"></li>
+	            <li data-target="#myCarousel" data-slide-to="2"></li>
+	            <li data-target="#myCarousel" data-slide-to="3"></li>
+	        </ol>
+
+	        <!-- Wrapper for Slides -->
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <!-- Set the first background image using inline CSS below. -->
+	                <img src="~/Images/slide1_01.jpg" class="fill">
+	                <div class="carousel-caption">
+                  		<div class="header-matter">
+							<h1>Earn rewards<br>
+							by living green.</h1>
+							<p class="as-devider"></p>
+		                      <a href="" data-popup-target="#signin" class="links slider-title-button">Get started - it's FREE</a>
+		                      <p class="text-left memberlogin-homepage"> Already have an account? 
+                                  <a href="@Url.Action("Login", "Account")" data-popup-target="#log-in-fb-or-member-popup" title="login" class="links">Log in</a>
+			                </p>
+						</div>
+					</div>
+	            </div>
+	            <div class="item">
+	                <!-- Set the second background image using inline CSS below. -->
+	                <img src="~/Images/slide2_01.jpg" class="fill">
+	                  <div class="header-matter">
+							<h1>Redeem rewards <br/>
+							at local venues.</h1>
+							<p class="as-devider"></p>
+							<a href="#" data-popup-target="#signin"  class="links slider-title-button">Get started - it's FREE</a>
+							<p class="text-left memberlogin-homepage"> Already have an account? <a href="@Url.Action("Login", "Account")" title="login" class="links">Log in</a>
+			                </p>
+						</div>
+	            </div>
+	            <div class="item">
+	                <!-- Set the third background image using inline CSS below. -->
+	                <img src="~/Images/slide3_01.jpg" class="fill">
+	                <div class="header-matter">
+						<h1>Use rewards<br/>
+						while on the go.</h1>
+						<p class="as-devider"></p>
+						<a href="#" data-popup-target="#signin"  class="links slider-title-button">Get started - it's FREE</a>
+						<p class="text-left memberlogin-homepage"> Already have an account? <a href="@Url.Action("Login", "Account")" title="login" class="links">Log in</a>
+			            </p>
+					</div>
+	            </div>
+	            <div class="item">
+	                <!-- Set the fourth background image using inline CSS below. -->
+	                <img src="~/Images/slide4_01.jpg" class="fill" />
+	                 <div class="header-matter">
+						 <h1>Loved by people<br/>
+						 just like you.</h1>
+						 <p class="as-devider"></p>
+						 <a href="#" data-popup-target="#signin"  class="links slider-title-button">Get started - it's FREE</a>
+						 <p class="text-left memberlogin-homepage"> Already have an account? <a href="@Url.Action("Login", "Account")" title="login" class="links">Log in</a>
+			         </p>
+				   </div>
+	            </div>
+	        </div>
+
+	        <!-- Controls -->
+	        <a class="right carousel-control hidden-xs" href="#myCarousel" data-slide="next">
+	            <img src="~/Images/landingpage-slider-arrow-right.png" alt="right arrow" class="landingpage arrow right" />
+	        </a>
+
+	    </header>
+        
+        @*<!-- Mobile Image Background Carousel Header -->
+	    <header id="myCarousel-mobile" class="carousel carousel-fade visible-xs">
+	        <!-- Indicators -->
+	        <ol class="carousel-indicators">
+	            <li data-target="#myCarousel-mobile" data-slide-to="0" class="active"></li>
+	            <li data-target="#myCarousel-mobile" data-slide-to="1"></li>
+	            <li data-target="#myCarousel-mobile" data-slide-to="2"></li>
+	        </ol>
+
+	        <!-- Wrapper for Slides -->
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <!-- Set the first background image using inline CSS below. -->
+	                <div style="background-image:url(Images/log-in-bckg.png)"></div>
+	                <div class="carousel-caption">
+                  		<div class="header-matter">
+							<h1>Earn rewards by living green.</h1>
+						</div>
+					</div>
+	            </div>
+	            <div class="item">
+	                <!-- Set the second background image using inline CSS below. -->
+	                <div style="background-image:url(Images/log-in-bckg.png)"></div>
+	                  <div class="header-matter">
+							<h1>Redeem rewards at local venues.</h1>	
+						</div>
+	            </div>
+	            <div class="item">
+	                <!-- Set the third background image using inline CSS below. -->
+	                <div style="background-image:url(Images/log-in-bckg.png)"></div>
+	                <div class="header-matter">
+						<h1>Use rewards	while on the go.</h1>
+					</div>
+	            </div>
+	        </div>
+
+	    </header>  *@  
+
+	</div>
+		
+	<!--Header part Ends here -->
+	<!-- Services part starts Here -->
+	<div class="Services hidden-xs">
+		<div class="container homePage">
+			<div class="what-we-do" id="what">
+				<div class="row">
+					<div class="development">
+						<div class="col-md-3 sign-up-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/pencil.png" alt="" />
+							</div>
+							<div class="col-md-10 sign-up-widget-descr">
+								<h2>Sign up</h2>
+								<h4>Create an account for your household to start earning your GreenMoney.</h4>
+							</div>
+						</div>
+						<div class="col-md-5 earn-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/heart.png" alt="" />
+							</div>
+							<div class="col-md-10 earn-widget-descr">
+								<h2>Earn rewards</h2>
+								<h4>Take green actions around your city like recycling at home and earn rewards each fortnight.</h4>
+							</div>
+						</div>
+						<div class="col-md-4 save-widget">
+							<div class="col-md-2 padding-reset">
+								<img src="~/Images/money.png" alt="" />
+							</div>
+							<div class="col-md-10 save-widget-descr">
+								<h2>Enjoy savings</h2>
+								<h4>Redeem for exclusive rewards and eGift cards from local merchants around you!</h4>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--- Slow life Starts Here -->
+	<div class="your-city hidden-xs">
+		<div class="container homePage">
+			<div class="your-city-top">
+				<h2>Select your City</h2>
+				<ul class="select-council">
+					<li class="melbourne-city"><a href="#" data-popup-target="#log-in-fb-or-member-popup"><span></span></a></li>
+					<li class="randwick-city"><a href="#" data-popup-target="#log-in-fb-or-member-popup"><span></span></a></li>
+				</ul>
+
+                </p>
+			</div>
+		</div>
+	</div>
+	<!--- Slow life Ends Here -->
+	<div class="create hidden-xs">
+	<h1>Join thousands of local households</h1>
+	<br>
+        <a class="links create-account-button" data-popup-target="#signin" href="/Account/Login">Get Started</a>
+	</div>
+ 
+<!-- *************** Log in(fb or member) popup -->
+    <div id="log-in-fb-or-member-popup" class="popup hidden-xs">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Login</h2>
+                <p class="popup-subtitle">Don't have an account? <a href="#" data-popup-target="#signin">Get started</a></p>
+                <p>
+                    <a class="facebook-before"><span><img src="~/Images/fb-icon.png"></span></a>
+                    <button type="submit" class="signup-facebook" onclick="fblogin();">Log in with Facebook</button>
+                </p>
+                <hr class="loginpopup"></hr>
+                    @using (Html.BeginForm("LoginTop", "Account", FormMethod.Post, new { role = "form"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p class="form-group">
+                            <label class="popup-input-labels">Email address</label>
+                            @Html.TextBoxFor(m => m.LoginViewModel.UserName, new {placeholder = "Email address", Class = "mailRgtrForm-field", type="email"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                        </p>
+                        <p class="form-group">
+                            <label class="popup-input-labels">Password</label>
+                            @Html.PasswordFor(m => m.LoginViewModel.Password, new {placeholder = "Password", Class = "mailRgtrForm-field"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.Password)                            
+                        </p>
+                        <p class="form-group">
+                            <input type="submit" class="btn popupBtn" value="Log In"/>
+                        </p>
+                        <p class="form-group">
+                            <input type="checkbox" name="remember" id="remember" class="vhide custom-checkbox">
+                            <label class="rememberme-checkbox-label" for="remember">
+                                Remember me
+                            </label>
+                            <input type="checkbox" id="login-checkbox">
+                            <label for="login-checkbox"></label>
+                            <a class="links pull-right" href="@Url.Action("ForgotPassword", "Account")">Forgot password?</a>
+                        </p>
+                    }
+            </div>
+        </div>
+    </div>
+<!-- *************** Log in(fb or member) popup on mobile -->
+    <div id="log-in-fb-or-member-popup-mobile" class="popup visible-xs">
+        <div class="popup-body">
+            <span class="popup-exit links">Cancel</span>
+            <span class="mobile-popup-title">Log in</span>
+            <span class="mobile-popup-banner"><a href="/"><img src="/Images/logo-white.png"></a></span>
+            <div class="popup-content">
+                
+                    @using (Html.BeginForm("LoginTop", "Account", FormMethod.Post, new { role = "form"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p class="form-group">
+                            @Html.TextBoxFor(m => m.LoginViewModel.UserName, new {placeholder = "Email address", Class = "mailRgtrForm-field", type="email"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                        </p>
+                        <p class="form-group">
+                            @Html.PasswordFor(m => m.LoginViewModel.Password, new {placeholder = "Password", Class = "mailRgtrForm-field"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.Password)                            
+                        </p>
+                        <a class="links" href="@Url.Action("ForgotPassword", "Account")">Forgot password?</a>
+                        <p class="form-group">
+                            <input type="submit" class="btn popupBtn" value="Log In"/>
+                        </p>
+                        <p>
+                            <a class="facebook-before"><span><img src="~/Images/fb-icon.png"></span></a>
+                            <button type="submit" class="signup-facebook" onclick="fblogin();">Log in with Facebook</button>
+                        </p>
+                    }
+            </div>
+        </div>
+    </div>
+    <!-- <div class="popup-overlay"></div> -->
+    <!-- *************** -->
+
+
+<!-- ************Sign up popup -->
+    <div id="signin" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Get Started!</h2>
+                <p>
+                    <a class="facebook-before"><span><img src="~/Images/fb-icon.png"></span></a>
+                    <button type="submit" class="signup-facebook" onclick="fblogin();">Sign up with Facebook</button>
+                </p>
+                <p>
+                    <a class="email-before"><span><img src="~/Images/email-icon.png"></span></a>
+                    <button id="showMailRgtrForm" class="email" type="submit">Sign up with Email</button>
+                </p>
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "mailRgtrForm", @class = Model.RegistrationIsNotValid ? null : "hide" }))
+                    {
+                        @Html.Hidden("fbLgnUrl", System.Configuration.ConfigurationManager.AppSettings["FacebookLoginUrl"])
+                        <fieldset>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">First name</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.FirstName,
+                                    new
+                                    {
+                                        //placeholder = "First name",
+                                        data_content = CheckValidationErrors("registrationViewModel.FirstName"),
+                                        @class = "mailRgtrForm-field"
+                                    })
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.FirstName)*@                                
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Last name</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.LastName,
+                                    new
+                                    {
+                                        //placeholder = "Last name",
+                                        data_content = CheckValidationErrors("registrationViewModel.LastName"),
+                                        @class = "mailRgtrForm-field"
+                                    })  
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.LastName)*@                                   
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Email address</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.Email,
+                                    new
+                                    {
+                                        //placeholder = "Email address", type = "email",
+                                        data_content = CheckValidationErrors("registrationViewModel.Email"),
+                                        @class = "mailRgtrForm-field"
+                                    })  
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.Email)*@                                 
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Retype email</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.ConfirmEmail,
+                                    new
+                                    {
+                                        //placeholder = "Retype email", type = "email",
+                                        data_content = CheckValidationErrors("registrationViewModel.ConfirmEmail"),
+                                        @class = "mailRgtrForm-field"
+                                    })  
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.ConfirmEmail)*@                                  
+                            </p>
+                            <p class="form-group reset-margin">
+                                <label class="popup-input-labels">Password</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.Password,
+                                    new
+                                    {
+                                        //placeholder = "Password",
+                                        data_content = CheckValidationErrors("registrationViewModel.Password"),
+                                        @class = "mailRgtrForm-field",
+                                        type = "password"
+                                    })      
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.Password)*@                                  
+                            </p>
+                            <p class="form-group">
+                                <label class="popup-input-labels">Postcode</label>
+                                @Html.TextBoxFor(m => m.RegistrationViewModel.Postcode,
+                                    new
+                                    {
+                                        //placeholder = "Postcode",
+                                        data_content = CheckValidationErrors("registrationViewModel.Postcode"),
+                                        @class = "mailRgtrForm-field"
+                                    })
+                                @*@Html.ValidationMessageFor(m => m.RegistrationViewModel.Postcode)*@                                
+                            </p>
+                            <p class="form-group checkbox-updates">
+                                @* @Html.CheckBoxFor(m => m.RegistrationViewModel.SendEmailOffers) *@
+                                <input type="checkbox" id="RegistrationViewModel_SendEmailOffers">
+                                <label class="checkbox-label" for="RegistrationViewModel_SendEmailOffers">
+                                    Send me account balances and updates
+                                </label>
+                                <input type="checkbox" id="signup-checkbox">
+                                <label for="signup-checkbox"></label>
+                            </p>
+                            <p class="text-center privacy">
+                                By clicking sign up, I agree to the <a href="https://www.greenmoney.com.au/General/Page/terms-and-conditions" title="Terms of use">Terms of use</a> and <a href="https://www.greenmoney.com.au/General/Page/privacy-policy" title="Privacy policy">Privacy policy</a>.
+                            </p>
+                            <p class="sign-up-buttons">
+                                <input type="submit" id="btnSubmitMailRgtr" class="btn popupBtn" value="Sign up">
+                            </p>
+                        </fieldset>
+                    }
+                <hr>
+                <p class="text-center memberlogin"> Already have an account? 
+                    <a href="@Url.Action("Index", "Account")" title="login" data-popup-target="#log-in-fb-or-member-popup">Log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+<!-- ******************** -->
+
+<!-- *************** Can't join popup -->
+    <div id="mdlCantJoinSite" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img" ></span>
+                <h2 class="popup-title">Sadly, it is not available in your city.</h2>
+                <hr>
+                <p class="popup-subtitle">We've added you to the wait list so you can be one of the first to join when it is!<br><br>
+                    <b>Notify your Local Council to get GreenMoney set up sooner for residents and businesses.</b></p>
+                <a href="#" class="btn popupBtn">Back to home</a>
+            </div>
+        </div>
+    </div>
+    <!-- *************** -->
+
+    <!-- *************** Almost done popup -->
+    <div id="mdlFbRgstrEnterCode" class="popup almost-done-popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Enter postcode</h2>
+                <form action="#" class="" id="signUpRgtrForm" method="post">
+                    <p class="form-group error">
+                        <input data-content="" data-val="true" data-val-length="The field Postcode must be a string with a maximum length of 4." data-val-length-max="4"
+                               data-val-regex="Enter a valid Australian postcode" data-val-regex-pattern="^\d+$" data-val-required="The Postcode field is required."
+                               id="fbRegPostcode" name="RegistrationViewModel.Postcode" placeholder="Postcode" type="text" value="" class="mailRgtrForm-field">
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.Postcode" data-valmsg-replace="true"></span>
+                    </p>
+                    <a href="" id="fbRegSubmit" class="btn popupBtn">Submit</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- *************** --> 
+    <div class="popup-overlay"></div> 
+
+<style type="text/css">
+.form-group.error input {
+    border: 1px solid #b94a48;
+}
+.field-validation-error {
+    font-size: 10px;
+}
+.custom-dropdown
+{
+    background: url("../Images/dropdown-arrow.png") no-repeat scroll 100% center #f3f3f4;
+}
+</style>
+            
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.carousel').carousel({
+                    interval: 3000
+                });
+            });
+    </script>
+}

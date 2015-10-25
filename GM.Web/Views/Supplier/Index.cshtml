@@ -1,0 +1,297 @@
+﻿@using System.Configuration
+@model GM.ViewModels.Supplier.UpdateSupplierProfileViewModel
+@{
+    ViewBag.Title = "Suplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu supplier">
+        @Html.Partial("_LeftNavigation", Model)
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { Class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="container update-account">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Update profile</h1>
+                            <p>Account and contact information</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row personal-info">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group name">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Business Name</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.BusinessName, new { placeholder = "Business name", Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.BusinessName)
+                                        </div>
+                                    </div>
+ 
+                                    <!-- Text input-->
+                                    <div class="form-group profile-image">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Profile image</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            @if (Model.PhotoID != null)
+                                            {
+                                                @Html.HiddenFor(model => model.PhotoID)
+                                                <img id="profileImg" src="@Url.Action("Upload", "General", new { id = Model.PhotoID })" alt="@Model.FirstName" style="height: 98px; width: 98px;" />
+                                            }
+                                            else
+                                            {
+                                                <img id="profileImg" src="~/Images/update-profile-pic.png" alt=""  style="height: 98px; width: 98px;" />
+                                            }
+                                            <span class="photoicon"></span>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3">
+                                            <h6>Correct image size
+                                        is 98 x 98 pixels.</h6>
+                                        </div>
+
+                                        <div class="col-md-2 col-lg-2 col-md-offset-5 change-image-button">
+                                            <div class="pull-right file-input-wrapper">
+                                                <button class="btn-file-input btn changeBtn">Upload logo</button>
+                                                <input type="file" name="Photo" id="photoUpload" class="btn changeBtn" value="Upload logo" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group name">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Name</label>
+                                        <div class="business-name-field col-md-2 col-lg-2">
+                                            @Html.TextBoxFor(model => model.FirstName, new { placeholder = "First name", Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.FirstName)
+                                        </div>
+                                        <div class="business-name-field col-md-2 col-lg-2">
+                                            @Html.TextBoxFor(model => model.LastName, new { placeholder = "Last name", Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.LastName)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6>If a franchise, list the marketing or store manager details here.</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group name">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Job title</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.BusinessType, new { placeholder = "Your position", Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.BusinessType)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group address">
+                                        <label class="col-md-2 col-lg-2 control-label" for="textinput">Postal address</label>
+                                        <div class="col-md-5 col-lg-5 col-md-offset-1">
+                                            <p class="form-control-static">@Model.Address</p>
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-md-offset-2">
+                                            <div class="pull-right ">
+                                                <input type="submit" class="btn changeBtn" data-popup-target="#change-address-popup" 
+                                                    value="@(Model.IsDefaultSupplierAddress? "Add address" : "Change address")"/>
+                                                <div id="change-address-popup" class="popup">
+                                                    <div class="popup-body">
+                                                        <span class="popup-exit"></span>
+                                                        <div class="popup-content">
+                                                            <span class="popup-img"></span>
+                                                            <h2 class="popup-title">Change my address.</h2>
+                                                            <p>Please email support with your details to request an address change.</p>
+                                                            <a href="mailto:@ConfigurationManager.AppSettings["SupportEmail"]" class="btn sendEmailBtn js-send-change-address-email">Send email</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popup-overlay"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group business-email-address">
+                                        <label class="col-md-3 col-lg-3 business-email-label" for="textinput">Email address</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.BussinesEmail, new { placeholder = "Bussines Email", Class = "form-control text-field", type = "email" })
+                                            @Html.ValidationMessageFor(model => model.BussinesEmail)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Changing your email address will log you out. You will then need to re-verify your email address.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group name">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Main phone</label>
+                                        <div class="col-md-1 col-lg-1">
+                                            @Html.TextBoxFor(model => model.BussinesPhoneArea, new { placeholder = "Area", Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.BussinesPhoneArea)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            @Html.TextBoxFor(model => model.BussinesPhone, new { Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.BussinesPhone)
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group mobile-business">
+                                        <label class="col-md-3 col-lg-3 mobile-business-label" for="textinput">Mobile phone</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.BussinesPhoneMobile, new { Class = "form-control text-field" })
+                                            @Html.ValidationMessageFor(model => model.BussinesPhoneMobile)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group p-biss-web">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Website</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.BussinesWebSite, new { Class = "form-control text-field", placeholder = "http://" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Update profile - personal and contact information-->
+
+            <div class="container notifications">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>Notifications</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row notification-checkbox">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group account-updates">
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+
+                                                <div class="toggle">
+                                                    @if (Model.EmailBussinesOnVoucherRedeem)
+                                                    {
+                                                        <input id="toggleOne" type="checkbox" value="true" name="EmailBussinesOnVoucherRedeem" data-val="true" />
+                                                        <input type="hidden" value="true" name="EmailBussinesOnVoucherRedeem" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="toggleOne" type="checkbox" value="false" checked="checked" name="EmailBussinesOnVoucherRedeem" data-val="false" />
+                                                        <input type="hidden" value="false" name="EmailBussinesOnVoucherRedeem" />
+                                                    }
+                                                    <label for="toggleOne">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+                                                <!-- /toggle -->
+
+                                            </div>
+                                        </div>
+                                        <span class="col-md-7 col-lg-7 help-inline">Send me an email each time a reward voucher is redeemed.</span>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group push-notification">
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+                                                <div class="toggle">
+                                                    @if (Model.SendEmailUpdates)
+                                                    {
+                                                        <input id="toggleTwo" type="checkbox" value="true" name="SendEmailUpdates" data-val="true" />
+                                                        <input type="hidden" value="true" name="SendEmailUpdates" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="toggleTwo" type="checkbox" value="false" checked="checked" name="SendEmailUpdates" data-val="false" />
+                                                        <input type="hidden" value="false" name="SendEmailUpdates" />
+                                                    }
+                                                    <label for="toggleTwo">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <span class="col-md-7 col-lg-7 help-inline">Email me latest GreenMoney updates and tips.</span>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row notificatio-checkbox -->
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- personal and contact information -->
+
+            <div class="container change-password">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>Change password</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row password-change">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group old-password">
+                                        <label class="col-md-2 col-lg-2" for="textinput">Old password</label>
+                                        <div class="col-md-5 col-lg-5 col-md-offset-1">
+                                            @Html.PasswordFor(model => model.OldPassword, new { Class = "form-control password-field", placeholder = "Enter", autocomplete = "off" })
+                                            @Html.ValidationMessageFor(model => model.OldPassword)
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group new-password">
+                                        <label class="col-md-2 col-lg-2" for="textinput">New password</label>
+                                        <div class="col-md-5 col-lg-5 col-md-offset-1">
+                                            @Html.PasswordFor(model => model.NewPassword, new { Class = "form-control password-field", placeholder = "Enter", autocomplete = "off" })
+                                            @Html.ValidationMessageFor(model => model.NewPassword)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave these fields blank to keep your password the same.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group confirm-password">
+                                        <label class="col-md-3 col-lg-3" for="textinput">Confirm new password</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.PasswordFor(model => model.ConfirmNewPassword, new { Class = "form-control password-field", placeholder = "Enter", autocomplete = "off" })
+                                            @Html.ValidationMessageFor(model => model.ConfirmNewPassword)
+                                        </div>
+                                    </div>
+                                    <div class="form-group p-biss-save-bar">
+                                        <div class="row">
+                                            <div class="col-md-7 col-lg-7 pull-right">
+                                                <button type="submit" class="btn check-outBtn pull-right">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row password-change-->
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- change password -->
+
+            <div class="container validating">
+                <div class="row submit-form-buttons">
+                    <div class="col-md-12 col-lg-12">
+                        <h6>By clicking ‘Save’, you agree to comply with the GreenMoney <a href="http://greenmoney.desk.com/customer/portal/articles/2089817-terms" target="_blank">Terms and conditions </a><span>We do not use sensitive personal data and all your information is kept strictly confidential. Failure to comply with the </span><a href="http://greenmoney.desk.com/customer/portal/articles/2089817-terms" target="_blank">Terms and conditions </a>may result in a variety of consequences, including the cancellation of your reward page and the termination of your account. </h6>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

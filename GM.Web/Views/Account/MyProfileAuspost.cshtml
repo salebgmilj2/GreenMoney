@@ -1,0 +1,339 @@
+@using System.Globalization
+@model GM.ViewModels.MyProfileViewModel
+@{
+    ViewBag.Title = "My Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="myaccountmenu myprofile-auspost">
+        @Html.Partial("_LeftNavigation", Model)
+        <div class="col-md-6 col-lg-6 myProfile">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">My profile</h1>
+                        <a class="edit-profile" href="@Url.Action("UpdateProfile")">
+                            <img src="~/Images/edit-profile.png" />
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-2" align="center">
+                                @if (Model.ProfileModel.User.PhotoID != null)
+                                {
+                                    <img class="profile-user-pic" alt="@Model.FullName" src="@(Url.Action("Upload", "General", new {id = Model.ProfileModel.User.PhotoID}))">
+                                }
+                                else
+                                {
+                                    <img class="profile-user-pic" alt="@Model.FullName" src="~/Images/update-profile-pic.png">
+                                }
+                                <span class="photoicon"></span>
+                                <a class="btn btnLevel3 editProfileBtn" href="@Url.Action("UpdateProfile")">Edit profile</a>
+                            </div>
+
+
+
+                            <div class="col-md-5 col-lg-5 user-profile-info"> 
+                                <p class="user-name">@Model.ProfileModel.User.FirstName @Model.ProfileModel.User.LastName  
+                                    @if (Model.ProfileModel.User.EmploymentType!=null)
+                                    {
+                                        <span>(@Model.ProfileModel.User.EmploymentType)</span>
+                                    }</p>
+                                <p class="user-street">@Model.ProfileModel.Address.StreetName, @Model.ProfileModel.Address.State</p>
+                                <p class="user-email"><a href="mailto:@Model.EmailAddress">@Model.EmailAddress</a>
+                                
+                                @if (Model.HasPhoneNumber)
+                                {
+                                    <p class="user-mobile">
+                                        <span class="user-info-mobile"></span> @Model.ProfileModel.User.PhoneNumber
+                                    </p>      
+                                }  
+                                   
+                                <ul class="birthday-gender">
+                                    @if (Model.HasBirthDate)
+                                    {  
+	                                    <li class="user-birthday">
+		                                    <span class="birthday"></span>@Model.NumberOfYears
+	                                    </li>
+                                    }
+                                    @if (Model.HasGender)
+                                    {
+	                                    <li class="user-gender">
+		                                    <span class="gender"></span>@Model.ProfileModel.User.Sex
+	                                    </li>
+                                    }
+                                </ul>
+
+@*                                @if (Model.HasBirthDate)
+                                {         
+                                    <p class="user-birthday">
+                                        <span class="birthday"></span>@Model.NumberOfYears &nbsp; &nbsp; &nbsp;
+                                    </p>
+                                }
+
+                                @if (Model.HasGender)
+                                {
+                                    <p class="user-gender">
+                                        <span class="gender"></span>@Model.ProfileModel.User.Sex
+                                    </p> 
+                                } *@                                  
+
+                            </div>
+@*                            <div class="col-md-3 col-lg-3 add-user-container">
+                                <div class="add-another-user">
+                                    <img src="~/Images/add-another-user-icon.png" alt="">
+                                    <a href="" data-popup-target="#add-user-popup">Invite <br> your team <br> to join</a>
+                                </div>
+                                <a href="@Url.Action("AdditionalUsers")" class="addUserBtn btn"><span></span>Send invite</a>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Update profile - personal and contact information-->
+
+        <div class="col-md-2 col-lg-2">
+            <div class="well">
+                <p class="text-muted">Account summary</p>
+                <div class="accountpoints">
+                    <p>Points balance</p>
+                    <p>@String.Format(new CultureInfo("en-US"),"{0:#,##0}", Model.ProfileModel.PointsAvailable)</p>
+                </div>
+                                                
+                <ul class="account-summary-list">
+                    <li>
+                        <div class="pull-left">Points earned</div>
+                        <div class="pull-right"><span>+</span>@String.Format(new CultureInfo("en-US"),"{0:#,##0}", Model.ProfileModel.TotalEarnings)</div>
+                    </li>
+                    <li>
+                        <div class="pull-left">Redemptions</div>
+                        <div class="pull-right"><span>-</span>
+                            @{
+                                string numValueString = Model.ProfileModel.TotalRedemptions == 0 ? "0,00" : String.Format(new CultureInfo("en-US"), "{0:#,##0}", Model.ProfileModel.TotalRedemptions);
+                            }
+                            @numValueString</div>
+                    </li>
+                    <li>
+                        <div class="pull-left">Cart</div>
+                        <div class="pull-right">@String.Format(new CultureInfo("en-US"),"{0:#,##0}", Model.ProfileModel.CartTotal)</div>
+                    </li>
+                </ul>    
+                <a class="btn mainBtn account-summary-btn" href="@Url.Action("Index", "Rewards")">Get Rewards</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- account summary-->
+
+<div class="container myactivities">
+    <div class="navbar-main">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="col-md-4 col-lg-4 auspostMyActivities">My activities <span>(last 12 months)</span></div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="pricing-table pricing-three-column row">
+                            <div class="plan col-md-4 col-lg-4">
+                                <div class="auspost-myPerformance">
+                                    <img src="~/Images/auspost-my-performance.png" alt="">
+                                    <span>My performance</span>
+                                </div>
+                                <div class="row lead">
+                                    <div id="stars" class="starrr">
+                                        <span class="glyphicon .glyphicon-star .grey gray @(Model.NumberOfChallenges >0? "green":null) glyphicon-star"></span>
+                                        <span class="glyphicon .glyphicon-star .grey gray @(Model.NumberOfChallenges >3? "green":null) glyphicon-star"></span>
+                                        <span class="glyphicon .glyphicon-star .grey gray @(Model.NumberOfChallenges >8? "green":null) glyphicon-star"></span>
+                                        <span class="glyphicon .glyphicon-star .grey gray @(Model.NumberOfChallenges >12? "green":null) glyphicon-star"></span>
+                                        <span class="glyphicon .glyphicon-star .grey gray @(Model.NumberOfChallenges >23? "green":null) glyphicon-star"></span>                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="z-index: 55;" class="plan col-md-4 col-lg-4">
+                                <div class="points-earned">
+                                    <img src="~/Images/points-earned.png" alt="">
+                                    <span>Points earned</span>
+                                </div>
+                                <div class="row lead">
+                                    <div>
+                                        <span class="points-earned-number">@String.Format(new CultureInfo("en-US"),"{0:#,##0}", Model.ProfileModel.TotalEarnings)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="plan col-md-4 col-lg-4">
+                                <div class="household-savings">
+                                    <img src="~/Images/household-savings.png" alt="">
+                                    <span>My rewards</span>
+                                </div>
+                                <div class="row lead">
+                                    <div>
+                                        <span class="household-savings-number">@Model.ProfileModel.DolarPriceSum</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My activities  -->
+
+<div class="container mytransactions auspost-profile">
+    <div class="navbar-main">
+        <div class="panel panel-info">
+            <div class="panel-heading" style="padding-top: 22px; padding-left: 18px;">
+                <div class="col-md-4 col-lg-4 auspostMyActivityHistory">My activity history</div>
+                <div class="col-md-5 col-lg-5 auspostMyactivitylegend pull-right">
+                    <ul class="transactions-legend pull-right">
+                        <li><span class="auspost-points-earned-icon"></span>Points earned</li>
+                        <li><span class="auspost-reward-redeemed-icon"></span>Reward redeemed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div id="no-more-tables">
+                            <table class="col-md-12 col-lg-12 table-striped table-condensed cf">
+                                <thead class="cf">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th class="numeric text-right">Earned</th>
+                                        <th class="numeric text-right">Redeemed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ProfileModel.Transactions)
+                                    {
+                                        string transactionTypeIcon = "";
+
+                                        if (item.TransactionTypeID != null)
+                                        {
+                                            if (item.TransactionTypeID == 2 || item.TransactionTypeID == 3)
+                                            {
+                                                transactionTypeIcon = "trans-type-p-earned";
+                                            }
+                                            else if (item.TransactionTypeID == 4 || item.TransactionTypeID == 1)
+                                            {
+                                                transactionTypeIcon = "trans-type-p-reward";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            transactionTypeIcon = item.Description.ToLower().Contains("household member")
+                                                                        || item.Description.ToLower().Contains("inviting neighbour")
+                                                                        || item.Description.ToLower().Contains("new member")
+
+                                            ? "trans-type-share"
+                                            : (item.Description.ToLower().Contains("redeem")
+                                                   || item.Description.ToLower().Contains("voucher redemption")
+                                                ? "trans-type-reward"
+                                                : (item.Description.ToLower().Contains("recycling")
+                                                    ? "trans-type-green"
+                                                       : ((item.Description.ToLower().Contains("challenge") || item.Description.ToLower().Contains("earn") || item.Description.ToLower().Contains("pledge"))
+                                                            ? "trans-type-challenge"
+                                                             : "trans-type-default")
+                                                     ));
+                                        }
+                                            
+                                        <tr class="@transactionTypeIcon">
+                                            <td class="@transactionTypeIcon" data-title="Date">@item.Time.ToString("dd MMM yyyy")<span></span></td>
+                                            <td data-title="Description">@item.Description</td>
+                                            <td data-title="Earned" class="numeric">@(item.Points > 0 ? string.Format("{0}", item.Points.ToString()) : "")</td>
+                                            <td data-title="Redeemed text-right" class="numeric">@(item.Points < 0 ? item.Points.ToString() : "")</td>
+                                        </tr>                                       
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12 col-lg-12 bottom-pagination">
+                            @if (Model.ShowPrevPage)
+                            {
+                                <a href="@Url.Action("MyProfile", null, new { page = Model.ProfileModel.Page - 1 })" class="previous" data-action="previous"><span></span></a>                                
+                            }
+                            <span>Page</span>
+                            <input type="text" data-url="@Url.Action("MyProfile", "Account")" class="js-page-change-submit" name="Page" value="@Model.ProfileModel.Page"/>                                       
+                            <span>of @Model.ProfileModel.NumPages</span>
+                            @if (Model.ShowNextPage)
+                            {
+                                <a href="@Url.Action("MyProfile", null, new { page = Model.ProfileModel.Page + 1 })" class="next pull-right" data-action="next"><span></span></a>
+                            }
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- my transactions -->
+@*</div>*@
+
+<!-- *************** Add user popup -->
+    <div id="add-user-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Add user</h2>
+                <hr>
+                <p class="popup-subtitle">Give other member of your team access to your GreenMoney account.</p>
+                @using (Html.BeginForm("AdditionalUsers", "Account", FormMethod.Post, new { role = "form", id = "addUserRgtrForm" }))
+                {
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.FirstName, new { placeholder = "First name", Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.FirstName)
+@*                        <input data-content="" data-val="true" data-val-required="The First name field is required." id="RegistrationViewModel_FirstName" name="RegistrationViewModel.FirstName" placeholder="First name" type="text" value="" class="mailRgtrForm-field">
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.FirstName" data-valmsg-replace="true"></span>*@
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.LastName, new { placeholder = "Last name", Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.LastName)                        
+@*                        <input data-content="" data-val="true" data-val-required="The Last name field is required." id="RegistrationViewModel_LastName" name="RegistrationViewModel.LastName" placeholder="Last name" type="text" value="" class="mailRgtrForm-field">  
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.LastName" data-valmsg-replace="true"></span>   *@                       
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.Email, new { placeholder = "Email address", Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.Email)                        
+                        @*<input data-content="" data-val="true" data-val-required="The Email address field is required." id="RegistrationViewModel_Email" name="RegistrationViewModel.Email" placeholder="Email address" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.Email" data-valmsg-replace="true"></span>*@                        
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.ConfirmEmail, new { placeholder = "Confirmation email", Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.ConfirmEmail)                           
+                        @*<input data-content="" data-val="true" data-val-equalto="Email and confirmation email do not match." data-val-equalto-other="*.Email" id="RegistrationViewModel_ConfirmEmail" name="RegistrationViewModel.ConfirmEmail" placeholder="Confirmation email" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.ConfirmEmail" data-valmsg-replace="true"></span>*@                                                     
+                    </p>
+                        <input type="submit" class="btn popupBtn" value="Send invitation"/>
+                        @*<a href="#" class="btn popupBtn">Send invitation</a>*@
+                        <a href="" class="btn popupBtnCancel">Cancel</a>
+                }
+                
+            </div>
+        </div>
+    </div>
+<!-- *************** Invitation sent popup -->
+    <div id="invitation-sent-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Invitation sent</h2>
+                <hr>
+                <a href="@Url.Action("AdditionalUsers", "Account")" class="btn popupBtn">Return to Manage users</a>
+            </div>
+        </div>
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@section Styles {
+    <link href="~/Css/auspost.css" rel="stylesheet" />
+    <link href="~/Css/ausPostregistration.css" rel="stylesheet" />
+}

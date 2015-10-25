@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="greenMoney2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="235" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Memberships">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowsStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="PropertyValueStrings" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="PropertyValueBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StreetNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StreetName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StreetType" Type="nvarchar(max)" />
+    <Property Name="Suburb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Postcode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="UnitNumber" Type="nvarchar(max)" />
+    <Property Name="Instance_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="AwardPointsOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CartItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Reward_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChallengeCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Challenges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="35" />
+    <Property Name="EarnAmount" Type="nvarchar" MaxLength="100" />
+    <Property Name="About" Type="nvarchar" MaxLength="200" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="LogoImageId" Type="int" />
+    <Property Name="ImageId1" Type="int" />
+    <Property Name="ImageId2" Type="int" />
+    <Property Name="ImageId3" Type="int" />
+    <Property Name="ImageId4" Type="int" />
+    <Property Name="ChallengeCategoryId" Type="int" />
+    <Property Name="PromoCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="Article" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="DurationInDays" Type="int" />
+    <Property Name="AwardPointsOptionId" Type="int" />
+    <Property Name="ParticipationFrequencyId" Type="int" />
+    <Property Name="Purpose" Type="nvarchar(max)" />
+    <Property Name="Instructions" Type="nvarchar(max)" />
+    <Property Name="TermsAndConditions" Type="nvarchar(max)" />
+    <Property Name="LocationOptionId" Type="int" />
+    <Property Name="StreetAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="Suburb" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="3" />
+    <Property Name="Postcode" Type="nvarchar" MaxLength="4" />
+    <Property Name="DateHoursTime" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+    <Property Name="Web" Type="nvarchar" MaxLength="200" />
+    <Property Name="SendEmailNotifications" Type="bit" Nullable="false" />
+    <Property Name="SendEmailTo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Display" Type="bit" Nullable="false" />
+    <Property Name="Popularity" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="DateAdded" Type="datetime" />
+    <Property Name="Instance_Id" Type="int" Nullable="false" />
+    <Property Name="Owner_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CMS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="HTML" Type="nvarchar(max)" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="Section" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Instance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="order" Type="int" Nullable="false" />
+    <Property Name="postcodes" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="LogoImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="InterestedPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StreetNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StreetName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StreetType" Type="nvarchar(max)" />
+    <Property Name="Suburb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Postcode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+    <Property Name="FreeStandingHome" Type="bit" Nullable="false" />
+    <Property Name="HasRfidTag" Type="bit" />
+    <Property Name="SendEmailOffers" Type="bit" Nullable="false" />
+    <Property Name="SendEmailUpdates" Type="bit" Nullable="false" />
+    <Property Name="UnitNumber" Type="nvarchar(max)" />
+    <Property Name="DateOfBirth" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InvitedNeighbours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InvitedUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EmailAccountUpdates" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocationOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LoginToken">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Label" Type="nvarchar(max)" />
+    <Property Name="URLValue" Type="nvarchar(max)" />
+    <Property Name="Hidden" Type="bit" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Section_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParticipationFrequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Resources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="Page_Id" Type="int" />
+    <Property Name="ResourceType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResourceTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RewardCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar(max)" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Rewards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Display" Type="bit" Nullable="false" />
+    <Property Name="AvailableFrom" Type="datetime" />
+    <Property Name="AvailableTo" Type="datetime" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="PartnerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PartnerLocation" Type="nvarchar(max)" />
+    <Property Name="PartnerHours" Type="nvarchar(max)" />
+    <Property Name="PartnerPhone" Type="nvarchar(max)" />
+    <Property Name="PartnerEmail" Type="nvarchar(max)" />
+    <Property Name="PartnerUrl" Type="nvarchar(max)" />
+    <Property Name="PartnerDescription" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="bigint" Nullable="false" />
+    <Property Name="TermsAndConditions" Type="nvarchar(max)" />
+    <Property Name="Faq" Type="nvarchar(max)" />
+    <Property Name="HowToRedeem" Type="nvarchar(max)" />
+    <Property Name="ValidFrom" Type="datetime" />
+    <Property Name="ValidTo" Type="datetime" />
+    <Property Name="Popularity" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="ImageSmallId" Type="int" />
+    <Property Name="VoucherBarcodeId" Type="int" />
+    <Property Name="ImageHomeId" Type="int" />
+    <Property Name="DollarPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="M" Type="bit" Nullable="false" />
+    <Property Name="NotifyOnRedeem" Type="bit" Nullable="false" />
+    <Property Name="State" Type="int" />
+    <Property Name="Owner_Id" Type="uniqueidentifier" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="Mobile" Type="bit" />
+    <Property Name="Instructions" Type="nvarchar(max)" />
+    <Property Name="Instance_Id" Type="int" Nullable="false" />
+    <Property Name="Image1Id" Type="int" />
+    <Property Name="Image2Id" Type="int" />
+    <Property Name="Image3Id" Type="int" />
+    <Property Name="Image4Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Label" Type="nvarchar(max)" />
+    <Property Name="URLValue" Type="nvarchar(max)" />
+    <Property Name="Hidden" Type="bit" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Instance_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Points" Type="bigint" Nullable="false" />
+    <Property Name="Address_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="uniqueidentifier" />
+    <Property Name="TransactionTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Uploads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContentType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contents" Type="varbinary(max)" Nullable="false" />
+    <Property Name="UploadedBy_Id" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="UserChallenges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Issued" Type="datetime" />
+    <Property Name="ChallengeId" Type="int" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="PointsClaimed" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="SendEmailOffers" Type="bit" Nullable="false" />
+    <Property Name="SendEmailUpdates" Type="bit" Nullable="false" />
+    <Property Name="Address_Id" Type="int" Nullable="false" />
+    <Property Name="IsFBAccount" Type="bit" Nullable="false" />
+    <Property Name="FBUserId" Type="bigint" />
+    <Property Name="IsAdditionalAccountHolder" Type="bit" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar(max)" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="PhotoID" Type="int" />
+    <Property Name="PushNotifications" Type="bit" Nullable="false" />
+    <Property Name="Instance_Id" Type="int" Nullable="false" />
+    <Property Name="BusinessName" Type="nvarchar(max)" />
+    <Property Name="BusinessNumberABN" Type="nvarchar(max)" />
+    <Property Name="BusinessType" Type="nvarchar(max)" />
+    <Property Name="BussinesWebSite" Type="nvarchar(max)" />
+    <Property Name="BussinesEmail" Type="nvarchar(max)" />
+    <Property Name="BussinesPhone" Type="nvarchar(max)" />
+    <Property Name="BussinesPhoneArea" Type="nvarchar(max)" />
+    <Property Name="BussinesPhoneMobile" Type="nvarchar(max)" />
+    <Property Name="BussinesLocation" Type="nvarchar(max)" />
+    <Property Name="EmailBussinesOnVoucherRedeem" Type="bit" />
+    <Property Name="PostToFacebook" Type="bit" />
+    <Property Name="EmploymentType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_ID" Type="uniqueidentifier" />
+    <Property Name="Token" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Vouchers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Issued" Type="datetime" Nullable="false" />
+    <Property Name="Reward_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Addresses_Instance">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="0..1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_AwardPointsOptions">
+    <End Role="AwardPointsOptions" Type="Self.AwardPointsOptions" Multiplicity="0..1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AwardPointsOptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="AwardPointsOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_ChallengeCateogories">
+    <End Role="ChallengeCategories" Type="Self.ChallengeCategories" Multiplicity="0..1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChallengeCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="ChallengeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_Instance">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_LocationOptions">
+    <End Role="LocationOptions" Type="Self.LocationOptions" Multiplicity="0..1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationOptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="LocationOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_ParticipationFrequency">
+    <End Role="ParticipationFrequency" Type="Self.ParticipationFrequency" Multiplicity="0..1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipationFrequency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="ParticipationFrequencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_Users">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="1" />
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_CartItems_gm_Rewards_Reward_Id">
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rewards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="Reward_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_CartItems_gm_Users_User_Id">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Pages_gm_Sections_Section_Id">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pages" Type="Self.Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pages">
+        <PropertyRef Name="Section_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Resources_gm_Pages_Page_Id">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="0..1" />
+    <End Role="Resources" Type="Self.Resources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resources">
+        <PropertyRef Name="Page_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Resources_gm_ResourceTypes_ResourceType_Id">
+    <End Role="ResourceTypes" Type="Self.ResourceTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Resources" Type="Self.Resources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resources">
+        <PropertyRef Name="ResourceType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_RewardCategories_CategoryId">
+    <End Role="RewardCategories" Type="Self.RewardCategories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RewardCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageHomeId">
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageHomeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageId">
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageSmallId">
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageSmallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_VoucherBarcodeId">
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="VoucherBarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Users_Owner_Id">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="0..1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Transactions_gm_Addresses_Address_Id">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Transactions_gm_Users_User_Id">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Uploads_gm_Users_UploadedBy_Id">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="0..1" />
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Uploads">
+        <PropertyRef Name="UploadedBy_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_dbo_Users_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users1" Type="Self.Users1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_gm_Addresses_Address_Id">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users1" Type="Self.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_gm_Uploads_PhotoId">
+    <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1" />
+    <End Role="Users1" Type="Self.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="PhotoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Vouchers_gm_Rewards_Reward_Id">
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rewards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="Reward_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Vouchers_gm_Users_User_Id">
+    <End Role="Users1" Type="Self.Users1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rewards_Instance">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="1" />
+    <End Role="Rewards" Type="Self.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChallenges_Challenges">
+    <End Role="Challenges" Type="Self.Challenges" Multiplicity="0..1" />
+    <End Role="UserChallenges" Type="Self.UserChallenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Challenges">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserChallenges">
+        <PropertyRef Name="ChallengeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Instance">
+    <End Role="Instance" Type="Self.Instance" Multiplicity="1" />
+    <End Role="Users1" Type="Self.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Memberships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Memberships" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserProfile">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profiles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersInRoleRole">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersInRoleUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="greenMoney2ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Memberships" EntityType="Self.Memberships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="AwardPointsOptions" EntityType="Self.AwardPointsOptions" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="CartItems" EntityType="Self.CartItems" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="ChallengeCategories" EntityType="Self.ChallengeCategories" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Challenges" EntityType="Self.Challenges" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="CMS" EntityType="Self.CMS" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Instance" EntityType="Self.Instance" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="InterestedPeople" EntityType="Self.InterestedPeople" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="InvitedNeighbours" EntityType="Self.InvitedNeighbours" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="InvitedUsers" EntityType="Self.InvitedUsers" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="LocationOptions" EntityType="Self.LocationOptions" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="LoginToken" EntityType="Self.LoginToken" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="ParticipationFrequency" EntityType="Self.ParticipationFrequency" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Resources" EntityType="Self.Resources" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="ResourceTypes" EntityType="Self.ResourceTypes" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="RewardCategories" EntityType="Self.RewardCategories" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Rewards" EntityType="Self.Rewards" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Sections" EntityType="Self.Sections" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Uploads" EntityType="Self.Uploads" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="UserChallenges" EntityType="Self.UserChallenges" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Users1" EntityType="Self.Users1" Schema="gm" Table="Users" store:Type="Tables" />
+    <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="gm" store:Type="Tables" />
+    <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="gm" store:Type="Tables" />
+    <AssociationSet Name="FK_Addresses_Instance" Association="Self.FK_Addresses_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_AwardPointsOptions" Association="Self.FK_Challenges_AwardPointsOptions">
+      <End Role="AwardPointsOptions" EntitySet="AwardPointsOptions" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_ChallengeCateogories" Association="Self.FK_Challenges_ChallengeCateogories">
+      <End Role="ChallengeCategories" EntitySet="ChallengeCategories" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_Instance" Association="Self.FK_Challenges_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_LocationOptions" Association="Self.FK_Challenges_LocationOptions">
+      <End Role="LocationOptions" EntitySet="LocationOptions" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_ParticipationFrequency" Association="Self.FK_Challenges_ParticipationFrequency">
+      <End Role="ParticipationFrequency" EntitySet="ParticipationFrequency" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_Users" Association="Self.FK_Challenges_Users">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_CartItems_gm_Rewards_Reward_Id" Association="Self.FK_gm_CartItems_gm_Rewards_Reward_Id">
+      <End Role="Rewards" EntitySet="Rewards" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_CartItems_gm_Users_User_Id" Association="Self.FK_gm_CartItems_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Pages_gm_Sections_Section_Id" Association="Self.FK_gm_Pages_gm_Sections_Section_Id">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Pages" EntitySet="Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Resources_gm_Pages_Page_Id" Association="Self.FK_gm_Resources_gm_Pages_Page_Id">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="Resources" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Resources_gm_ResourceTypes_ResourceType_Id" Association="Self.FK_gm_Resources_gm_ResourceTypes_ResourceType_Id">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="Resources" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_RewardCategories_CategoryId" Association="Self.FK_gm_Rewards_gm_RewardCategories_CategoryId">
+      <End Role="RewardCategories" EntitySet="RewardCategories" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageHomeId" Association="Self.FK_gm_Rewards_gm_Uploads_ImageHomeId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageId" Association="Self.FK_gm_Rewards_gm_Uploads_ImageId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageSmallId" Association="Self.FK_gm_Rewards_gm_Uploads_ImageSmallId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_VoucherBarcodeId" Association="Self.FK_gm_Rewards_gm_Uploads_VoucherBarcodeId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Users_Owner_Id" Association="Self.FK_gm_Rewards_gm_Users_Owner_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Transactions_gm_Addresses_Address_Id" Association="Self.FK_gm_Transactions_gm_Addresses_Address_Id">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Transactions_gm_Users_User_Id" Association="Self.FK_gm_Transactions_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Uploads_gm_Users_UploadedBy_Id" Association="Self.FK_gm_Uploads_gm_Users_UploadedBy_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Uploads" EntitySet="Uploads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_dbo_Users_Id" Association="Self.FK_gm_Users_dbo_Users_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_gm_Addresses_Address_Id" Association="Self.FK_gm_Users_gm_Addresses_Address_Id">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_gm_Uploads_PhotoId" Association="Self.FK_gm_Users_gm_Uploads_PhotoId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Vouchers_gm_Rewards_Reward_Id" Association="Self.FK_gm_Vouchers_gm_Rewards_Reward_Id">
+      <End Role="Rewards" EntitySet="Rewards" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Vouchers_gm_Users_User_Id" Association="Self.FK_gm_Vouchers_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rewards_Instance" Association="Self.FK_Rewards_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChallenges_Challenges" Association="Self.FK_UserChallenges_Challenges">
+      <End Role="Challenges" EntitySet="Challenges" />
+      <End Role="UserChallenges" EntitySet="UserChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Instance" Association="Self.FK_Users_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipApplication" Association="Self.MembershipApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipUser" Association="Self.MembershipUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="RoleApplication" Association="Self.RoleApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserApplication" Association="Self.UserApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserProfile" Association="Self.UserProfile">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Profiles" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoleRole" Association="Self.UsersInRoleRole">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoleUser" Association="Self.UsersInRoleUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

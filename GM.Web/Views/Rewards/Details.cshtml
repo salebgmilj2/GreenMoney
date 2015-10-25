@@ -1,0 +1,198 @@
+﻿@model GM.ViewModels.RewardDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="redeemRewards">
+            <div class="navbar-inner navbar-left">
+                <nav class="nav-sidebar">
+                    <div class="brand">Redeem rewards</div>
+                    <ul class="nav">
+                        @if (Model.Categories != null)
+                        {
+                            foreach (var categoryItem in Model.Categories)
+                            {
+                                <li class="@(Model.SelectedCategory!=null && Model.SelectedCategory.Id == categoryItem.Id ? "active" : null)">
+                                    <a href="@Url.Action("Index", "Rewards",
+                                                 new
+                                                 {
+                                                     category = categoryItem.Slug,
+                                                     filter = Model.Filter,
+                                                     sortBy = Model.SortBy
+                                                 })">@categoryItem.Name</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </nav>
+            </div>
+            <div class="container redeemAllRewards">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">@Model.Reward.PartnerName</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row single-reward">
+                                <div class="col-md-7 col-lg-7 slider-section">
+                                    <!-- Slider -->
+                                    <div id="slider">
+                                    <!-- Mobile redeem badge on slider -->
+                                        @if (Model.Reward.Mobile.HasValue && Model.Reward.Mobile.Value)
+                                        {
+                                            <div class="mobile-redeem-badge">
+                                                <p>Mobile redeem<span></span></p>
+                                                <div class="mobile-redeem-tooltip">
+                                                    <img src="~/Images/mobile-white.png" alt="">
+                                                    <p class="tooltip-txt">Download App<span><br>to redeem on the go</span></p>
+                                                </div>
+                                            </div>
+                                        }                                     
+                                        <div id="slides">
+                                            @if (Model.Reward.ImageId != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                    <div class="slide-reward active-slide">
+                                                        <img src="@Url.Action("Upload", "General", new {id = Model.Reward.ImageId})" class="slide-img"/>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Action("Upload", "General", new {id = Model.Reward.ImageId})" class="single-slide-img"/>
+                                                }
+                                            }
+                                            @if (Model.Reward.Image2Id != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                    <div class="slide-reward">
+                                                        <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image2Id})" class="slide-img"/>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image2Id})" class="single-slide-img"/>
+                                                }
+                                            }
+                                            
+                                            @if (Model.Reward.Image3Id != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                    <div class="slide-reward">
+                                                        <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image3Id})" class="slide-img"/>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image3Id})" class="single-slide-img"/>
+                                                }
+                                            }
+                                            
+                                            @if (Model.Reward.Image4Id != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                    <div class="slide-reward">
+                                                        <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image4Id})" class="slide-img"/>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Action("Upload", "General", new {id = Model.Reward.Image4Id})" class="single-slide-img"/>
+                                                }
+                                            }
+                                        </div>
+                                        @if (Model.ShowSlider)
+                                        {
+                                            <!-- Arrows -->
+                                            <img src="~/Images/navigate-arrow-right.png" alt="right arrow" class="arrow right"/>
+                                            <img src="~/Images/navigate-arrow-left.png" alt="left arrow" class="arrow left"/>
+                                            <!-- Slider Navigation -->
+                                            <div id="slider-nav">
+                                                <ul></ul>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-7 -->
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="short-description">
+                                        <h2>@Model.Reward.Name</h2>
+                                        <p>@Html.Raw(Model.Reward.Description)</p>
+                                        <hr>
+                                        <p>@Model.Reward.Price points</p>
+                                    </div>
+                                    <button type="button" data-id="@Model.Reward.Id" class="btn mainBtn btn-lg btn-block js-add-to-cart">Add to cart </button>
+                                    <div class="share">
+                                        <p id="share-txt">
+                                            Share with friends<br>
+                                            <span>Earn 10 points each time you share.</span>
+                                        </p>
+                                        <a class="fb-share-button" href="https://www.facebook.com/dialog/feed?app_id=913414202022157&link=http://mywebplace.rs/Rewards/Details/@Model.Reward.Id&name=GreenMoney&caption=I just got rewarded with&redirect_uri=http://mywebplace.rs/Rewards/Details/@Model.Reward.Id/&picture=http://mywebplace.rs/Images/logo.png&description=@Model.Reward.PartnerName @Model.Reward.Name">
+                                            <span></span>Share
+                                        </a>
+                                        @*<button class="email-share-button"><span></span>Email</button>*@
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-4 -->
+                                <div class="col-md-8 col-lg-8 reward-details">
+                                    <hr>
+                                    <div class="row about">
+                                        <p class="col-md-2 col-lg-2 RewardDetailsTexLabel">About</p>
+                                        <div class="col-md-8 col-lg-8 col-md-offset-1 RewardDetailsTextDescription">
+                                            @Html.Raw(Model.Reward.PartnerDescription)
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row contact">
+                                        <p class="col-md-2 col-lg-2 RewardDetailsTexLabel">Contact</p>
+                                        <p class="col-md-8 col-lg-8 col-md-offset-1 RewardDetailsTextDescription">@Model.Reward.PartnerPhone<br>
+                                            <a href="@Model.Reward.PartnerUrl">@Model.Reward.PartnerUrl</a>
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="row hours">
+                                        <p class="col-md-2 col-lg-2 RewardDetailsTexLabel">Hours</p>
+                                        <div class="col-md-8 col-lg-8 col-md-offset-1 RewardDetailsTextDescription">
+                                            @Html.Raw(Model.Reward.PartnerHours)
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row location">
+                                        <p class="col-md-2 col-lg-2 RewardDetailsTexLabel">Location</p>
+                                        <div class="col-md-8 col-lg-8 col-md-offset-1 RewardDetailsTextDescription">
+                                            @Html.Raw(Model.Reward.PartnerLocation)
+                                        </div>
+                                        @if (Model.Reward.PartnerLocation != null)
+                                        {
+                                            var address = System.Text.RegularExpressions.Regex.Replace(Model.Reward.PartnerLocation, @"<[^>]*>", "");
+                                            <div id="googleMap" class="col-md-8 col-lg-8 col-md-offset-3">
+                                                <img src="http://maps.googleapis.com/maps/api/staticmap?center=@Url.Encode(address)&amp;zoom=15&amp;size=306x306&amp;sensor=false&amp;markers=color:red|@Url.Encode(address)" width="300" height="250" alt="Google Map"/>
+                                            </div>
+                                        }
+@*                                        <div id="googleMap" class="col-md-8 col-lg-8 col-md-offset-3" style="width: 342px; height: 235px;"></div>
+                                        <p id="googleMapDirections" class="col-md-8 col-lg-8 col-md-offset-3">Get directions</p>*@
+    </div>
+                                    <hr>
+                                    <div class="row terms">
+                                        <p class="col-md-3 col-lg-3 RewardDetailsTexLabel">Terms and conditions</p>
+                                        <div class="col-md-8 col-lg-8 RewardDetailsTextDescription">
+                                            @Html.Raw(Model.Reward.TermsAndConditions)
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+        <!-- redeemAllRewards -->
+    </div>
+</div>

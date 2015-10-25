@@ -1,0 +1,631 @@
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.Web.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.Web.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Antlr3.Runtime.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\AWSSDK.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Base32Encoder.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\CsvHelper.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.Core.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\EntityFramework.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\evohtmltopdf.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\MailChimp.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Newtonsoft.Json.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\RazorEngine.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.Formatting.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.WebRequest.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Helpers.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Http.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Http.WebHost.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Mvc.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Optimization.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Providers.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Razor.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.Deployment.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.Razor.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\WebGrease.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\WebMatrix.Data.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\WebMatrix.WebData.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.BusinessLogic.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\CsvHelper.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\CsvHelper.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\evohtmltopdf.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\RazorEngine.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Razor.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\EntityFramework.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Newtonsoft.Json.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.Formatting.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Net.Http.WebRequest.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Helpers.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Http.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Http.WebHost.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.Mvc.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.Deployment.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\System.Web.WebPages.Razor.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\WebMatrix.Data.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\WebMatrix.WebData.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.Core.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\GM new\GM SOLUTION\gm6\GM.Web\bin\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.Web\obj\Release\GM.Web.dll
+E:\GM new\GM SOLUTION\gm6\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.Web.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\GreenMoneyAgata\GM.Web\bin\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoneyAgata\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.Web.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\AgataGMResolved\GM.Web\bin\GM.DataAccess.pdb
+D:\Aplikacije\AgataGMResolved\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\AgataGMResolved\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\AgataGMResolved\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150602\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.Web.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\GMAgata20150602\GM.Web\bin\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.Web.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.Web.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Antlr3.Runtime.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\AWSSDK.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Base32Encoder.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\CsvHelper.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.Core.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\EntityFramework.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\evohtmltopdf.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.Models.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\MailChimp.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Newtonsoft.Json.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\RazorEngine.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.Formatting.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.WebRequest.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Helpers.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Http.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Http.WebHost.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Mvc.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Optimization.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Providers.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Razor.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.Deployment.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.Razor.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\WebGrease.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\WebMatrix.Data.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\WebMatrix.WebData.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.BusinessLogic.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\CsvHelper.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\CsvHelper.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\evohtmltopdf.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\RazorEngine.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Razor.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\EntityFramework.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Newtonsoft.Json.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.Formatting.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Net.Http.WebRequest.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Helpers.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Http.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Http.WebHost.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.Mvc.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.Deployment.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\System.Web.WebPages.Razor.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\WebMatrix.Data.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\WebMatrix.WebData.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.Core.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\bin\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\obj\Release\GM.Web.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.Web.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\GMAgata20150702\GM.Web\bin\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150702\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150702\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\GMAgata20150702\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150713\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\obj\Release\GM.Web.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\GreenMoney20150713\GM.Web\bin\GM.Web.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\obj\Release\GM.Web.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\obj\Release\GM.Web.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.Web.dll.config
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.Web.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.Web.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Antlr3.Runtime.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\AWSSDK.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Base32Encoder.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\CsvHelper.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.Core.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\EntityFramework.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\evohtmltopdf.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.BusinessLogic.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.Models.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\MailChimp.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Newtonsoft.Json.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\RazorEngine.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.Formatting.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.WebRequest.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Helpers.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Http.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Http.WebHost.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Mvc.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Optimization.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Providers.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Razor.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.Razor.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\WebGrease.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\WebMatrix.Data.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\WebMatrix.WebData.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.DataAccess.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.BusinessLogic.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.Models.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\CsvHelper.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\CsvHelper.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\evohtmltopdf.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\RazorEngine.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Razor.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\EntityFramework.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Newtonsoft.Json.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.Formatting.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Net.Http.WebRequest.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Helpers.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Http.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Http.WebHost.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.Mvc.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\System.Web.WebPages.Razor.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\WebMatrix.Data.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\WebMatrix.WebData.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.Core.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Aplikacije\GreenMoneyWeb\GM.Web\bin\GM.DataAccess.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.Web.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.Web.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Antlr3.Runtime.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\AWSSDK.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\CsvHelper.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.AspNet.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.Core.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OAuth.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OpenId.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\evohtmltopdf.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.Models.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\MailChimp.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Newtonsoft.Json.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\RazorEngine.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.Formatting.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.WebRequest.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Helpers.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Http.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Http.WebHost.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Mvc.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Optimization.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Providers.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Razor.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.Razor.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\WebGrease.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\WebMatrix.Data.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\WebMatrix.WebData.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\CsvHelper.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\CsvHelper.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\evohtmltopdf.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\RazorEngine.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Razor.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Newtonsoft.Json.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.Formatting.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Net.Http.WebRequest.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Helpers.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Http.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Http.WebHost.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.Mvc.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\System.Web.WebPages.Razor.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\WebMatrix.Data.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\WebMatrix.WebData.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.AspNet.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.Core.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OAuth.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OpenId.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aplikacije\GreenMoney20150730\GM.Web\bin\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Web\obj\Release\GM.Web.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150730\GM.Web\obj\Release\GM.Web.dll
+D:\Aplikacije\GreenMoney20150730\GM.Web\obj\Release\GM.Web.pdb

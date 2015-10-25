@@ -1,0 +1,1087 @@
+﻿@model GM.ViewModels.Council.CreateChallengeViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+   <link href="~/Css/admin-challenges.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("Create", "ChallengesAdmin", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data", id = "challengeSubmit", onsubmit = "return validate(this)" }))
+{
+    @Html.AntiForgeryToken() 
+    @Html.ValidationSummary(true) 
+    <div class="row">
+        <div class="myaccountmenu supplier">
+
+            @if (!Model.IsInitialRegistrationStep)
+            {
+                @Html.Partial("_LeftNavigation", Model)
+            }
+            else
+            {
+                @Html.Partial("~/Views/Shared/Supplier/_TopRegistrationStepsPartial.cshtml", Model)
+            }
+
+             @Html.ValidationSummary(true)
+
+            @Html.HiddenFor(model => model.IsUpdate)
+            @Html.HiddenFor(model => model.Id)
+            <div class="container partner-business-details">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">@(!Model.IsUpdate ? "Create challenge" : "Edit challenge")</h1>
+                            <p>1. Challenge description</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-reward-descr">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-campaign">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Challenge/campaign name</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.Name, new { @class = "challenge-campaign-name", rows = "1", cols = "40", placeholder = "e.g. TerraCycle, Water Saving, Ride to Work Week" })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "field-validation-error" })
+
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">This should be a short list name for the challenge that is easy to search.<br />
+                                                                        35 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group admin-chalenge-earn-amount">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Earn description</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.EarnAmount, new { @class = "earn-amount", rows = "20", cols = "40", placeholder = "e.g. Earn 300 bonus points for volunteering, or earn 10 bonus bonus ponts by learning about saving water." })
+                                            @Html.ValidationMessageFor(model => model.EarnAmount)
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">100 character limit.</h6>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group admin-chalenge-short-grab">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Short grab/about</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.About, new { @class = "short-grab-about", rows = "20", cols = "40", placeholder = "e.g. Read this short article to learn about how to reduce water use in your home and save money." })
+                                            @Html.ValidationMessageFor(model => model.About)
+
+                                            @* <textarea name="about" id="about" rows="20" cols="40" name="comment" maxlength="200" class="short-grab-about" placeholder="e.g. Read this short article to learn about how to reduce water use in your home and save money."></textarea>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">200 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-points">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Number of points</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            @Html.TextBoxFor(model => model.Points, new { @class = "form-control challenge-number-of-points", placeholder = "" })
+                                            @Html.ValidationMessageFor(model => model.Points)
+
+                                        </div>
+                                        <div class="col-md-offset-2 col-md-4 col-lg-4 ad-ch-field-descr">
+                                            <h6 class="admin-challenge-points-field-descr">As a guide, the more difficult the challenge the higher the points, e.g. 300 points for taking an action, 10 points for reading a learn and earn article.</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row challenge-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Challenge description  -->
+
+            <div class="container admin-challenges-profile-images">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>2. Images</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-profile-images">
+                                <div class="col-md-12 col-lg-12">
+
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-logo">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Logo</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            @if (Model.LogoImageId != null)
+                                            {
+                                                @Html.HiddenFor(model => model.LogoImageId)
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.LogoImageId })?width=158" width="158" class="admin-challenge-logo-size" alt="Logo" />
+                                                <span class="delete"></span>                                                                                                                                                                                                     
+                                            }
+
+                                            else
+                                            {
+                                                <img class="admin-challenge-logo-size" src="~/Images/admin-create-challenge-logo.jpg" alt="" />
+                                                @*<span class="photoicon"></span>*@
+                                            }
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-md-offset-2 img-descr-size">
+                                            <h6 class="field-descr">Correct image size
+                                        is 139 x 139 pixels.</h6>
+                                        </div>
+                                        @* <div class="col-md-2 col-lg-2 col-md-offset-4 upload-image-button">
+                                                                        <div class="pull-right">
+                                                                            <input class="btn changeBtn custom-file-input" id="Photo" name="Photo" type="file" value="">
+                                                                            <label class="uploadphoto" for="Photo">Upload image</label>
+                                                                            <!-- <input type="submit" class="btn changeBtn" value="Upload image"> -->
+                                                                        </div>
+                                                                    </div>*@
+
+                                        <div class="col-md-2 col-lg-2 col-md-offset-4 change-image-button">
+                                            <div class="pull-right file-input-wrapper">
+                                                <button class="btn-file-input btn changeBtn">Change image</button>
+                                                <input type="file" name="LogoPhoto" id="photoUpload" class="btn changeBtn" value="Upload image" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-profile-image">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Profile images</label>
+                                        <div class="col-md-5 col-lg-5 admin-challenge-image-holder">
+
+                                            <div id="divPhoto1" class="imgbox-hover white-space-r-b">
+
+                                                @if (Model.ImageId1 == null)
+                                                {             
+                                                    <img class="admin-challenge-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo1" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.ImageId1)
+                                                    <img class="admin-challenge-images" src="@Url.Action("Upload", "General", new { id = Model.ImageId1 })" width="148" alt="" />
+                                                    <span class="delete1"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo1" name="ProfileImage" type="file" value="" />
+                                                }
+
+                                            </div>
+
+                                            <div  id="divPhoto2" class="imgbox-hover white-space-b">
+                                                @if (Model.ImageId2 == null)
+                                                {             
+                                                    <img class="admin-challenge-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo2" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.ImageId2)
+                                                    <img class="admin-challenge-images" src="@Url.Action("Upload", "General", new { id = Model.ImageId2 })" width="148" alt="" />
+                                                    <span class="delete2"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo2" name="ProfileImage" type="file" value="" />
+                                                }
+
+                                            </div>
+
+                                            <div  id="divPhoto3" class="imgbox-hover white-space">
+                                                @if (Model.ImageId3 == null)
+                                                {             
+                                                    <img class="admin-challenge-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo3" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.ImageId3)
+                                                    <img class="admin-challenge-images" src="@Url.Action("Upload", "General", new { id = Model.ImageId3 })" width="148" alt="" />
+                                                    <span class="delete3"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo3" name="ProfileImage" type="file" value="" />
+                                                }
+
+                                            </div>
+
+                                            <div  id="divPhoto4" class="imgbox-hover">
+                                                @if (Model.ImageId4 == null)
+                                                {             
+                                                    <img class="admin-challenge-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo4" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.ImageId4)
+                                                    <img class="admin-challenge-images" src="@Url.Action("Upload", "General", new { id = Model.ImageId4 })" width="148" alt="" />
+                                                    <span class="delete4"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo4" name="ProfileImage" type="file" value="" />
+                                                }
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Add up to four images. The images will appear in order of sequence from left (clockwise direction). Correct image size is 480 x 330 pixels.</h6>
+                                        </div>
+                                        @*<div class="col-md-offset-2 col-md-2 col-lg-2 upload-images-button">
+                                                                    <div class="pull-right">
+                                                                        <input type="submit" class="btn changeBtn" value="Upload images">
+                                                                    </div>
+                                                                </div>*@
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Images-->
+
+
+            <div class="container admin-challenges-settings">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>3. Settings</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group admin-challenge-challenge-type">
+                                <label class="col-md-3 col-lg-3 label-form" for="textinput">Select challenge type</label>
+                                <div class="col-md-5 col-lg-5">
+
+                                    @Html.DropDownListFor(m => m.ChallengeCategoryId, Model.CategorySelectList, "Select category type", new { @class = "empty custom-dropdown select-challenge-type", id = "ChallengeCategoryId", data_placeholder = "Select category" })
+                                    @Html.ValidationMessageFor(model => model.ChallengeCategoryId, "", new { @class = "text-danger" })
+                                    @* <select class="empty custom-dropdown select-challenge-type" id="ChallengeType" name="ChallengeType">
+                                                                <option value="" class="empty" selected="" disabled="">Select category type</option>
+                                                                <option>Take an action</option>
+                                                                <option>Make a pledge</option>
+                                                                <option>Learn and earn</option>
+                                                            </select>*@
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div id="divPromoCode" style="display:@(Model.ChallengeCategoryId == 1 ? "block" : "none");" class="form-group admin-challenge-promo-code">
+                                <label class="col-md-3 col-lg-3 label-form" for="textinput">Set promo code</label>
+                                <div class="col-md-5 col-lg-5">
+                                    @Html.TextBoxFor(model => model.PromoCode, new { @class = "form-control admin-challenge-set-promo-code admin-challenge-input-resizeW", placeholder = "e.g. recycleMore25" })
+                                    @Html.ValidationMessageFor(model => model.PromoCode)
+
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <h6 class="field-descr">Enter a unique code to automate the delivery of points upon completion of the challenge. 20 character limit.</h6>
+                                </div>
+                            </div>
+                            <div class="row p-redemptions-redeem">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div id="divArticle" style="display:@(Model.ChallengeCategoryId == 3 ? "block" : "none");" class="form-group admin-challenge-insert-article">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Insert article</label>
+                                        <div class="col-md-5 col-lg-5">
+
+                                            @Html.TextAreaFor(model => model.Article, new { @class = "admin-challenge-insert-article", rows = "20", cols = "40", placeholder = "Paste or type text in this field and use the text formating tools below." })
+                                            @Html.ValidationMessageFor(model => model.Article, "", new { @class = "text-danger" })
+                   
+                                            <label id="articleErrorRequired" style="color: #ff0000; padding: 1px; font-size:12px; margin: 0px 0px 0px 5px; display:none;" >This field is required for Learn and earn challenge category</label>
+                                             <label id="articleErrorLimit" style="color: #ff0000; padding: 1px; font-size:12px; margin: 0px 0px 0px 5px; display:none;" >3,000 character limit</label>
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">3,000 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-duration">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Duration </label>
+                                        <div class="col-md-5 col-lg-5 date-form">
+                                            <div class="form-horizontal">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        @Html.TextBoxFor(model => model.StartDate, new { @class = "date-picker form-control admin-challenge-date-pickers", @placeholder = "Start date", @Value = ((Model.StartDate != null) ? ((DateTime)Model.StartDate).ToString("dd/MM/yyyy") : null) })
+                                                        @* <input id="date-picker-1" type="text" class="date-picker form-control admin-challenge-date-pickers" placeholder="Start date" />*@
+                                                    </div>
+                                                    <label for="date-picker-1" class="control-label">
+                                                        <span class="calendar-dropdown-arrow arrow-l1"></span>
+
+                                                    </label>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        @Html.TextBoxFor(model => model.EndDate, new { @class = "date-picker form-control admin-challenge-date-pickers", @placeholder = "End date", @Value = ((Model.EndDate != null) ? ((DateTime)Model.EndDate).ToString("dd/MM/yyyy") : null) })
+                                                        @* <input id="date-picker-2" type="text" class="date-picker form-control admin-challenge-date-pickers" placeholder="End date"/>*@
+                                                    </div>
+                                                    <label for="date-picker-2" class="control-label">
+                                                        <span class="calendar-dropdown-arrow arrow-l2"></span>
+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                          @*  <h6 class="field-descr">Leave blank if you do not require a specific start or end date.
+                                            </h6>*@
+                                        </div>
+                                    </div>
+                                   <div id="divDurationInDays" class="form-group admin-chalenge-earn-amount">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Duration in days</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.DurationInDays, new {@class = "form-control challenge-number-of-points", placeholder = ""})
+                                            @Html.ValidationMessageFor(model => model.DurationInDays)
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr"></h6>
+                                        </div>
+                                    </div>
+                                    <div class="form-group admin-challenge-award">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Award points</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.DropDownListFor(m => m.AwardPointsOptionId, Model.AwardPointsSelectList, "Select when to award points", new { @class = "empty custom-dropdown admin-challenge-award-points", id = "AwardPointsOptionId", data_placeholder = "Select when to award points" })
+                                            @Html.ValidationMessageFor(model => model.AwardPointsOptionId, "", new { @class = "text-danger" })
+                                            @* <select class="empty custom-dropdown admin-challenge-award-points" id="AwardPoints" name="AwardPoints">
+                                                                        <option value="" class="empty" selected="" disabled="">Select when to award points</option>
+                                                                        <option>When participant reads article</option>
+                                                                        <option>On challenge end date (e.g. pledge)</option>
+                                                                        <option>When participant enters promo code (e.g. action)</option>
+                                                                    </select>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Set when you would you like points to be deposited into the participants account, e.g. on completion of the challenge or a specific end date.
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="form-group admin-challenge-participation">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Select participation frequency</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.DropDownListFor(m => m.ParticipationFrequencyId, Model.FrequencySelectList, "Select frequency", new { @class = "empty custom-dropdown admin-challenge-participation-frequency", id = "ParticipationFrequencyId" })
+                                            @Html.ValidationMessageFor(model => model.ParticipationFrequencyId, "", new { @class = "text-danger" })
+                                            @*<select class="empty custom-dropdown admin-challenge-participation-frequency" id="SelectParticipation" name="SelectParticipation">
+                                                                        <option value="" class="empty" selected="" disabled="">Select frequency</option>
+                                                                        <option>One time particpation, e.g. challenge disappears on completion.</option>
+                                                                        <option> Once a month, e.g. challenge only appears once a month.</option>
+                                                                        <option> Once a week, e.g. challenge only appears every 7 days.</option>
+                                                                        <option>No limit, e.g. endless particpiation.</option>
+                                                                    </select>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Decide how ofter users can participate in taking the action, e.g. once a week, once a month or as often as they like.
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Redemptions details -->
+            <div class="container admin-challenges-details-description">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>4. Challenge details</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-redemptions-redeem">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div id="divPurpose" class="form-group admin-challenge-description">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Description/purpose</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.Purpose, new { @class = "admin-challenge-insert-article", rows = "6", cols = "40", placeholder = "e.g. campaign background and purpose." })
+                                            @Html.ValidationMessageFor(model => model.Purpose)
+                                             <label id="purposeErrorLimit" style="color: #ff0000; padding: 1px; font-size:12px; margin: 0px 0px 0px 5px; display:none;" >300 character limit</label>
+                                            @*<textarea name="hours" id="hours" rows="6" cols="40" name="comment" maxlenght="300" class="description-purpose" placeholder="e.g. campaign background and purpose."></textarea>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave blank if not required, for example ‘learn and earn articles’.<br>
+                                                300 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div id="divInstructions" class="form-group admin-challenge-instructions-field">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Instructions</label>
+                                        <div class="col-md-5 col-lg-5">                                                
+                                                @Html.TextAreaFor(model => model.Instructions, new { @class = "admin-challenge-insert-article", rows = "6", cols = "40", placeholder = "Enter instructions on separate lines, e.g.\r\n1. Participate in challenge.\r\n2. Complete action to receive promo code.\r\n3. Enter promo code on claiming points." })
+                                                @Html.ValidationMessageFor(model => model.Instructions)
+                                             <label id="instructionsErrorLimit" style="color: #ff0000; padding: 1px; font-size:12px; margin: 0px 0px 0px 5px; display:none;" >300 character limit</label>
+                                                @* <textarea name="hours" id="hours" rows="6" cols="40" name="comment" maxlenght="300" class="admin-challenge-instructions" placeholder="e.g. campaign background and purpose."></textarea>*@
+                                            </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave blank if not applicable.
+                                                <br>
+                                                
+                                                300 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <div id="divTermsAndConditions" class="form-group admin-challenge-terms-conditions">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Terms and conditions</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.TermsAndConditions, new { @class = "admin-challenge-insert-article", rows = "5", cols = "40", placeholder = "Terms are optional, but may include:\r\n\u2022 Limit one per month.\r\n\u2022 Must attend event to receive code and points." })
+                                            @Html.ValidationMessageFor(model => model.TermsAndConditions)
+                                             <label id="termsErrorLimit" style="color: #ff0000; padding: 1px; font-size:12px; margin: 0px 0px 0px 5px; display:none;" >300 character limit</label>
+
+                                            @* <textarea name="" id="" rows="5" cols="40" name="" form="" maxlength="300" class="admin-challenge-terms">Terms are option, but may include:&#13;&#10;&#8226; Limit one per month.&#13;&#10;&#8226;  Must attend event to receive code and points.
+                                                                    </textarea>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave blank if not applicable.<br>
+                                                300 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div id="divLocation" class="form-group admin-challenge-location">
+
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Location</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control text-field admin-challenge-input-resizeW", placeholder = "Street address" })
+                                            @Html.ValidationMessageFor(model => model.StreetAddress)
+
+                                            @* <input type="text" name="street" id="street" required placeholder="Street address" class="form-control text-field admin-challenge-input-resizeW" value="">
+                                                                          <span id="street_validation" class="error"></span>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">This location will be displayed on your reward page and provided as a Google Maps location.</h6>
+                                        </div>
+                                        <div class="col-md-offset-3 col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.Suburb, new { @class = "form-control text-field admin-challenge-input-resizeW", placeholder = "Suburb/city" })
+                                            @Html.ValidationMessageFor(model => model.Suburb)
+
+                                            @* <input type="text" name="street" id="street" required placeholder="Suburb/city" class="form-control text-field admin-challenge-input-resizeW" value="">
+                                                                          <span id="street_validation" class="error"></span>*@
+                                        </div>
+                                        <div class="admin-challenge-name-field col-md-offset-3 col-md-2 col-lg-2">
+                                            @Html.DropDownListFor(model => model.State, Model.StatesSelectList, "State", new { @class = "empty custom-dropdown admin-challenge-select-state" })
+                                            @* <select class="empty custom-dropdown admin-challenge-select-state" data-val="true" data-val-required="The Select state field is required." id="SelectState" name="SelectState">
+                                                                                <option value="" class="empty" selected disabled>Select state</option>
+                                                                                <option>State 1</option>
+                                                                                <option>State 2</option>
+
+                                                                            </select>*@
+                                        </div>
+                                        <div class="admin-challenge-postcode admin-challenge-name-field col-md-2 col-lg-2">
+                                            @Html.TextBoxFor(model => model.Postcode, new { @class = "form-control text-field", placeholder = "Post code" })
+                                            @Html.ValidationMessageFor(model => model.Postcode)
+                                            @* <input type="text" name="postcode" id="postcode" required placeholder="Post code" class="form-control text-field" value="">
+                                                                            <span id="postcode_validation" class="error"></span>*@
+                                        </div>
+                                    </div>
+                                    <div id="divDateHoursTime" class="form-group admin-challenge-date-hours">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Date/hours/time</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.DateHoursTime, new { @class = "admin-challenge-hours", rows = "5", cols = "40", placeholder = "Enter specific date, hours or time on separate lines, e.g.\r\nMonday to Friday\r\n9am to 5pm" })
+                                            @Html.ValidationMessageFor(model => model.DateHoursTime)
+
+                                            @*<textarea name="DateHours" id="DateHours" rows="5" cols="40" maxlenght="300" class="admin-challenge-hours" placeholder="Enter specific date, hours or time on separate lines, e.g. Monday to Friday 9am to 5pm"></textarea>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave blank if not applicable.</h6>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group admin-challenge-contact-details">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Contact details for more information</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control text-field admin-challenge-input-resizeW", placeholder = "Email address" })
+                                            @Html.ValidationMessageFor(model => model.Email)
+                                            @* <input type="text" name="website" id="website" placeholder="Email address" class="form-control text-field admin-challenge-input-resizeW" value="">*@
+                                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control text-field admin-challenge-input-resizeW", placeholder = "Telephone number" })
+                                            @Html.ValidationMessageFor(model => model.Phone)
+
+                                            @*<input type="text" name="website" id="website" placeholder="Telephone number" class="form-control text-field admin-challenge-input-resizeW" value="">*@
+
+                                            @Html.TextBoxFor(model => model.Web, new { @class = "form-control text-field admin-challenge-input-resizeW", placeholder = "Web address" })
+                                            @Html.ValidationMessageFor(model => model.Web)
+
+                                            @*<input type="text" name="website" id="website" placeholder="Web address" class="form-control text-field admin-challenge-input-resizeW" value="">*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Leave blank if not applicable.</h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact details -->
+
+
+
+
+            <div class="container admin-challenges-notifications">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>5. Notifications</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-revard-owner">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-email-toggle">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Send email notifications each time a participant joins</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+                                                <div class="challenge-send-email-notif-toggle">
+                                                    @Html.CheckBoxFor(model => model.SendEmailNotifications, new { @id = "ch-email-toggleThree" })
+                                                    @*  <input type="checkbox" id="ch-email-toggleThree" />*@
+                                                    <label for="ch-email-toggleThree">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+                                                <!-- /toggle -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-3 col-md-4 col-lg-4">
+                                            <h6 class="field-descr">You can be notified by email each time a participant joins or completes a challenge.</h6>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-send-emails">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Send emails to</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.DropDownListFor(model => model.SendEmailTo, Model.EmailsSelectList, new { @class = "empty custom-dropdown admin-challenge-send-emails" })
+
+                                            @*   empty custom-dropdown admin-challenge-send-emails*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Only admin users can receive email notifications.</h6>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings and notifications -->
+
+            <div class="container admin-challenges-finalise">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>6. Finalise and display</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-finalise-steps">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group admin-challenge-toggle-display-page">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Display page</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+
+                                                <div class="admin-challenge-display-page-toggle">
+
+                                                    @* <input type="checkbox" id="ch-toggleThree" />*@
+                                                    @Html.CheckBoxFor(model => model.Display, new { id = "ch-toggleThree", name = "ch-toggleThree" })
+                                                    <label for="ch-toggleThree">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+                                                <!-- /toggle -->
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-3 col-md-4 col-lg-4">
+                                            <h6 class="field-descr">The challenge page will be added and displayed once you have chosen ‘yes’.</h6>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    @*<div class="form-group admin-challenge-share">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Share</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <input type="submit" class="btn changeBtn" value="Copy link">
+                                        </div>
+                                    </div>*@
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-save-bar">
+                                        <div class="row">
+                                            <div class="col-md-5 col-lg-5">
+                                                <button type="button" id="cancelActionTrigger" class="btn skipBtn">Cancel</button>
+                                                @* <button type="submit" action="" class="btn skipBtn">Cancel</button>*@
+                                            </div>
+                                            <div class="col-md-7 col-lg-7 no-border pull-right">
+                                                @*  <button type="submit" action="" class="btn check-outBtn pull-right">Save and exit</button>*@
+                                                <input type="submit" name="saveAndExitButton" value="Save and exit" class="btn check-outBtn pull-right" />
+
+                                                <div class="dropdown">
+                                                  @*  <input type="submit" id="saveAndPreviewButton" name="saveAndPreviewButton" value="Save and preview"  class="btn check-outBtn pull-right" />*@
+                                                    @* <button type="button" action="" class="btn continueShoppingBtn" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                                                    Save and preview
+                                                                                    <span class="btn-dropdown"></span>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu reward-create" role="menu" aria-labelledby="dropdownMenu1">
+                                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Preview reward page</a></li>
+                                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Preview voucher</a></li>
+                                                                                </ul>*@
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finalise and display -->
+
+        </div>
+    </div>
+    <!-- *************** Cancel page popup -->
+    <div id="cancel-page-popup" class="popup">
+        <div class="popup-body">
+            <span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Are you sure?</h2>
+                <hr>
+                <p class="popup-subtitle">You’re about to cancel and not save, are you sure you want to do that?</p>
+                <a id="cancelEditChallenge" class="btn popupBtn">Save page before closing</a>
+                <a class="btn popupBtnCancel">Don’t save</a>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @* @Scripts.Render("~/bundles/jqueryval")*@
+    @*    <script src="~/Scripts/jQueryCore/jquery-1.11.2.min.js"></script>
+
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>*@
+    @*  <script src="~/Scripts/jQueryPlugins/bootstrap.min.js"></script>*@
+    @* <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>*@
+
+    <script src="~/Scripts/tiny_mce/tiny_mce.js"></script>
+
+    <script type="text/javascript">
+        function getStats(Purpose) {
+            var body = tinymce.get(Purpose).getBody(), text = tinymce.trim(body.innerText || body.textContent);
+
+            return {
+                chars: text.length,
+                words: text.split(/[\w\u2019\'-]+/).length
+            };
+        }
+
+
+        function validate(thisform) {
+            with (thisform) {
+                var isValid = true;
+
+                if ($("#ChallengeCategoryId").val() == "3" && getStats('Article').chars == 0) {
+                    $('#articleErrorRequired').css("display", "block");
+                    Article.focus();
+                    isValid = false;
+                }
+                else {
+                    $('#articleErrorRequired').css("display", "none");
+                }
+                if ($("#ChallengeCategoryId").val() == "3" && getStats('Article').chars > 3000) {
+
+                    $('#articleErrorLimit').css("display", "block");
+                    Article.focus();
+                    isValid = false;
+                }
+                else {
+                    $('#articleErrorLimit').css("display", "none");
+                }
+
+                if (getStats('Purpose').chars > 300) {
+                    $('#purposeErrorLimit').css("display", "block");
+                    Purpose.focus();
+                    isValid = false;
+                }
+                else {
+                    $('#purposeErrorLimit').css("display", "none");
+                }
+
+                if (getStats('Instructions').chars > 300) {
+                    $('#instructionsErrorLimit').css("display", "block");
+                    Instructions.focus();
+                    isValid = false;
+                }
+                else {
+                    $('#instructionsErrorLimit').css("display", "none");
+                }
+
+                if (getStats('TermsAndConditions').chars > 300) {
+                    $('#termsErrorLimit').css("display", "block");
+                    TermsAndConditions.focus();
+                    isValid = false;
+                }
+                else {
+                    $('#termsErrorLimit').css("display", "none");
+                }
+
+
+                return isValid;
+            }
+        };
+
+        $('#challengeSubmit').validate({
+            errorClass: "invalid",
+            rules: {
+                Name: {
+                    required: true
+                },
+                //Instructions: {
+                //    maxlength: 300
+                //},
+                //TermsAndConditions: {
+                //    maxlength: 300
+                //},
+                EarnAmount: {
+                    required: function (element) {
+                        return $('#ch-toggleThree').is(':checked')
+                    },
+                    maxlength: 100
+                },
+                About: {
+                    required: function (element) {
+                        return $('#ch-toggleThree').is(':checked')
+                    },
+                    maxlength: 200
+                },
+                Points: {
+                    required: function (element) {
+                        return $('#ch-toggleThree').is(':checked')
+                    },
+                    digits: true
+                },
+
+                PromoCode: {
+                    required: function (element5) {
+                        return ($("#ChallengeCategoryId").val() == "1")
+                    },
+                    maxlength: 20
+                },
+                EndDate: {
+                    required: function (element) {
+                        return ($("#ChallengeCategoryId").val() == "2" && $("#AwardPointsOptionId").val() == "2")
+                    }
+                },
+
+                DurationInDays: {
+                    digits: true
+                },
+
+                ChallengeCategoryId: {
+                    required: function (element) {
+                        return $('#ch-toggleThree').is(':checked')
+                    }
+                },
+                AwardPointsOptionId: {
+                    required: function (element2) {
+                        return $('#ch-toggleThree').is(':checked')
+                    }
+                },
+                ParticipationFrequencyId: {
+                    required: function (element3) {
+                        return $('#ch-toggleThree').is(':checked')
+                    }
+                }
+            },
+            messages: {
+                Name: "Name field is required",
+                EarnAmount: {
+                    required: "Earn description field is required",
+                    maxlength: "This field is limited to 100 characters"
+                },
+                About: {
+                    required: "Short grab/about field is required",
+                    maxlength: "This field is limited to 200 characters"
+                },
+                Points: "Points field is required and must be a number",
+                //Instructions: "This field is limited to 300 characters",
+                //TermsAndConditions: "This field is limited to 300 characters",
+                EndDate: "This field is required",
+                DurationInDays: "This field must be a number",
+                PromoCode: {
+                    required: "This field is required",
+                    maxlength: "This field is limited to 20 characters"
+                }
+            }
+
+        })
+
+
+
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="mobile-redeem-tooltip"]').tooltip();
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".date-picker").datepicker({
+
+                dateFormat: 'dd/mm/yy'
+            });
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+            });
+
+            if ($("#ChallengeCategoryId").val() == "3") {
+                $('#divArticle').css("display", "block");
+                $('#divPurpose').css("display", "none");
+                $('#divInstructions').css("display", "none");
+                $('#divTermsAndConditions').css("display", "none");
+                $('#divLocation').css("display", "none");
+                $('#divDateHoursTime').css("display", "none");
+            }
+            else {
+                $('#divArticle').css("display", "none");
+                $('#divPurpose').css("display", "block");
+                $('#divInstructions').css("display", "block");
+                $('#divTermsAndConditions').css("display", "block");
+                $('#divLocation').css("display", "block");
+                $('#divDateHoursTime').css("display", "block");
+
+            }
+
+            if ($("#ChallengeCategoryId").val() == "2") {
+                $('#divDurationInDays').css("display", "block");
+            }
+            else {
+                $('#divDurationInDays').css("display", "none");
+            }
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $("#cancelActionTrigger").on("click", function () {
+            $("#cancel-page-popup").addClass("visible");
+        });
+        $(".popupBtnCancel").on("click", function () {
+            $("#cancel-page-popup").removeClass("visible");
+            window.location.href = '/ChallengesAdmin/Index';
+        });
+        $("#cancelEditChallenge").on("click", function () {
+            $("#challengeSubmit").submit();
+            $("#cancel-page-popup").removeClass("visible");            
+        });
+
+
+
+
+        tinyMCE.init({
+            mode: 'textareas',
+            width: '300',
+            height: '400',
+            editor_selector: 'admin-challenge-insert-article',
+            style_formats: [
+           { title: 'Normal text', styles: { color: '#BBBDBF' } }
+            ],
+            theme: 'advanced',
+            theme_advanced_buttons1: 'formatselect, italic,bold,bullist,numlist',
+            theme_advanced_buttons2: '',
+            theme_advanced_buttons3: '',
+            theme_advanced_blockformats: 'h2,h3,h4,h5',
+            plugins: "paste",
+            paste_text_sticky: true,
+            setup: function (ed) {
+                ed.onInit.add(function (ed) {
+                    ed.pasteAsPlainText = true;
+                });
+            },
+            oninit: "postInitWork"
+        });
+
+        tinyMCE.init({
+            mode: 'textareas',
+            width: '300',
+            height: '200',
+            editor_selector: 'admin-challenge-terms',
+            style_formats: [
+           { title: 'Normal text', styles: { color: '#BBBDBF' } }
+            ],
+            theme: 'advanced',
+            theme_advanced_buttons1: 'formatselect, italic,bold,bullist,numlist',
+            theme_advanced_buttons2: '',
+            theme_advanced_buttons3: '',
+            theme_advanced_blockformats: 'h2,h3,h4,h5',
+            plugins: "paste",
+            paste_text_sticky: true,
+            setup: function (ed) {
+                ed.onInit.add(function (ed) {
+                    ed.pasteAsPlainText = true;
+                });
+            },
+            oninit: "postInitWork"
+        });
+
+        tinyMCE.init({
+            mode: 'specific_textareas',
+            editor_selector: 'fullhtmleditor',
+            plugins: "autoresize",
+            theme: 'advanced',
+            theme_advanced_buttons1: 'code, bold,italic,underline,strikethrough,separator,undo,redo,separator,bullist,numlist,separator,outdent,indent,separator,formatselect',
+            theme_advanced_buttons2: '',
+            theme_advanced_buttons3: '',
+            theme_advanced_blockformats: 'h2,h3,h4,h5',
+            plugins: "paste",
+            paste_text_sticky: true,
+            setup: function (ed) {
+                ed.onInit.add(function (ed) {
+                    ed.pasteAsPlainText = true;
+                });
+            }
+        });
+        function postInitWork() {
+            var editor = tinyMCE.getInstanceById('Article');
+
+            editor.getBody().style.backgroundColor = "#f3f3f4";
+            editor.getBody().style.color = "#BBBDBF";
+            editor.getBody().style.padding = "9px";
+            editor.getBody().style.border = "none";
+            //editor.getBody().style.fontFamily = "Oxygen";
+            //editor.getBody().style.fontName = "Oxygen";
+            editor.getBody().style.fontSize = "12px";
+            editor.getBody().style.fontWeight = "300";
+            editor.getBody().style.lineHeight = "1.4";
+
+            var editor2 = tinyMCE.getInstanceById('Purpose');
+            editor2.getBody().style.backgroundColor = "#f3f3f4";
+            editor2.getBody().style.color = "#BBBDBF";
+            editor2.getBody().style.padding = "9px";
+            editor2.getBody().style.border = "none";
+            //editor2.getBody().style.fontFamily = "Oxygen";
+            //editor2.getBody().style.fontName = "Oxygen";
+            editor2.getBody().style.fontSize = "12px";
+            editor2.getBody().style.fontWeight = "300";
+            editor2.getBody().style.lineHeight = "1.4";
+
+
+            var editor3 = tinyMCE.getInstanceById('Instructions');
+            editor3.getBody().style.backgroundColor = "#f3f3f4";
+            editor3.getBody().style.color = "#BBBDBF";
+            editor3.getBody().style.padding = "9px";
+            editor3.getBody().style.border = "none";
+            //editor2.getBody().style.fontFamily = "Oxygen";
+            //editor2.getBody().style.fontName = "Oxygen";
+            editor3.getBody().style.fontSize = "12px";
+            editor3.getBody().style.fontWeight = "300";
+            editor3.getBody().style.lineHeight = "1.4";
+
+            var editor4 = tinyMCE.getInstanceById('TermsAndConditions');
+            editor4.getBody().style.backgroundColor = "#f3f3f4";
+            editor4.getBody().style.color = "#BBBDBF";
+            editor4.getBody().style.padding = "9px";
+            editor4.getBody().style.border = "none";
+            //editor2.getBody().style.fontFamily = "Oxygen";
+            //editor2.getBody().style.fontName = "Oxygen";
+            editor4.getBody().style.fontSize = "12px";
+            editor4.getBody().style.fontWeight = "300";
+            editor4.getBody().style.lineHeight = "1.4";
+            
+        }
+    </script>
+    <script>
+
+        $('input').focus(function () {
+            $(this).data('placeholder', $(this).attr('placeholder'))
+            $(this).attr('placeholder', '');
+        });
+        $('input').blur(function () {
+            $(this).attr('placeholder', $(this).data('placeholder'));
+        });
+    </script>
+    <script type="text/javascript">
+        $("#ChallengeCategoryId").bind("change", function () {
+
+            if ($("#ChallengeCategoryId").val() == "1")
+            { $('#divPromoCode').css("display", "block"); }
+            else
+            { $('#divPromoCode').css("display", "none"); }
+
+            if ($("#ChallengeCategoryId").val() == "3")
+            {
+                $('#divArticle').css("display", "block");
+                $('#divPurpose').css("display", "none");
+                $('#divInstructions').css("display", "none");
+                $('#divTermsAndConditions').css("display", "none");
+                $('#divLocation').css("display", "none");
+                $('#divDateHoursTime').css("display", "none");
+            }
+            else
+            {
+                $('#divArticle').css("display", "none");
+                $('#divPurpose').css("display", "block");
+                $('#divInstructions').css("display", "block");
+                $('#divTermsAndConditions').css("display", "block");
+                $('#divLocation').css("display", "block");
+                $('#divDateHoursTime').css("display", "block");
+              
+            }
+
+
+            if ($("#ChallengeCategoryId").val() == "2") {
+                $('#divDurationInDays').css("display", "block");
+            }
+            else {
+                $('#divDurationInDays').css("display", "none");
+            }
+        });
+    </script>
+
+}
+<style type="text/css">
+    .p-profile-images .admin-challenge-images
+    {
+        height: 100px;
+        width: 148px;
+    }
+
+    .p-profile-images .admin-challenge-imagebox
+    {
+        height: 100px;
+        width: 148px;
+    }
+
+    #photoUpload
+    {
+        height: 40px;
+    }
+</style>

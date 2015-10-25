@@ -1,0 +1,39 @@
+E:\GM new\GM SOLUTION\gm6\GM.Models\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.Models\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Models\obj\Release\GM.Models.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.Models\obj\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\AgataGMResolved\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\AgataGMResolved\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\AgataGMResolved\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\AgataGMResolved\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150602\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150602\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150602\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150602\GM.Models\obj\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Models\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Models\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Models\obj\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.Models\obj\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.Models\obj\Release\GM.Models.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150702\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150702\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150702\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150702\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150713\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150713\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.Models\obj\Release\GM.Models.csprojResolveAssemblyReference.cache
+C:\Aplikacije\GreenMoneyWeb\GM.Models\bin\Release\GM.Models.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Models\bin\Release\GM.Models.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.Models\obj\Release\GM.Models.dll
+C:\Aplikacije\GreenMoneyWeb\GM.Models\obj\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Models\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150730\GM.Models\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150730\GM.Models\obj\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150730\GM.Models\obj\Release\GM.Models.pdb

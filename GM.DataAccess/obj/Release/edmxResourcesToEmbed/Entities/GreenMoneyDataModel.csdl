@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="greenMoneyModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="greenMoneyEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="C__MigrationHistory" EntityType="greenMoneyModel.C__MigrationHistory" />
+    <EntitySet Name="Applications" EntityType="greenMoneyModel.Applications" />
+    <EntitySet Name="Memberships" EntityType="greenMoneyModel.Memberships" />
+    <EntitySet Name="Profiles" EntityType="greenMoneyModel.Profiles" />
+    <EntitySet Name="Roles" EntityType="greenMoneyModel.Roles" />
+    <EntitySet Name="Users" EntityType="greenMoneyModel.Users" />
+    <EntitySet Name="Addresses" EntityType="greenMoneyModel.Addresses" />
+    <EntitySet Name="CartItems" EntityType="greenMoneyModel.CartItems" />
+    <EntitySet Name="CMS" EntityType="greenMoneyModel.CMS" />
+    <EntitySet Name="Instance" EntityType="greenMoneyModel.Instance" />
+    <EntitySet Name="InterestedPeople" EntityType="greenMoneyModel.InterestedPeople" />
+    <EntitySet Name="InvitedNeighbours" EntityType="greenMoneyModel.InvitedNeighbours" />
+    <EntitySet Name="InvitedUsers" EntityType="greenMoneyModel.InvitedUsers" />
+    <EntitySet Name="LoginToken" EntityType="greenMoneyModel.LoginToken" />
+    <EntitySet Name="Pages" EntityType="greenMoneyModel.Pages" />
+    <EntitySet Name="Resources" EntityType="greenMoneyModel.Resources" />
+    <EntitySet Name="ResourceTypes" EntityType="greenMoneyModel.ResourceTypes" />
+    <EntitySet Name="RewardCategories" EntityType="greenMoneyModel.RewardCategories" />
+    <EntitySet Name="Rewards" EntityType="greenMoneyModel.Rewards" />
+    <EntitySet Name="Sections" EntityType="greenMoneyModel.Sections" />
+    <EntitySet Name="Transactions" EntityType="greenMoneyModel.Transactions" />
+    <EntitySet Name="Uploads" EntityType="greenMoneyModel.Uploads" />
+    <EntitySet Name="Users1" EntityType="greenMoneyModel.Users1" />
+    <EntitySet Name="UserToken" EntityType="greenMoneyModel.UserToken" />
+    <EntitySet Name="Vouchers" EntityType="greenMoneyModel.Vouchers" />
+    <EntitySet Name="AwardPointsOptions" EntityType="greenMoneyModel.AwardPointsOptions" />
+    <EntitySet Name="ChallengeCategories" EntityType="greenMoneyModel.ChallengeCategories" />
+    <EntitySet Name="Challenges" EntityType="greenMoneyModel.Challenges" />
+    <EntitySet Name="LocationOptions" EntityType="greenMoneyModel.LocationOptions" />
+    <EntitySet Name="ParticipationFrequency" EntityType="greenMoneyModel.ParticipationFrequency" />
+    <EntitySet Name="UserChallenges" EntityType="greenMoneyModel.UserChallenges" />
+    <AssociationSet Name="FK_Challenges_AwardPointsOptions" Association="greenMoneyModel.FK_Challenges_AwardPointsOptions">
+      <End Role="AwardPointsOptions" EntitySet="AwardPointsOptions" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_ChallengeCateogories" Association="greenMoneyModel.FK_Challenges_ChallengeCateogories">
+      <End Role="ChallengeCategories" EntitySet="ChallengeCategories" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_Instance" Association="greenMoneyModel.FK_Challenges_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_LocationOptions" Association="greenMoneyModel.FK_Challenges_LocationOptions">
+      <End Role="LocationOptions" EntitySet="LocationOptions" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_ParticipationFrequency" Association="greenMoneyModel.FK_Challenges_ParticipationFrequency">
+      <End Role="ParticipationFrequency" EntitySet="ParticipationFrequency" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChallenges_Challenges" Association="greenMoneyModel.FK_UserChallenges_Challenges">
+      <End Role="Challenges" EntitySet="Challenges" />
+      <End Role="UserChallenges" EntitySet="UserChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Challenges_Users" Association="greenMoneyModel.FK_Challenges_Users">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Challenges" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipApplication" Association="greenMoneyModel.MembershipApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="RoleApplication" Association="greenMoneyModel.RoleApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserApplication" Association="greenMoneyModel.UserApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipUser" Association="greenMoneyModel.MembershipUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="UserProfile" Association="greenMoneyModel.UserProfile">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Profiles" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_dbo_Users_Id" Association="greenMoneyModel.FK_gm_Users_dbo_Users_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_Instance" Association="greenMoneyModel.FK_Addresses_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Transactions_gm_Addresses_Address_Id" Association="greenMoneyModel.FK_gm_Transactions_gm_Addresses_Address_Id">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_gm_Addresses_Address_Id" Association="greenMoneyModel.FK_gm_Users_gm_Addresses_Address_Id">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_CartItems_gm_Rewards_Reward_Id" Association="greenMoneyModel.FK_gm_CartItems_gm_Rewards_Reward_Id">
+      <End Role="Rewards" EntitySet="Rewards" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_CartItems_gm_Users_User_Id" Association="greenMoneyModel.FK_gm_CartItems_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rewards_Instance" Association="greenMoneyModel.FK_Rewards_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Instance" Association="greenMoneyModel.FK_Users_Instance">
+      <End Role="Instance" EntitySet="Instance" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Pages_gm_Sections_Section_Id" Association="greenMoneyModel.FK_gm_Pages_gm_Sections_Section_Id">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Pages" EntitySet="Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Resources_gm_Pages_Page_Id" Association="greenMoneyModel.FK_gm_Resources_gm_Pages_Page_Id">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="Resources" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Resources_gm_ResourceTypes_ResourceType_Id" Association="greenMoneyModel.FK_gm_Resources_gm_ResourceTypes_ResourceType_Id">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="Resources" EntitySet="Resources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_RewardCategories_CategoryId" Association="greenMoneyModel.FK_gm_Rewards_gm_RewardCategories_CategoryId">
+      <End Role="RewardCategories" EntitySet="RewardCategories" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageHomeId" Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageHomeId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageId" Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_ImageSmallId" Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageSmallId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Uploads_VoucherBarcodeId" Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_VoucherBarcodeId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Rewards_gm_Users_Owner_Id" Association="greenMoneyModel.FK_gm_Rewards_gm_Users_Owner_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Rewards" EntitySet="Rewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Vouchers_gm_Rewards_Reward_Id" Association="greenMoneyModel.FK_gm_Vouchers_gm_Rewards_Reward_Id">
+      <End Role="Rewards" EntitySet="Rewards" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Transactions_gm_Users_User_Id" Association="greenMoneyModel.FK_gm_Transactions_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Uploads_gm_Users_UploadedBy_Id" Association="greenMoneyModel.FK_gm_Uploads_gm_Users_UploadedBy_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Uploads" EntitySet="Uploads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Users_gm_Uploads_PhotoId" Association="greenMoneyModel.FK_gm_Users_gm_Uploads_PhotoId">
+      <End Role="Uploads" EntitySet="Uploads" />
+      <End Role="Users1" EntitySet="Users1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gm_Vouchers_gm_Users_User_Id" Association="greenMoneyModel.FK_gm_Vouchers_gm_Users_User_Id">
+      <End Role="Users1" EntitySet="Users1" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoles" Association="greenMoneyModel.UsersInRoles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="235" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Memberships" Relationship="greenMoneyModel.MembershipApplication" FromRole="Applications" ToRole="Memberships" />
+    <NavigationProperty Name="Roles" Relationship="greenMoneyModel.RoleApplication" FromRole="Applications" ToRole="Roles" />
+    <NavigationProperty Name="Users" Relationship="greenMoneyModel.UserApplication" FromRole="Applications" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Memberships">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowsStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Applications" Relationship="greenMoneyModel.MembershipApplication" FromRole="Memberships" ToRole="Applications" />
+    <NavigationProperty Name="Users" Relationship="greenMoneyModel.MembershipUser" FromRole="Memberships" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValueStrings" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValueBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="greenMoneyModel.UserProfile" FromRole="Profiles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Applications" Relationship="greenMoneyModel.RoleApplication" FromRole="Roles" ToRole="Applications" />
+    <NavigationProperty Name="Users" Relationship="greenMoneyModel.UsersInRoles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Applications" Relationship="greenMoneyModel.UserApplication" FromRole="Users" ToRole="Applications" />
+    <NavigationProperty Name="Memberships" Relationship="greenMoneyModel.MembershipUser" FromRole="Users" ToRole="Memberships" />
+    <NavigationProperty Name="Profiles" Relationship="greenMoneyModel.UserProfile" FromRole="Users" ToRole="Profiles" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Users_dbo_Users_Id" FromRole="Users" ToRole="Users1" />
+    <NavigationProperty Name="Roles" Relationship="greenMoneyModel.UsersInRoles" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StreetName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StreetType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Suburb" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+    <Property Name="Postcode" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="UnitNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Instance_Id" Type="Int32" />
+    <NavigationProperty Name="Instance" Relationship="greenMoneyModel.FK_Addresses_Instance" FromRole="Addresses" ToRole="Instance" />
+    <NavigationProperty Name="Transactions" Relationship="greenMoneyModel.FK_gm_Transactions_gm_Addresses_Address_Id" FromRole="Addresses" ToRole="Transactions" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Users_gm_Addresses_Address_Id" FromRole="Addresses" ToRole="Users1" />
+  </EntityType>
+  <EntityType Name="CartItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="Guid" Nullable="false" />
+    <Property Name="Reward_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_gm_CartItems_gm_Rewards_Reward_Id" FromRole="CartItems" ToRole="Rewards" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_CartItems_gm_Users_User_Id" FromRole="CartItems" ToRole="Users1" />
+  </EntityType>
+  <EntityType Name="CMS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="HTML" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Section" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Instance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Url" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="order" Type="Int32" Nullable="false" />
+    <Property Name="postcodes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Photo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ImageId" Type="Int32" />
+    <NavigationProperty Name="Addresses" Relationship="greenMoneyModel.FK_Addresses_Instance" FromRole="Instance" ToRole="Addresses" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_Rewards_Instance" FromRole="Instance" ToRole="Rewards" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_Users_Instance" FromRole="Instance" ToRole="Users1" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_Challenges_Instance" FromRole="Instance" ToRole="Challenges" />
+    <Property Type="Int32" Name="LogoImageId" />
+  </EntityType>
+  <EntityType Name="InterestedPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StreetName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StreetType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Suburb" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+    <Property Name="Postcode" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FreeStandingHome" Type="Boolean" Nullable="false" />
+    <Property Name="HasRfidTag" Type="Boolean" />
+    <Property Name="SendEmailOffers" Type="Boolean" Nullable="false" />
+    <Property Name="SendEmailUpdates" Type="Boolean" Nullable="false" />
+    <Property Name="UnitNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="InvitedNeighbours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="User_Id" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="InvitedUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="User_Id" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="EmailAccountUpdates" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginToken">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Token" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Label" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="URLValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Hidden" Type="Boolean" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Section_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sections" Relationship="greenMoneyModel.FK_gm_Pages_gm_Sections_Section_Id" FromRole="Pages" ToRole="Sections" />
+    <NavigationProperty Name="Resources" Relationship="greenMoneyModel.FK_gm_Resources_gm_Pages_Page_Id" FromRole="Pages" ToRole="Resources" />
+  </EntityType>
+  <EntityType Name="Resources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Value" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Page_Id" Type="Int32" />
+    <Property Name="ResourceType_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pages" Relationship="greenMoneyModel.FK_gm_Resources_gm_Pages_Page_Id" FromRole="Resources" ToRole="Pages" />
+    <NavigationProperty Name="ResourceTypes" Relationship="greenMoneyModel.FK_gm_Resources_gm_ResourceTypes_ResourceType_Id" FromRole="Resources" ToRole="ResourceTypes" />
+  </EntityType>
+  <EntityType Name="ResourceTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Resources" Relationship="greenMoneyModel.FK_gm_Resources_gm_ResourceTypes_ResourceType_Id" FromRole="ResourceTypes" ToRole="Resources" />
+  </EntityType>
+  <EntityType Name="RewardCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Slug" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ImageId" Type="Int32" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_gm_Rewards_gm_RewardCategories_CategoryId" FromRole="RewardCategories" ToRole="Rewards" />
+  </EntityType>
+  <EntityType Name="Rewards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Display" Type="Boolean" Nullable="false" />
+    <Property Name="AvailableFrom" Type="DateTime" Precision="3" />
+    <Property Name="AvailableTo" Type="DateTime" Precision="3" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PartnerName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerLocation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerHours" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerPhone" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerEmail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PartnerDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Int64" Nullable="false" />
+    <Property Name="TermsAndConditions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Faq" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="HowToRedeem" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Precision="3" />
+    <Property Name="Popularity" Type="Int32" Nullable="false" />
+    <Property Name="ImageId" Type="Int32" />
+    <Property Name="ImageSmallId" Type="Int32" />
+    <Property Name="VoucherBarcodeId" Type="Int32" />
+    <Property Name="ImageHomeId" Type="Int32" />
+    <Property Name="DollarPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="M" Type="Boolean" Nullable="false" />
+    <Property Name="NotifyOnRedeem" Type="Boolean" Nullable="false" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Owner_Id" Type="Guid" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Mobile" Type="Boolean" />
+    <Property Name="Instructions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Instance_Id" Type="Int32" Nullable="false" />
+    <Property Name="Image1Id" Type="Int32" />
+    <Property Name="Image2Id" Type="Int32" />
+    <Property Name="Image3Id" Type="Int32" />
+    <Property Name="Image4Id" Type="Int32" />
+    <NavigationProperty Name="CartItems" Relationship="greenMoneyModel.FK_gm_CartItems_gm_Rewards_Reward_Id" FromRole="Rewards" ToRole="CartItems" />
+    <NavigationProperty Name="Instance" Relationship="greenMoneyModel.FK_Rewards_Instance" FromRole="Rewards" ToRole="Instance" />
+    <NavigationProperty Name="RewardCategories" Relationship="greenMoneyModel.FK_gm_Rewards_gm_RewardCategories_CategoryId" FromRole="Rewards" ToRole="RewardCategories" />
+    <NavigationProperty Name="Uploads" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageHomeId" FromRole="Rewards" ToRole="Uploads" />
+    <NavigationProperty Name="Uploads1" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageId" FromRole="Rewards" ToRole="Uploads" />
+    <NavigationProperty Name="Uploads2" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageSmallId" FromRole="Rewards" ToRole="Uploads" />
+    <NavigationProperty Name="Uploads3" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_VoucherBarcodeId" FromRole="Rewards" ToRole="Uploads" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Users_Owner_Id" FromRole="Rewards" ToRole="Users1" />
+    <NavigationProperty Name="Vouchers" Relationship="greenMoneyModel.FK_gm_Vouchers_gm_Rewards_Reward_Id" FromRole="Rewards" ToRole="Vouchers" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Label" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="URLValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Hidden" Type="Boolean" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pages" Relationship="greenMoneyModel.FK_gm_Pages_gm_Sections_Section_Id" FromRole="Sections" ToRole="Pages" />
+    <Property Type="Int32" Name="Instance_Id" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Points" Type="Int64" Nullable="false" />
+    <Property Name="Address_Id" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="Guid" />
+    <NavigationProperty Name="Addresses" Relationship="greenMoneyModel.FK_gm_Transactions_gm_Addresses_Address_Id" FromRole="Transactions" ToRole="Addresses" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Transactions_gm_Users_User_Id" FromRole="Transactions" ToRole="Users1" />
+    <Property Name="TransactionTypeID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Uploads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ContentType" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Contents" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="UploadedBy_Id" Type="Guid" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageHomeId" FromRole="Uploads" ToRole="Rewards" />
+    <NavigationProperty Name="Rewards1" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageId" FromRole="Uploads" ToRole="Rewards" />
+    <NavigationProperty Name="Rewards2" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageSmallId" FromRole="Uploads" ToRole="Rewards" />
+    <NavigationProperty Name="Rewards3" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Uploads_VoucherBarcodeId" FromRole="Uploads" ToRole="Rewards" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Uploads_gm_Users_UploadedBy_Id" FromRole="Uploads" ToRole="Users1" />
+    <NavigationProperty Name="Users11" Relationship="greenMoneyModel.FK_gm_Users_gm_Uploads_PhotoId" FromRole="Uploads" ToRole="Users1" />
+  </EntityType>
+  <EntityType Name="Users1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SendEmailOffers" Type="Boolean" Nullable="false" />
+    <Property Name="SendEmailUpdates" Type="Boolean" Nullable="false" />
+    <Property Name="Address_Id" Type="Int32" Nullable="false" />
+    <Property Name="IsFBAccount" Type="Boolean" Nullable="false" />
+    <Property Name="FBUserId" Type="Int64" />
+    <Property Name="IsAdditionalAccountHolder" Type="Boolean" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="PhotoID" Type="Int32" />
+    <Property Name="PushNotifications" Type="Boolean" Nullable="false" />
+    <Property Name="Instance_Id" Type="Int32" Nullable="false" />
+    <Property Name="BusinessName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BusinessNumberABN" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BusinessType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesWebSite" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesEmail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesPhone" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesPhoneArea" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesPhoneMobile" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BussinesLocation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EmailBussinesOnVoucherRedeem" Type="Boolean" />
+    <Property Name="PostToFacebook" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="greenMoneyModel.FK_gm_Users_dbo_Users_Id" FromRole="Users1" ToRole="Users" />
+    <NavigationProperty Name="Addresses" Relationship="greenMoneyModel.FK_gm_Users_gm_Addresses_Address_Id" FromRole="Users1" ToRole="Addresses" />
+    <NavigationProperty Name="CartItems" Relationship="greenMoneyModel.FK_gm_CartItems_gm_Users_User_Id" FromRole="Users1" ToRole="CartItems" />
+    <NavigationProperty Name="Instance" Relationship="greenMoneyModel.FK_Users_Instance" FromRole="Users1" ToRole="Instance" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_gm_Rewards_gm_Users_Owner_Id" FromRole="Users1" ToRole="Rewards" />
+    <NavigationProperty Name="Transactions" Relationship="greenMoneyModel.FK_gm_Transactions_gm_Users_User_Id" FromRole="Users1" ToRole="Transactions" />
+    <NavigationProperty Name="Uploads" Relationship="greenMoneyModel.FK_gm_Uploads_gm_Users_UploadedBy_Id" FromRole="Users1" ToRole="Uploads" />
+    <NavigationProperty Name="Uploads1" Relationship="greenMoneyModel.FK_gm_Users_gm_Uploads_PhotoId" FromRole="Users1" ToRole="Uploads" />
+    <NavigationProperty Name="Vouchers" Relationship="greenMoneyModel.FK_gm_Vouchers_gm_Users_User_Id" FromRole="Users1" ToRole="Vouchers" />
+    <Property Type="String" Name="EmploymentType" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="User_ID" Type="Guid" />
+    <Property Name="Token" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Vouchers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Issued" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Reward_Id" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Rewards" Relationship="greenMoneyModel.FK_gm_Vouchers_gm_Rewards_Reward_Id" FromRole="Vouchers" ToRole="Rewards" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_gm_Vouchers_gm_Users_User_Id" FromRole="Vouchers" ToRole="Users1" />
+  </EntityType>
+  <EntityType Name="AwardPointsOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_Challenges_AwardPointsOptions" FromRole="AwardPointsOptions" ToRole="Challenges" />
+  </EntityType>
+  <EntityType Name="ChallengeCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShortName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ImageId" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_Challenges_ChallengeCateogories" FromRole="ChallengeCategories" ToRole="Challenges" />
+  </EntityType>
+  <EntityType Name="Challenges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EarnAmount" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="About" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Points" Nullable="false" />
+    <Property Type="Int32" Name="LogoImageId" />
+    <Property Type="Int32" Name="ImageId1" />
+    <Property Type="Int32" Name="ImageId2" />
+    <Property Type="Int32" Name="ImageId3" />
+    <Property Type="Int32" Name="ImageId4" />
+    <Property Type="Int32" Name="ChallengeCategoryId" />
+    <Property Type="String" Name="PromoCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Article" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="StartDate" Precision="3" />
+    <Property Type="DateTime" Name="EndDate" Precision="3" />
+    <Property Type="Int32" Name="AwardPointsOptionId" />
+    <Property Type="Int32" Name="ParticipationFrequencyId" />
+    <Property Type="String" Name="Purpose" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Instructions" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TermsAndConditions" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="LocationOptionId" />
+    <Property Type="String" Name="StreetAddress" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Suburb" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="State" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Postcode" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DateHoursTime" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Web" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="SendEmailNotifications" Nullable="false" />
+    <Property Type="String" Name="SendEmailTo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Display" Nullable="false" />
+    <Property Type="Int32" Name="Popularity" Nullable="false" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="DateTime" Name="DateAdded" Precision="3" />
+    <Property Type="Int32" Name="Instance_Id" Nullable="false" />
+    <Property Name="Owner_Id" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="AwardPointsOptions" Relationship="greenMoneyModel.FK_Challenges_AwardPointsOptions" FromRole="Challenges" ToRole="AwardPointsOptions" />
+    <NavigationProperty Name="ChallengeCategories" Relationship="greenMoneyModel.FK_Challenges_ChallengeCateogories" FromRole="Challenges" ToRole="ChallengeCategories" />
+    <NavigationProperty Name="Instance" Relationship="greenMoneyModel.FK_Challenges_Instance" FromRole="Challenges" ToRole="Instance" />
+    <NavigationProperty Name="LocationOptions" Relationship="greenMoneyModel.FK_Challenges_LocationOptions" FromRole="Challenges" ToRole="LocationOptions" />
+    <NavigationProperty Name="ParticipationFrequency" Relationship="greenMoneyModel.FK_Challenges_ParticipationFrequency" FromRole="Challenges" ToRole="ParticipationFrequency" />
+    <NavigationProperty Name="UserChallenges" Relationship="greenMoneyModel.FK_UserChallenges_Challenges" FromRole="Challenges" ToRole="UserChallenges" />
+    <NavigationProperty Name="Users1" Relationship="greenMoneyModel.FK_Challenges_Users" FromRole="Challenges" ToRole="Users1" />
+    <Property Name="DurationInDays" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LocationOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_Challenges_LocationOptions" FromRole="LocationOptions" ToRole="Challenges" />
+  </EntityType>
+  <EntityType Name="ParticipationFrequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_Challenges_ParticipationFrequency" FromRole="ParticipationFrequency" ToRole="Challenges" />
+  </EntityType>
+  <EntityType Name="UserChallenges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="DateTime" Name="Issued" Precision="3" />
+    <Property Type="Int32" Name="ChallengeId" />
+    <Property Type="Guid" Name="UserId" />
+    <Property Type="Boolean" Name="PointsClaimed" />
+    <NavigationProperty Name="Challenges" Relationship="greenMoneyModel.FK_UserChallenges_Challenges" FromRole="UserChallenges" ToRole="Challenges" />
+  </EntityType>
+  <Association Name="MembershipApplication">
+    <End Role="Applications" Type="greenMoneyModel.Applications" Multiplicity="1" />
+    <End Role="Memberships" Type="greenMoneyModel.Memberships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleApplication">
+    <End Role="Applications" Type="greenMoneyModel.Applications" Multiplicity="1" />
+    <End Role="Roles" Type="greenMoneyModel.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserApplication">
+    <End Role="Applications" Type="greenMoneyModel.Applications" Multiplicity="1" />
+    <End Role="Users" Type="greenMoneyModel.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipUser">
+    <End Role="Users" Type="greenMoneyModel.Users" Multiplicity="1" />
+    <End Role="Memberships" Type="greenMoneyModel.Memberships" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserProfile">
+    <End Role="Users" Type="greenMoneyModel.Users" Multiplicity="1" />
+    <End Role="Profiles" Type="greenMoneyModel.Profiles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profiles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_dbo_Users_Id">
+    <End Role="Users" Type="greenMoneyModel.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_Instance">
+    <End Role="Instance" Type="greenMoneyModel.Instance" Multiplicity="0..1" />
+    <End Role="Addresses" Type="greenMoneyModel.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Transactions_gm_Addresses_Address_Id">
+    <End Role="Addresses" Type="greenMoneyModel.Addresses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="greenMoneyModel.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_gm_Addresses_Address_Id">
+    <End Role="Addresses" Type="greenMoneyModel.Addresses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_CartItems_gm_Rewards_Reward_Id">
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartItems" Type="greenMoneyModel.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rewards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="Reward_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_CartItems_gm_Users_User_Id">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartItems" Type="greenMoneyModel.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rewards_Instance">
+    <End Role="Instance" Type="greenMoneyModel.Instance" Multiplicity="1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Instance">
+    <End Role="Instance" Type="greenMoneyModel.Instance" Multiplicity="1" />
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Pages_gm_Sections_Section_Id">
+    <End Role="Sections" Type="greenMoneyModel.Sections" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pages" Type="greenMoneyModel.Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pages">
+        <PropertyRef Name="Section_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Resources_gm_Pages_Page_Id">
+    <End Role="Pages" Type="greenMoneyModel.Pages" Multiplicity="0..1" />
+    <End Role="Resources" Type="greenMoneyModel.Resources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resources">
+        <PropertyRef Name="Page_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Resources_gm_ResourceTypes_ResourceType_Id">
+    <End Role="ResourceTypes" Type="greenMoneyModel.ResourceTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Resources" Type="greenMoneyModel.Resources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resources">
+        <PropertyRef Name="ResourceType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_RewardCategories_CategoryId">
+    <End Role="RewardCategories" Type="greenMoneyModel.RewardCategories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RewardCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageHomeId">
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageHomeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageId">
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_ImageSmallId">
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="ImageSmallId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Uploads_VoucherBarcodeId">
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="0..1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="VoucherBarcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Rewards_gm_Users_Owner_Id">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="0..1" />
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rewards">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Vouchers_gm_Rewards_Reward_Id">
+    <End Role="Rewards" Type="greenMoneyModel.Rewards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vouchers" Type="greenMoneyModel.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rewards">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="Reward_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Transactions_gm_Users_User_Id">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="0..1" />
+    <End Role="Transactions" Type="greenMoneyModel.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Uploads_gm_Users_UploadedBy_Id">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="0..1" />
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Uploads">
+        <PropertyRef Name="UploadedBy_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Users_gm_Uploads_PhotoId">
+    <End Role="Uploads" Type="greenMoneyModel.Uploads" Multiplicity="0..1" />
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uploads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="PhotoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gm_Vouchers_gm_Users_User_Id">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vouchers" Type="greenMoneyModel.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersInRoles">
+    <End Role="Roles" Type="greenMoneyModel.Roles" Multiplicity="*" />
+    <End Role="Users" Type="greenMoneyModel.Users" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Challenges_AwardPointsOptions">
+    <End Type="greenMoneyModel.AwardPointsOptions" Role="AwardPointsOptions" Multiplicity="0..1" />
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AwardPointsOptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="AwardPointsOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_ChallengeCateogories">
+    <End Type="greenMoneyModel.ChallengeCategories" Role="ChallengeCategories" Multiplicity="0..1" />
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChallengeCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="ChallengeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_Instance">
+    <End Type="greenMoneyModel.Instance" Role="Instance" Multiplicity="1" />
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="Instance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_LocationOptions">
+    <End Type="greenMoneyModel.LocationOptions" Role="LocationOptions" Multiplicity="0..1" />
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationOptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="LocationOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_ParticipationFrequency">
+    <End Type="greenMoneyModel.ParticipationFrequency" Role="ParticipationFrequency" Multiplicity="0..1" />
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipationFrequency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="ParticipationFrequencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChallenges_Challenges">
+    <End Type="greenMoneyModel.Challenges" Role="Challenges" Multiplicity="0..1" />
+    <End Type="greenMoneyModel.UserChallenges" Role="UserChallenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Challenges">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserChallenges">
+        <PropertyRef Name="ChallengeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Challenges_Users">
+    <End Role="Users1" Type="greenMoneyModel.Users1" Multiplicity="1" />
+    <End Role="Challenges" Type="greenMoneyModel.Challenges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Challenges">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

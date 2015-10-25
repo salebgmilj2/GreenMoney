@@ -1,0 +1,21 @@
+@model GM.ViewModels.Shared.LayoutViewModel
+@{
+    Layout = null;
+}
+
+<div class="navbar-right" class="navbar-main">
+    <ul class="nav navbar-nav">
+        <li><a href="@Url.Action("MyProfile", "Account")">My account</a>
+        </li>
+	<li><a href="@Url.Action("Index", "Rewards")">Redeem rewards</a>
+        </li>
+        <li><a href="@Url.Action("Index", "Challenges")">Earn points</a>
+        </li>
+        <li><a href="@Url.Action("Section", "General", new { id = "about"})">Learn more</a>
+        </li>
+        <li><a href="https://greenmoney.desk.com/customer/portal/emails/new" target="_blank">Support</a>
+        </li>
+    </ul>
+</div>
+
+                                    

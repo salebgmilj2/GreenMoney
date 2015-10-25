@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fd20117bd33241d98cc2ac14da9a86fe" Name="Diagram1">
+        <EntityTypeShape EntityType="greenMoneyModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Applications" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Memberships" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Profiles" Width="1.5" PointX="7.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Roles" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Users" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Addresses" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.CartItems" Width="1.5" PointX="12.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.CMS" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Instance" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.InterestedPeople" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.InvitedNeighbours" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.InvitedUsers" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.LoginToken" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Pages" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Resources" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.ResourceTypes" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.RewardCategories" Width="1.5" PointX="12.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Rewards" Width="1.5" PointX="15" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Sections" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Transactions" Width="1.5" PointX="15.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Uploads" Width="1.5" PointX="12.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Users1" Width="1.5" PointX="10.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.UserToken" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.Vouchers" Width="1.5" PointX="17.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="greenMoneyModel.AwardPointsOptions" Width="1.5" PointX="1.625" PointY="3.75" />
+        <EntityTypeShape EntityType="greenMoneyModel.ChallengeCategories" Width="1.5" PointX="10.40477348789795" PointY="20.395863572319907" />
+        <EntityTypeShape EntityType="greenMoneyModel.Challenges" Width="1.5" PointX="8.4850735741132279" PointY="5.76827644080309" />
+        <EntityTypeShape EntityType="greenMoneyModel.LocationOptions" Width="1.5" PointX="8.0972085651462944" PointY="21.028879235046393" />
+        <EntityTypeShape EntityType="greenMoneyModel.ParticipationFrequency" Width="1.5" PointX="8.625" PointY="23.875" />
+        <EntityTypeShape EntityType="greenMoneyModel.UserChallenges" Width="1.5" PointX="0.0049486365192330612" PointY="16.805124454575182" />
+        <AssociationConnector Association="greenMoneyModel.MembershipApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.RoleApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.UserApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.MembershipUser" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Users_dbo_Users_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_Addresses_Instance" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Transactions_gm_Addresses_Address_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Users_gm_Addresses_Address_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_CartItems_gm_Rewards_Reward_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_CartItems_gm_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_Rewards_Instance" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_Users_Instance" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Pages_gm_Sections_Section_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Resources_gm_Pages_Page_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Resources_gm_ResourceTypes_ResourceType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_RewardCategories_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageHomeId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_ImageSmallId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_Uploads_VoucherBarcodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Rewards_gm_Users_Owner_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Vouchers_gm_Rewards_Reward_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Transactions_gm_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Uploads_gm_Users_UploadedBy_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Users_gm_Uploads_PhotoId" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_gm_Vouchers_gm_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.UsersInRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_AwardPointsOptions" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_ChallengeCateogories" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_Instance" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_LocationOptions" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_ParticipationFrequency" />
+        <AssociationConnector Association="greenMoneyModel.FK_UserChallenges_Challenges" />
+        <AssociationConnector Association="greenMoneyModel.FK_Challenges_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

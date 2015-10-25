@@ -1,0 +1,47 @@
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\EntityFramework.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\Base32Encoder.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Debug\EntityFramework.xml
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.DataAccess.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\Base32Encoder.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Debug\EntityFramework.xml
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.pdb
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.dll
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.pdb
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.DataAccess.dll
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.Models.dll
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\EntityFramework.dll
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\Base32Encoder.dll
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.DataAccess.pdb
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\GM.Models.pdb
+E:\Projects\Project\GM.BusinessLogic\bin\Debug\EntityFramework.xml
+E:\Projects\Project\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+E:\Projects\Project\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.dll
+E:\Projects\Project\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.BusinessLogic.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.DataAccess.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.Models.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\EntityFramework.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\Base32Encoder.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.DataAccess.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\bin\Debug\GM.Models.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.BusinessLogic\obj\Debug\GM.BusinessLogic.pdb

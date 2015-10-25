@@ -1,0 +1,206 @@
+@model GM.ViewModels.RegisterAccountViewModel
+@{
+    ViewBag.Title = "RegisterAddress";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-outer">
+    <div class="navbar registration">
+        <div class="row">
+            <a class="navbar-brand col-md-3" href="@Url.Action("Index", "Home")">
+                <img src="~/Images/logo.png" alt="">
+            </a>
+            <div class="col-md-9">
+                <div class="container reg-wizard">
+
+                    <div class="col-md-4 reg-wizard-step complete">
+                        <!-- active -->
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="reg-wizard-dot"></a>
+                        <div class="reg-wizard-info text-center">Sign up</div>
+                    </div>
+
+                    <div class="col-md-4 reg-wizard-step active">
+                        <!-- active -->
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="reg-wizard-dot"></a>
+                        <div class="reg-wizard-info text-center">Verify address</div>
+                    </div>
+
+                    <div class="col-md-3 reg-wizard-step active">
+                        <!-- active -->
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="reg-wizard-dot"></a>
+                        <div class="reg-wizard-info text-center">Invite others</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("RegisterAddress", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    if (TempData["ProblemWithAddress"] != null)
+    {
+        @Html.Hidden("problemWithAddress", ViewData["ProblemWithAddress"])
+    }
+    <div class="container main-form">
+        <div class="container-inner">
+            <div class="content-form text-center">
+                <div class="row">
+                    <div class="float-none row">
+                        <h2>Step 2.
+                        <br>
+                           Verify your address
+                        </h2>
+                        <p>
+                            Verify your home address to activate your account
+                            <br>
+                           *Ensure address is correctly entered below for verification.
+                        </p>
+
+                        @Html.ValidationSummary(true, "Account verification unsuccessful. Correct the errors or contact Support.")
+
+                    </div>
+                    <div class="float-none verify-address-container col-md-8">
+                        @Html.HiddenFor(m => m.SendEmailOffers)
+                        @Html.HiddenFor(m => m.SendEmailUpdates)
+                        @Html.HiddenFor(m => m.sendme)
+                        @Html.HiddenFor(m => m.FirstName)
+                        @Html.HiddenFor(m => m.LastName)
+@*                        @Html.HiddenFor(m => m.Sex)*@
+@*                        @Html.HiddenFor(m => m.DateOfBirth)*@
+                        @Html.HiddenFor(m => m.Postcode)
+                        @Html.HiddenFor(m => m.Password)
+                        @Html.HiddenFor(m => m.InstanceId)
+                        <input type="hidden" id="AgreeToTerms" name="AgreeToTerms" value="True" />
+
+                        
+                        <div class="row form-group unitNumber">
+                            <label class="col-md-3 registration-labels unitnumber-label">Unit number (blank if none)</label>
+                            <div class="col-md-3">
+                                 @Html.TextBoxFor(m => m.UnitNumber, new { @class="form-field form-control unit-number" })
+                                 @Html.ValidationMessageFor(m => m.UnitNumber)
+                            </div>
+                            <label class="col-md-3 registration-labels streetnumber-label">Street number (eg 7A)</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(m => m.StreetNumber, new {@class = "form-field form-control street-number" })
+                                @Html.ValidationMessageFor(m => m.StreetNumber)
+                            </div>
+                        </div>
+                        
+                    <div class="row form-group">
+                        <label class="col-md-3 registration-labels streetname-label">Street name (eg Milson)</label>
+                        <div class="col-md-9 street-name">
+                            @Html.TextBoxFor(m => m.StreetName, new {@class = "form-field form-control street-name" })
+                            @Html.ValidationMessageFor(m => m.StreetName)
+                        </div>
+                    </div>
+
+                    
+                    <div class="row form-group ">
+                        <label class="col-md-3 registration-labels streettype-label">Street type (eg Avenue)</label>
+                        <div class="col-md-10 registration-streettype-dropdown streettype-regist-field">
+                            @Html.DropDownListFor(m => m.StreetType, Model.StreetTypes, "Street type", new { @class="empty custom-dropdown", @placeholder="Street type"})
+                            @Html.ValidationMessageFor(m => m.StreetType)
+                        </div>            
+                    </div>
+                    
+                    <div class="row form-group">
+                        <label class="col-md-3 registration-labels suburb-label">Suburb (eg Killara)</label>
+                        <div class="col-md-10 registration-suburb-dropdown suburb-regist-field">                     
+                            @Html.DropDownListFor(m => m.Suburb, Model.Suburbs, "Suburb", new {@class = "empty custom-dropdown", @placeholder = "Suburb"})
+                            @Html.ValidationMessageFor(m => m.Suburb)
+                        </div>
+                    </div>
+                        <hr class="devide-sections">
+                        <h4 class="verify-more-about">Primary account holder details.<span></span></h4>
+                    <div class="row form-group">
+                        <label class="col-md-3 registration-labels gender-label">Gender</label>
+                        <div class="col-md-10 registration-gender-dropdown gender-regist-field">
+                            @Html.DropDownListFor(m => m.Sex, Model.Genders, "Select gender", new {@class = "custom-dropdown empty", @placeholder = "Select gender"})
+                            @Html.ValidationMessageFor(m => m.Sex)
+                        </div>
+                    </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3 registration-labels birthday-label" for="textinput">Birthday</label>
+                            <div class="col-md-9 registration-birthdate-dropdown birthday-regist-field">
+                                @Html.DropDownListFor(m => m.DateOfBirthDay, Model.Days, "Day", new {@class = "custom-dropdown col-md-2 col-lg-2 birth-day", data_placeholder = "Day"})
+                                @Html.DropDownListFor(m => m.DateOfBirthMonth, Model.Months, "Month", new {@class = "custom-dropdown col-md-2 col-lg-2 birth-month", data_placeholder = "Month"})
+                                @Html.DropDownListFor(m => m.DateOfBirthYear, Model.Year, "Year", new {@class = "custom-dropdown col-md-2 col-lg-2 birth-year", data_placeholder = "Year"})
+                            </div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <label class="col-md-3 registration-labels contactno-label">Contact No.</label>
+                            <div class="col-md-10 phone-regist-field">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new {@class = "form-field form-control mobile-number", @placeholder = "Home or mobile phone number"})
+                                @Html.ValidationMessageFor(m => m.PhoneNumber)
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container submiting">
+        <div class="row verify-next-page">
+            <p class="col-md-7 pull-left need-help">
+                <img src="~/Images/question-mark.png">
+               Address problem? <a href="https://greenmoney.desk.com/customer/portal/emails/new" target="external">Email your street address for account setup</a>
+            </p>
+            <input type="submit" class="btn pull-right col-md-2 mainBtn" value="Next"/>
+            @*<a href="addmember.html" class="btn pull-right col-md-2 mainBtn">Next</a>*@
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => m.Email)
+    @Html.HiddenFor(m => m.SendEmailOffers)
+    
+}
+
+<!-- *************** Uh oh problem popup -->
+    <div id="mdlProblemWithAddress" class="popup uhoh-problem-popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img" ></span>
+                <h2 class="popup-title">Hmm, there was an issue verifying the address submitted.</h2>
+                <hr>
+                <p class="popup-subtitle">Need help here? You can email support with your street address to help you get setup</p>
+                <a href="mailto:help@greenmoney.com.au" class="btn popupBtn">Verify my street address</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="popup-overlay"></div> -->
+<!-- *************** -->
+
+<style type="text/css">
+    .input-validation-error {
+        border: 1px solid #b94a48;
+    }
+    .field-validation-error {
+        color: #b94a48;
+        font-size: 11px;
+    }
+    .validation-summary-errors li {
+        margin-left: 10px; 
+        color: #f05b59;
+        list-style: outside none none;
+    }
+    .validation-summary-errors {
+        color: #f05b59;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+</style>

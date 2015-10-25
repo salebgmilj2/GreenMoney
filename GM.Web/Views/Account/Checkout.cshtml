@@ -1,0 +1,105 @@
+@model GM.ViewModels.MyCartCheckoutViewModel
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation")
+        <div class="container checkout-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div id="checkout" class="col-md-12 col-lg-12">Check out</div>
+                        <p>You are about to redeem the following rewards.</p>
+                        @if (Model.CheckoutFailure)
+                        {
+                           <p style="color: red;">You don't have enough points to redeem selected rewards.</p>
+                        }
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                             @using (Html.BeginForm("Checkout", "Account", FormMethod.Post, new {Class = "form-horizontal", role = "form", id = "myCartForm"}))
+                             {
+                                 <table id="checkout" class="table table-hover table-condensed">
+                                     <thead>
+                                     <tr>
+                                         <th style="width: 65%">Reward</th>
+                                         <th style="width: 10%" class="text-center">Quantity</th>
+                                         <th style="width: 10%" class="text-center">Points</th>
+                                     </tr>
+                                     </thead>
+                                     <tbody>
+                                     @for (int i = 0; i < Model.CartModel.Items.Count(); i++)
+                                     {
+                                         <tr>
+                                             <td data-th="Reward">
+                                                 <div class="row">
+                                                     <div class="col-md-2 col-lg-2 hidden-xs"><img src="@Url.Action("Upload", "General", new {id = Model.CartModel.Items[i].ImageId })?width=139" alt="" class="img-responsive checkout-reward-img"/>
+                                                     </div>
+                                                     <div class="col-md-10 col-lg-10">
+                                                         <h5 class="nomargin">@Model.CartModel.Items[i].Name</h5>
+                                                         <p>@Model.CartModel.Items[i].Description</p>
+                                                     </div>
+                                                 </div>
+                                             </td>
+                                             <td data-th="Quantity" class="text-center">@Model.CartModel.Items[i].Quantity</td>
+                                             <td data-th="Points" class="text-center">-@Model.CartModel.Items[i].Price</td>
+                                         </tr>
+                                     }
+                                     <tr>
+                                         <td data-th="Reward">
+                                             <div class="row">
+                                                 <div class="col-md-12 col-lg-12">
+                                                     <h5 class="nomargin">Total</h5>
+                                                 </div>
+                                             </div>
+                                         </td>
+                                         <td data-th="Quantity" class="text-center">@Model.TotalQuantity</td>
+                                         <td data-th="Points" class="text-center">-@Model.TotalPoints</td>
+                                     </tr>
+                                     </tbody>
+                                 </table>
+                                 <div class="delivery">
+                                     <p>Delivery</p>
+                                     <p>Your rewards will be emailed to <a href="mailto:@Model.UserEmail"><strong>@Model.UserEmail</strong></a> - if this email address is incorrect <a href="@Url.Action("UpdateProfile")">update your email.</a>
+
+					<br><b>Print your eVoucher</b> and follow the instructions, or <b>Display your eVoucher in-store</b> using the GreenMoney App.
+				<br>
+				<br>
+				<a href="https://itunes.apple.com/au/app/greenmoney/id969817562?mt=8" target="_blank"> <img src=/images/download-on-app-store.png target="_blank"></a>
+				<br>
+				<br>Tip - You will always be able to access your redeemed eVouchers in <a href="@Url.Action("Wallet")">My Wallet</a>
+                                     </p>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 col-lg-6">
+                                         <a href="@Url.Action("Cart")" class="btn textBtn">Back</a>
+                                     </div>
+                                     <div class="col-md-6 col-lg-6 pull-right">
+                                         <button type="submit" action="@Url.Action("CheckoutSubmit")" class="btn pull-right check-outBtn"@* data-popup-target="#checkout-complete-popup"*@>Complete</button>
+                                         <a href="@Url.Action("Index", "Rewards")" class="btn continueShoppingBtn">Continue shopping</a>
+                                         <div id="checkout-complete-popup" class="popup">
+                                             <div class="popup-body"><span class="popup-exit"></span>
+                                                 <div class="popup-content">
+                                                     <span class="popup-img" ></span>
+                                                     <h2 class="popup-title">Congratulations!</h2>
+                                                     <p>Your reward vouchers have been added to ‘My wallet’.</p>
+                                                     <a href="@Url.Action("Wallet")" class="btn sendEmailBtn">Go to wallet</a>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="popup-overlay"></div>
+                                     </div>
+                                 </div>
+                             }
+                            </div><!-- /.col-lg-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container My cart -->
+    </div>
+</div>

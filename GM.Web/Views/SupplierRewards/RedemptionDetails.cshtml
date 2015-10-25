@@ -1,0 +1,158 @@
+﻿@using GM.ViewModels.Supplier
+@model GM.ViewModels.Supplier.RedemptionDetailsViewModel
+
+@{
+    ViewBag.Title = "RedemptionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation", Model)
+        <div class="container redemptions-blooms-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Redemptions</h1><a href="@Url.Action("Redemptions","SupplierRewards")">< Back to reward list</a>
+                        <div id="custom-search-input" class="col-md-5 pull-right">
+                            @using (Html.BeginForm("RedemptionDetails", "SupplierRewards", FormMethod.Get))
+                            {
+                                <input type="hidden" name="Id" value="@Model.RewardModel.Id">
+                                <input type="hidden" name="thismonth" value="@(Model.ReedemptionsInterval == RedemptionsInterval.ThisMonth? "true" : "false")">
+                                <input type="hidden" name="lastmonth" value="@(Model.ReedemptionsInterval == RedemptionsInterval.LastMonth? "true" : "false")">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.Filter, new {@class = "search-query form-control", placeholder = "Search voucher number, member name"})
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="submit">
+                                            <span class="icon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <p class="panel-subtitle">@Model.RewardModel.PartnerName</p>
+                        <div class="pull-right">
+                            <div class="dropdown change-reward-to">
+                                <button class="dropdown-change-reward" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Change reward to<span class="dropdownarrow"></span></button>
+                                <ul class="dropdown-menu change-reward-list" role="menu" aria-labelledby="dropdownMenu1">
+                                    @foreach (var item in Model.RewardsList)
+                                    {
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" 
+                                                href="@Url.Action("RedemptionDetails","SupplierRewards", new { id = item.Value})">@Html.Raw(item.Text)</a>
+                                        </li>
+                                    }
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Index", "SupplierRewards")">Back to reward list</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown download-format">
+                                <button class="dropdown-download" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="download-file"></span></button>
+                                <ul class="dropdown-menu download-list" role="menu" aria-labelledby="dropdownMenu2">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("DownloadRedemptionsPdf", "SupplierRewards", new { rewardId = Model.RewardModel.Id, interval = (int)Model.ReedemptionsInterval })" target="_blank">Download PDF</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("DownloadCsv", "SupplierRewards", new { rewardId = Model.RewardModel.Id, interval = (int)Model.ReedemptionsInterval})">Download CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <small>@Model.RewardModel.Name</small>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="claim-bar-redemptions col-md-12 col-lg-12">
+                                <ul class="nav nav-pills category-tabs">
+                                    <li class="@(Model.ReedemptionsInterval == RedemptionsInterval.Last7Days? "active" : null)">
+                                        <a href="@Url.Action("RedemptionDetails", "SupplierRewards", new { id = Model.RewardModel.Id, filter = Model.Filter })">Last 7 days</a></li>
+                                    <li class="middle-tab@(Model.ReedemptionsInterval == RedemptionsInterval.ThisMonth? " active" : null)">
+                                        <a href="@Url.Action("RedemptionDetails", "SupplierRewards", new { id = Model.RewardModel.Id, thismonth = true, filter = Model.Filter})">Last 28 days</a></li>
+                                    <li class="@(Model.ReedemptionsInterval == RedemptionsInterval.LastMonth? "active" : null)">
+                                        <a href="@Url.Action("RedemptionDetails", "SupplierRewards", new { id = Model.RewardModel.Id, lastmonth = true, filter = Model.Filter})">Complete history</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <table id="redemptions-bloomthechemist" class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 16%" class="text-left">Date/time issued</th>
+                                            <th style="width: 12%" class="text-left">Voucher number</th>
+                                            <th style="width: 10%" class="text-left">Member</th>
+                                            <th style="width: 8%" class="text-left">Suburb</th>
+                                            <th style="width: 8%" class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.RedemptionsModel)
+                                        {
+                                            <tr>
+                                                <td data-title="Date" class="text-left">@item.Issued.ToString()</td>
+                                                <td data-title="Voucher number" class="text-left">@item.Code</td>
+                                                <td data-title="User" class="text-left">@item.FirstName @(item.LastName.Length>0 ? item.LastName[0].ToString() : "")</td>
+                                                <td data-title="Suburb" class="text-left">@item.City</td>
+                                                <td data-title="Status" class="text-center status-live">
+                                                    <input type="checkbox" name="" id="" tabindex="-1" disabled>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 col-lg-12 bottom-pagination">
+                                    @if (Model.NumPages > 0)
+                                    {
+                                        var dict = new RouteValueDictionary();
+                                        dict.Add("page", Model.Page - 1);
+                                        if(Model.ReedemptionsInterval == RedemptionsInterval.ThisMonth)
+                                        {
+                                            dict.Add("thismonth", true);
+                                        }
+                                        if(Model.ReedemptionsInterval == RedemptionsInterval.LastMonth)
+                                        {
+                                            dict.Add("lastmonth", true);
+                                        }  
+                                        if(!string.IsNullOrWhiteSpace(Model.Filter))
+                                        {
+                                            dict.Add("filter", Model.Filter);
+                                        }                                       
+                                        
+                                        if (Model.Page > 1)
+                                        {
+                                            <a href="@Url.Action("RedemptionDetails", dict)" class="previous" data-action="previous"><span></span></a>
+                                        }
+                                        if (true)
+                                        {
+                                            dict.Remove("page");
+                                        }
+                                        <span>Page</span>
+                                        <input type="text" data-url="@Url.Action("RedemptionDetails", dict)" class="js-page-change-submit" name="Page" value="@Model.Page"/>                                       
+                                        <span>of @Model.NumPages</span>
+                                        if (Model.Page < Model.NumPages)
+                                        {
+                                            dict["page"] = Model.Page + 1;
+                                            <a href="@Url.Action("RedemptionDetails", dict)" class="next pull-right" data-action="next"><span></span></a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>No results</p>
+                                    }
+                                </div>
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container My wallet -->
+    </div>
+</div>
+<style type="text/css">
+    .dropdown-menu.change-reward-list > li {
+        min-width: 250px;
+        float: left;
+        padding-bottom: 0;
+    }
+    .dropdown-menu.change-reward-list a {
+        float: left;
+    }
+
+</style>

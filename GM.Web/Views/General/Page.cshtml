@@ -1,0 +1,47 @@
+﻿@model GM.ViewModels.PageViewModel
+@{
+    ViewBag.Title = Model.PageModel.Page.Label;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<div class="row">
+    <div class="myaccountmenu">
+        <div class="navbar-inner navbar-left">
+            <nav class="nav-sidebar">
+                <div class="brand">About</div>
+                <ul class="nav">
+                    @foreach (var subPage in Model.PageModel.SubPages)
+                    {
+                      <li class="@(Model.PageModel.Page.URLValue == subPage.URLValue? "active" : null)"><a href="@Url.Action("Page", "General", new {id=subPage.URLValue})">@subPage.Label</a></li>
+                    }
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                @if (Model.PageModel != null && Model.PageModel.Page != null)
+                                {
+                                    <div class="@(Model.PageModel.Page.URLValue)">
+                                        @if (Model.PageModel.Page.BodyHtml != null)
+                                        {
+                                            @Html.Raw(Model.PageModel.Page.BodyHtml)
+                                        }
+                                    </div>
+                                }
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container My cart  -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\GM.DataAccess.dll.config
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\Base32Encoder.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\EntityFramework.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Debug\EntityFramework.xml
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Debug\GM.DataAccess.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Debug\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Debug\GM.DataAccess.pdb
+E:\Projects\Project\GM.DataAccess\bin\Debug\GM.DataAccess.dll.config
+E:\Projects\Project\GM.DataAccess\bin\Debug\GM.DataAccess.dll
+E:\Projects\Project\GM.DataAccess\bin\Debug\GM.DataAccess.pdb
+E:\Projects\Project\GM.DataAccess\bin\Debug\GM.Models.dll
+E:\Projects\Project\GM.DataAccess\bin\Debug\GM.Models.pdb
+E:\Projects\Project\GM.DataAccess\bin\Debug\EntityFramework.xml
+E:\Projects\Project\GM.DataAccess\obj\Debug\GM.DataAccess.csprojResolveAssemblyReference.cache
+E:\Projects\Project\GM.DataAccess\obj\Debug\GM.DataAccess.dll
+E:\Projects\Project\GM.DataAccess\obj\Debug\GM.DataAccess.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\bin\Debug\GM.DataAccess.dll.config
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\bin\Debug\GM.DataAccess.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\bin\Debug\GM.DataAccess.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\bin\Debug\GM.Models.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\bin\Debug\GM.Models.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\obj\Debug\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\obj\Debug\GM.DataAccess.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.DataAccess\obj\Debug\GM.DataAccess.pdb

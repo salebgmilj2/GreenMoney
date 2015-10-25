@@ -1,0 +1,243 @@
+﻿@model GM.ViewModels.Challenges.ChallengeDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper MakeValidRedirectUrl(string url)
+{
+    string redirectUrl = url;
+    if(!string.IsNullOrWhiteSpace(redirectUrl))
+    {
+        var prefix = "http://";
+        if (redirectUrl.Substring(0, prefix.Length) != prefix)
+        {
+            redirectUrl = prefix + redirectUrl;
+        }
+        <text>@redirectUrl</text>
+    }
+}
+<div class="row">
+    <div class="redeemRewards">
+        <div class="navbar-inner navbar-left">
+            <nav class="nav-sidebar">
+                <div class="brand">Earn points</div>
+                <ul class="nav">
+                    @if (Model.Categories != null)
+                    {
+                        foreach (var categoryItem in Model.Categories.Where(c => !c.Name.ToLower().Contains("invite")))//temporary solution)
+                        {
+                        <li class="@(Model.SelectedCategory != null && Model.SelectedCategory.Id == categoryItem.Id ? "active" : null)">
+                            <a href="@Url.Action("Index", "Challenges",
+                                                 new
+                                                 {
+                                                     category = categoryItem.ShortName,
+                                                     filter = Model.Filter,
+                                                     sortBy = Model.SortBy
+                                                 })">@categoryItem.Name</a>
+                        </li>
+                        }
+                    }
+                </ul>
+            </nav>
+        </div>
+        <div class="container redeemAllRewards-new">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">@Model.Challenge.Name</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row single-reward">
+                            <div class="col-md-7 col-lg-7 ">
+                                <!-- Slider -->
+                                @if (Model.Challenge.ShowImage)
+                                {
+                                    <div id="slider">
+                                        <!-- Mobile redeem badge on slider -->
+                                        <div class="user-challange-logo-box">
+                                            @if (Model.Challenge.LogoImageId != null)
+                                            {
+                                                <img class="small-image" src="@Url.Action("Upload", "General", new { id = Model.Challenge.LogoImageId })"/>
+                                            }
+                                            else
+                                            {
+                                                <img src="/Images/default-logo-box.jpg" alt="">
+                                            }
+                                        </div>
+
+                                        <div id="slides">
+                                            @if (Model.Challenge.ImageId1 != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                <div class="slide-reward active-slide">
+                                                    <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId1 })" class="slide-img"/>
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId1 })" class="single-slide-img"/>
+                                                }
+                                            }
+                                            @if (Model.Challenge.ImageId2 != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                <div class="slide-reward">
+                                                    <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId2 })" class="slide-img"/>
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId2 })" class="single-slide-img"/>
+                                                }
+                                            }
+
+                                            @if (Model.Challenge.ImageId3 != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                <div class="slide-reward">
+                                                    <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId3 })" class="slide-img"/>
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId3 })" class="single-slide-img"/>
+                                                }
+                                            }
+
+                                            @if (Model.Challenge.ImageId4 != null)
+                                            {
+                                                if (Model.ShowSlider)
+                                                {
+                                                <div class="slide-reward">
+                                                    <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId4 })" class="slide-img"/>
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.Challenge.ImageId4 })" class="single-slide-img"/>
+                                                }
+                                            }
+                                        </div>
+                                        @if (Model.ShowSlider)
+                                        {
+                                            <!-- Arrows -->
+                                            <img src="~/Images/navigate-arrow-right.png" alt="right arrow" class="arrow right" />
+                                            <img src="~/Images/navigate-arrow-left.png" alt="left arrow" class="arrow left" />
+                                            <!-- Slider Navigation -->
+                                            <div id="slider-nav">
+                                                <ul></ul>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                <div class="row category-challenge-details js-main-data" data-id="@Model.Challenge.Id">
+                                    <hr class="challange-hr">
+                                    @if (!string.IsNullOrEmpty(Model.Challenge.About))
+                                    {
+                                        <div class="row about js-about-learn">
+                                            <p class="col-md-2 col-lg-2">About</p>
+                                            <p class="col-md-8 col-lg-8 col-md-offset-1">
+                                                @Html.Raw(Model.Challenge.About)
+                                            </p>
+                                        </div>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Challenge.Purpose))
+                                    {
+                                        <div class="row about">
+                                            <p class="col-md-2 col-lg-2">Description/purpose</p>
+                                            <div class="col-md-8 col-lg-8 col-md-offset-1">
+                                                @Html.Raw(Model.Challenge.Purpose)
+                                            </div>
+                                        </div>
+                                        <hr class="challange-hr">                                        
+                                    }
+                                    <hr class="challange-hr">
+                                    @if (!string.IsNullOrEmpty(Model.Challenge.Article))
+                                    {
+                                        <div class="row smart-blocks-article">
+                                            <div class="col-md-8 col-lg-8 col-md-offset-3">
+                                                @Html.Raw(Model.Challenge.Article)
+                                            </div>
+                                        </div>
+                                        <hr class="challange-hr">
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Challenge.Phone) || !string.IsNullOrEmpty(Model.Challenge.Email) || !string.IsNullOrEmpty(Model.Challenge.Web))
+                                    {
+                                        <div class="row more-info-challenge">
+                                            <p class="col-md-3 col-lg-3 more-info">More information</p>
+                                            <ul class="col-md-8 col-lg-8 more-info-challenge-contents">
+                                                <li><span>@Model.Challenge.Phone</span></li>
+                                                <li><a class="skype_c2c_text_span" href="mailto:@Model.Challenge.Email">@Model.Challenge.Email</a></li>
+                                                <li><a href="@MakeValidRedirectUrl(Model.Challenge.Web)" target="_blank" class="skype_c2c_text_span">@Model.Challenge.Web</a></li>                                            
+                                            </ul>
+                                        </div>
+                                        <hr class="challange-hr">
+                                    }
+                                    <div class="row earnpointsDetailsBtn">
+                                        <p class="col-md-7 col-lg-7">
+                                            @if (!Model.PointsClaimed)
+                                            {
+                                                <button type="button" class="btn mainBtn btn-lg btn-block js-claim-points-learn">Earn points</button>
+                                                <a class="btn popupBtnCancel btn-lg btn-block hidden js-claim-points-disabled"><span class="participatingBtn"></span>Points already claimed</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn popupBtnCancel btn-lg btn-block"><span class="participatingBtn"></span>Points already claimed</a>
+                                            }
+                                        </p>
+                                    </div>
+                                    <!-- *************** Earn points Congratulations! popup -->
+                                    <div id="earn-points-congratulations-popup" class="popup">
+                                        <div class="popup-body">
+                                            <span class="popup-exit"></span>
+                                            <div class="popup-content">
+                                                <span class="popup-img"></span>
+                                                <h2 class="popup-title">Congratulations!</h2>
+                                                <hr>
+                                                <p class="popup-subtitle">You just earned! Check out your account balance and redeem your points.</p>
+                                                <p>
+                                                     <a href="@Url.Action("MyProfile", "Account")" class="btn popupBtn">View account balance</a>
+                                                </p>                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="popup-overlay"></div>
+                                </div>
+                            </div>
+                            <!-- /.col-lg-7 -->
+                            <div class="col-md-4 col-lg-4">
+                                <div class="short-description-new">
+                                    <h2>@Model.Challenge.Name</h2>
+                                    <p>@Html.Raw(Model.Challenge.EarnAmount)</p>
+                                    <hr>
+                                    <p>@Model.Challenge.Points points</p>
+                                </div>
+                                @if (!Model.PointsClaimed)
+                                {
+                                    <button type="button" data-id="@Model.Challenge.Id" class="btn mainBtn btn-lg btn-block js-scroll-to-instructions-learn">Earn points </button>
+                                    <a class="btn popupBtnCancel btn-lg btn-block hidden js-claim-points-disabled"><span class="participatingBtn"></span>Points already claimed</a>
+                                }
+                                else
+                                {
+                                    <a class="btn popupBtnCancel btn-lg btn-block"><span class="participatingBtn"></span>Points already claimed</a>
+                                }
+
+                            </div>
+                            <!-- /.col-lg-4 -->
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+        </div>
+        <!-- redeemAllRewards -->
+    </div>
+</div>
+

@@ -1,0 +1,146 @@
+﻿@using GM.ViewModels.Shared
+@model LayoutViewModel
+<!DOCTYPE html>
+<html lang="en">
+    <!--[if lt IE 7 ]> <html class="ie ie6 ltie9"> <![endif]-->
+    <!--[if IE 7 ]>    <html class="ie ie7 ltie9"> <![endif]-->
+    <!--[if IE 8 ]>    <html class="ie ie8 ltie9"> <![endif]-->
+    <!--[if IE 9 ]>    <html class="ie ie9"> <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+    <head>
+	<meta name="apple-itunes-app" content="app-id=969817562, affiliate-data=myAffiliateData, app-argument=myURL">
+	<meta name="google-site-verification" content="JGPPvSRMFmDm6nyEVg4RaBSgmxi76BeV67raZY4S3xg" />
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="GreenMoney is an Australian-first rewards program designed to reward you for helping the environment." />
+
+        <link href="~/Css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Css/style.css" rel="stylesheet" />
+        <link href="~/Css/admin-challenges.css" rel="stylesheet" />
+        <link href="~/Css/registration.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet" type="text/css" />
+
+        @RenderSection("Styles", required: false)
+
+    </head>
+<body>
+@if (Model.IsAuthenticated)
+{
+    <div class="wrapper-admin">
+        <nav class="navbar-inverse navbar-static-top" role="navigation">
+            @if (Model.IsCouncil || Model.IsAusPost)
+            {
+                @Html.Partial("~/Views/Shared/Council/_BrandLogo.cshtml")
+            }       
+            <div class="container admin-navbar">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                @Html.Partial("~/Views/Shared/User/_TopNavigationPartial.cshtml")
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+}
+    @if (!Model.HideTopWrapperMenu)
+    {
+        <div class="wrapper-menu">
+            <div class="navbar">
+                <div class="navbar-inner navbar-left">
+                    @if (Model.Instance_Id != null)
+                    {
+                        <a id="council" class="brand" href="@Url.Action("Index", "Auspost")">
+                            @if (Model.Instance_Id == 1)
+                            {
+                                <img alt="" src="~/Images/logo-melbourne.png" />
+                            }
+                            else if (Model.Instance_Id == 2)
+                            {
+                                <img alt="" src="~/Images/logo-randwick.png" />
+                            }
+                            else if (Model.Instance_Id == 4)
+                            {
+                                <img alt="" src="~/Images/bcc-logo-desktop.png" />
+                            }
+                            else if (Model.Instance_Id == 5)
+                            {
+                                <img alt="" src="~/Images/ausPost-main-logo.jpg" />
+                            }
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="brand" href="@Url.Action("Index","Home")">
+                            <img alt="" src="~/Images/logo.png" />
+                        </a>                         
+                    }
+                </div>
+                <div class="container menu-navbar">
+                    @Html.Partial("~/Views/Shared/User/_TopNavigationBarRightPartial.cshtml")
+                </div>
+            </div>
+        </div>
+    }
+    
+@if (Model.ActiveLink == Links.HomePage)
+{
+    @RenderBody()
+}
+else
+{
+    <section>
+        @RenderBody()
+    </section>
+}
+ 
+<script src="~/Scripts/jQueryCore/jquery-1.11.2.min.js"></script>    
+<script src="~/Scripts/jQueryCore/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jQueryPlugins/bootstrap.min.js"></script>
+<script src="~/Scripts/Shared/main.js"></script>
+     <script src="~/Scripts/jquery-ui.min.js"></script>
+
+@RenderSection("Scripts", required: false)
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22772131-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<div id="fb-root"></div>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '@System.Configuration.ConfigurationManager.AppSettings["Facebook.AppId"]',
+                status: true,
+                cookie: true,
+                xfbml: true,
+                oauth: true
+            });
+        };
+        (function () {
+            var e = document.createElement('script'); e.async = true;
+            e.src = 'https://connect.facebook.net/en_US/all.js';
+            document.getElementById('fb-root').appendChild(e);
+        }());
+        function fblogin() {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    var fbLgnUrl = $("#fbLgnUrl").val();
+                    //window.location.href = '/Home/facebookloginnew?token=' + response.authResponse.accessToken;
+                    window.location.href = fbLgnUrl + '?token=' + response.authResponse.accessToken;
+                }
+            }, { scope: 'email' });
+        }
+    </script>
+</body>
+    
+</html>

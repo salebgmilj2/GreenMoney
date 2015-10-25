@@ -1,0 +1,299 @@
+﻿@using System.Globalization
+@model GM.ViewModels.DashboardViewModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper StatusDescription(int? state)
+{
+    if (state == null)
+    {
+        <text> @GM.Utility.EnumUtils.GetDescription(GM.Models.Public.RewardState.NotModerated)</text>
+    }
+    else
+    {
+        <text> @GM.Utility.EnumUtils.GetDescription((GM.Models.Public.RewardState) state)</text>
+    }   
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation", Model)
+        <div class="col-md-6 col-lg-6 partner-business-name">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">@Model.ProfileModel.User.BusinessName</h1>
+                        <a class="edit-profile" href="@Url.Action("Index","Supplier")">
+                            <img src="~/Images/edit-profile.png"></a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-2 reward-partner-business-logo" align="center">
+                                @if (Model.ProfileModel.User.PhotoID != null)
+                                {
+                                    <img src="@Url.Action("Upload", "General", new { id = Model.ProfileModel.User.PhotoID })" alt="" class="r-p-business-logo"/>
+                                }
+                                else
+                                {
+                                    <img class="r-p-business-logo" alt="Reward Pic" src="~/Images/reward-partner-business-logo.jpg">
+                                }
+                                <!-- <span class="photoicon"></span> -->
+                                <a href="@Url.Action("Index", "Supplier")" class="btn btnLevel3 editProfileBtn">Edit profile</a>
+                            </div>
+                            <div class="col-md-5 col-lg-5 reward-partner-business-info">
+                                <p class="business-name">@Model.ProfileModel.User.FirstName @Model.ProfileModel.User.LastName</p>
+                                <p class="business-title">@Model.ProfileModel.User.BusinessType</p>
+                                <p class="business-street">@Model.Address</p>
+                                <p class="business-email">@(Model.ProfileModel.User.BussinesEmail?? string.Empty)</p>
+                                <p class="business-webaddress">@Model.ProfileModel.User.BussinesWebSite</p>
+                                <p class="business-phoneandmobile">
+                                    @if (Model.ProfileModel.User.BussinesPhone != null)
+                                    {
+                                        <span class="business-phone"></span>@(Model.ProfileModel.User.BussinesPhoneArea) @Model.ProfileModel.User.BussinesPhone
+                                    }
+                                    @if (Model.ProfileModel.User.BussinesPhoneArea != null)
+                                    {
+                                        <span class="business-mobile"></span>@Model.ProfileModel.User.BussinesPhoneMobile
+                                    }
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-lg-3 add-user-container">
+                                <div class="add-another-user">
+                                    <img src="~/Images/add-another-user-icon.png" alt="">
+                                    <a href="#" data-popup-target="#add-user-popup">Add another user</a>
+                                </div>
+                                <a href="@Url.Action("AdditionalUsers", "Account")" class="addUserBtn btn"><span></span>Add User</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Update profile - personal and contact information-->
+    </div>
+    <!-- /.myaccountmenu-->
+</div>
+
+<div class="container activity-summary-container">
+    <div class="navbar-main">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="col-md-4 col-lg-4 activity-summary">Customer activity <span>(last 7 days)</span></div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="pricing-table pricing-three-column row">
+                            <div style="z-index: 55;" class="plan col-md-3 col-lg-3">
+                                <div class="reward-page-visit">
+                                    <img src="~/Images/visited-your-reward-icon.png" alt="">
+                                    <span class="activities-widget-title">Popularity of reward</span>
+                                </div>
+                                <div class="row activity-widget-summary">
+                                    <span class="impressions">@(Model.ActivitySummaryModel.OveralPopularity)</span>
+                                </div>
+                            </div>
+                            <div style="z-index: 55;" class="plan col-md-3 col-lg-3">
+                                <div class="voucher-redeemed">
+                                    <img src="~/Images/voucher-redeemed-icon.png" alt="">
+                                    <span class="activities-widget-title">Vouchers redeemed</span>
+                                </div>
+                                <div class="row activity-widget-summary">
+
+                                    <span class="number-of-rewards">@Model.ActivitySummaryModel.VoucherRedeemed</span>
+
+                                </div>
+                            </div>
+                            <div style="z-index: 55;" class="plan col-md-3 col-lg-3">
+                                <div class="average-age">
+                                    <img src="~/Images/average-age-icon.png" alt="">
+                                    <span class="activities-widget-title">Average customer age</span>
+                                </div>
+                                <div class="row activity-widget-summary">
+
+                                    <span class="average-listed-age">@Model.ActivitySummaryModel.AverageAge</span>
+
+                                </div>
+                            </div>
+                            <div style="z-index: 55;" class="plan col-md-3 col-lg-3">
+                                <div class="gender-activity">
+                                    <img src="~/Images/gender-icon.png" alt="">
+                                    <span class="activities-widget-title">Gender</span>
+                                </div>
+                                <div class="row activity-widget-summary">
+
+                                    <span class="gender-percentage">@Model.ActivitySummaryModel.Gender</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My activities  -->
+
+<div class="container rewards-summary-container">
+    <div class="navbar-main">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div id="reward-summary-header" class="col-md-12 col-lg-12">
+                    <div class="col-md-5 col-lg-5 rewards-summary">Rewards summary <span>(last 7 days)</span></div>
+                    <a href="@Url.Action("Create", "SupplierRewards")" class="btn mainBtn pull-right">Create new reward</a>
+                </div>
+            </div>
+            <div class="panel-body reward-summary-content">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <table id="reward-summary-table" class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="width: 26%">Reward</th>
+                                    <th style="width: 6%" class="text-center">City</th>
+                                    <th style="width: 8%" class="text-center">Status</th>
+                                    <th style="width: 6%" class="text-center">Redemptions</th>
+                                    <th style="width: 1%" class="text-center"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model.RewardsSummaryListModel.RewardsList)
+                                {
+                                    <tr>
+                                        <td data-th="Reward">
+                                            <div class="row">
+                                                <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                    <img src="@Url.Action("Upload", "General", new {id = item.ImageSmallId ?? item.ImageSmallId})?width=139" alt="" class="img-responsive reward-pic"/>
+                                                </div>
+                                                <div class="col-sm-10">
+                                                    <h5 class="nomargin">@item.PartnerName</h5>
+                                                    <p>@item.Name</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-th="City" class="text-center">@item.City</td>
+
+                                        <td data-th="Status" class="text-center@((GM.Models.Public.RewardState) item.State == GM.Models.Public.RewardState.Approved ? " status-live" : null)">@StatusDescription(item.State)@*Active*@</td>
+                                        <td data-th="Redemptions" class="remove-actions text-center">@item.NumOfRedemptions</td>
+                                        <td data-th="" class="remove-actions text-center">
+                                            <div class="dropdown">
+                                                <button type="button" action="" class="btn redemptions-dropdown" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
+                                                    Manage reward
+                                                    <span class="redemptions-btn-dropdown"></span>
+                                                </button>
+                                                <ul class="dropdown-menu redemption-dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("RedemptionDetails","SupplierRewards", new { id = item.Id })">View redemptions</a></li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Details", "Rewards", new { id = item.Id })" target="_blank">Preview reward page</a></li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Create", "SupplierRewards", new { id = item.Id })">Edit reward</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+                                }
+                            </tbody>
+                        </table>
+                                <div class="col-md-12 col-lg-12 bottom-pagination">
+                                    @if (Model.RewardsSummaryListModel.NumPages > 0)
+                                    {
+                                        if (Model.RewardsSummaryListModel.Page > 1)
+                                        {
+                                            <a href="@Url.Action("Dashboard",
+                                                         new
+                                                         {
+                                                             page = Model.RewardsSummaryListModel.Page - 1
+                                                         })" class="previous" data-action="previous"><span></span></a>
+                                        }
+                                        <input type="text" data-url="@Url.Action("Dashboard")" class="js-page-change-submit" name="Page" value="@Model.RewardsSummaryListModel.Page"/>                                       
+                                        <span>of @Model.RewardsSummaryListModel.NumPages</span>
+                                        if (Model.RewardsSummaryListModel.Page < Model.RewardsSummaryListModel.NumPages)
+                                        {
+                                            <a href="@Url.Action("Dashboard",
+                                                         new
+                                                         {
+                                                             page = Model.RewardsSummaryListModel.Page + 1
+                                                         })" class="next pull-right" data-action="next"><span></span></a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>No results</p>
+                                    }
+                                </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container My wallet  -->
+
+<style type="text/css">
+    .panel-body {
+        min-height: 130px;
+    }
+</style>
+
+<!-- *************** Add user popup -->
+    <div id="add-user-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Additional user </h2>
+                <hr>
+                <p class="popup-subtitle">Provide other members of your team access to this business account.</p>
+                @using (Html.BeginForm("AdditionalUsers", "Account", FormMethod.Post, new { role = "form", id = "addUserRgtrForm" }))
+                {
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.FirstName, new { placeholder = "First name", Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.FirstName)
+@*                        <input data-content="" data-val="true" data-val-required="The First name field is required." id="RegistrationViewModel_FirstName" name="RegistrationViewModel.FirstName" placeholder="First name" type="text" value="" class="mailRgtrForm-field">
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.FirstName" data-valmsg-replace="true"></span>*@
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.LastName, new { placeholder = "Last name", Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.LastName)                        
+@*                        <input data-content="" data-val="true" data-val-required="The Last name field is required." id="RegistrationViewModel_LastName" name="RegistrationViewModel.LastName" placeholder="Last name" type="text" value="" class="mailRgtrForm-field">  
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.LastName" data-valmsg-replace="true"></span>   *@                       
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.Email, new { placeholder = "Email address", Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.Email)                        
+                        @*<input data-content="" data-val="true" data-val-required="The Email address field is required." id="RegistrationViewModel_Email" name="RegistrationViewModel.Email" placeholder="Email address" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.Email" data-valmsg-replace="true"></span>*@                        
+                    </p>
+                    <p class="form-group error">
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.ConfirmEmail, new { placeholder = "Confirmation email", Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.ConfirmEmail)                           
+                        @*<input data-content="" data-val="true" data-val-equalto="Email and confirmation email do not match." data-val-equalto-other="*.Email" id="RegistrationViewModel_ConfirmEmail" name="RegistrationViewModel.ConfirmEmail" placeholder="Confirmation email" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.ConfirmEmail" data-valmsg-replace="true"></span>*@                                                     
+                    </p>
+                        <input type="submit" class="btn popupBtn" value="Send invitation"/>
+                        @*<a href="#" class="btn popupBtn">Send invitation</a>*@
+                        <a href="" class="btn popupBtnCancel">Cancel</a>
+                }
+                
+            </div>
+        </div>
+    </div>
+<!-- *************** Invitation sent popup -->
+    <div id="invitation-sent-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Invitation sent</h2>
+                <hr>
+                <a href="@Url.Action("AdditionalUsers", "Account")" class="btn popupBtn">Return to Manage users</a>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

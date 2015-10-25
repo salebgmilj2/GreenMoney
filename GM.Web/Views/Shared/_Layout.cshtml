@@ -1,0 +1,206 @@
+﻿@using GM.ViewModels.Shared
+@model LayoutViewModel
+<!DOCTYPE html>
+<html lang="en">
+    <!--[if lt IE 7 ]> <html class="ie ie6 ltie9"> <![endif]-->
+    <!--[if IE 7 ]>    <html class="ie ie7 ltie9"> <![endif]-->
+    <!--[if IE 8 ]>    <html class="ie ie8 ltie9"> <![endif]-->
+    <!--[if IE 9 ]>    <html class="ie ie9"> <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+    <head>
+	<meta name="apple-itunes-app" content="app-id=969817562, affiliate-data=myAffiliateData, app-argument=myURL">
+	<meta name="google-site-verification" content="JGPPvSRMFmDm6nyEVg4RaBSgmxi76BeV67raZY4S3xg" />
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content=“Take challenges, Earn rewards, Redeem at local businesses around your City – just by living green.” />
+
+        <link href="~/Css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Css/style.css" rel="stylesheet" />
+        @*<link href="~/Css/admin-challenges.css" rel="stylesheet" />*@
+        <link href="~/Css/registration.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet" type="text/css" />
+
+        @RenderSection("Styles", required: false)
+
+@*        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    </head>
+<body>
+@if (Model.IsAuthenticated)
+{   
+    <header class="visible-xs">
+	    <span class="menu-anchor"></span>
+        <span class="profile-user">Me</span>
+        <span class="go-shop"><a href="/Rewards" class="links">Go shop</a></span>
+    </header>
+
+    <menu class="visible-xs header-mobile-menu">
+	    <ul>
+		    <li><a href="/Account/MyProfile">GM User<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+		    <li><a href="/Account/UpdateProfile">Edit profile<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+		    <li><a href="#">Settings<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+		    <li><a href="#">Transaction history<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+		    <li><a href="/Account/Wallet">My wallet<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="#">Invite neighbours<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="/Account/AdditionalUsers">Additional users<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="#">Help<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="/General/Section/terms-and-privacy">Term of use<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="/General/Page/Privacy-policy">Privacy policy<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+            <li><a href="/Account/Logout">Log out<span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></a></li>
+	    </ul>
+    </menu>
+    <div class="wrapper-admin hidden-xs">
+        <nav class="navbar-inverse navbar-static-top" role="navigation">
+            @if (Model.IsCouncil || Model.IsAusPost)
+            {
+                @Html.Partial("~/Views/Shared/Council/_BrandLogo.cshtml")
+            }       
+            <div class="container admin-navbar">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                @if (Model.IsSuplier)
+                {
+                    @Html.Partial("~/Views/Shared/Supplier/_TopNavigationPartial.cshtml")
+                }
+                else if (Model.IsCouncil)
+                {
+                     @Html.Partial("~/Views/Shared/Council/_TopNavigationPartial.cshtml")
+                }
+                else
+                {
+                    @Html.Partial("~/Views/Shared/User/_TopNavigationPartial.cshtml")
+                }
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+}
+    @if (!Model.HideTopWrapperMenu)
+    {
+        <div class="wrapper-menu hidden-xs">
+            <div class="navbar">
+                <div class="navbar-inner navbar-left">
+                    @if (Model.Instance_Id != null)
+                    {
+                        <a id="council" class="brand" href="@Url.Action("Index", "Home")">
+                            @if (Model.Instance_Id == 1)
+                            {
+                                <img alt="" src="~/Images/logo-melbourne.png" />
+                            }
+                            else if (Model.Instance_Id == 2)
+                            {
+                                <img alt="" src="~/Images/logo-randwick.png" />
+                            }
+                            else if (Model.Instance_Id == 4)
+                            {
+                                <img alt="" src="~/Images/bcc-logo-desktop.png" />
+                            }
+                            else if (Model.Instance_Id == 5)
+                            {
+                                <img alt="" src="~/Images/ausPost-main-logo.jpg" />
+                            }
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="brand" href="@Url.Action("Index", "Home")">
+                            <img alt="" src="~/Images/logo.png" />
+                        </a>                         
+                    }
+                </div>
+                <div class="container menu-navbar">
+                    @if (Model.IsSuplier)
+                    {
+                        @Html.Partial("~/Views/Shared/Supplier/_TopNavigationBarRightPartial.cshtml")
+                    }
+                    else if (Model.IsCouncil)
+                    {
+                        @Html.Partial("~/Views/Shared/Council/_TopNavigationBarRightPartial.cshtml")
+                    }
+                    else
+                    {
+                        @Html.Partial("~/Views/Shared/User/_TopNavigationBarRightPartial.cshtml")
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    
+@if (Model.ActiveLink == Links.HomePage)
+{
+    @RenderBody()
+}
+else
+{
+    <section class="main">
+        @RenderBody()
+    </section>
+}
+@if (Model.IsAusPost != null && !Model.IsAusPost)
+{
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
+}
+    
+<script src="~/Scripts/jQueryCore/jquery-1.11.2.min.js"></script>    
+<script src="~/Scripts/jQueryCore/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jQueryPlugins/bootstrap.min.js"></script>
+<script src="~/Scripts/Shared/main.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/html5shiv-printshiv.js"></script>
+<script src="~/Scripts/html5shiv.js"></script>
+
+@RenderSection("Scripts", required: false)
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22772131-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<div id="fb-root"></div>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '@System.Configuration.ConfigurationManager.AppSettings["Facebook.AppId"]',
+                status: true,
+                cookie: true,
+                xfbml: true,
+                oauth: true
+            });
+        };
+        (function () {
+            var e = document.createElement('script'); e.async = true;
+            e.src = 'https://connect.facebook.net/en_US/all.js';
+            document.getElementById('fb-root').appendChild(e);
+        }());
+        function fblogin() {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    var fbLgnUrl = $("#fbLgnUrl").val();
+                    //window.location.href = '/Home/facebookloginnew?token=' + response.authResponse.accessToken;
+                    window.location.href = fbLgnUrl + '?token=' + response.authResponse.accessToken;
+                }
+            }, { scope: 'email' });
+        }
+    </script>
+@*mobile-menu nav*@
+    <script>
+        $(document).ready(function () {
+            $('.menu-anchor').on('click touchstart', function (e) {
+                $('html').toggleClass('menu-active');
+                e.preventDefault();
+            });
+        })
+</script>
+</body>
+    
+</html>

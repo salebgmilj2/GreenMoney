@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="greenMoney2ModelStoreContainer" CdmEntityContainer="greenMoneyEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="greenMoneyModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="greenMoneyModel.Applications">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memberships">
+      <EntityTypeMapping TypeName="greenMoneyModel.Memberships">
+        <MappingFragment StoreEntitySet="Memberships">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowsStart" ColumnName="FailedPasswordAnswerAttemptWindowsStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="greenMoneyModel.Profiles">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValueStrings" ColumnName="PropertyValueStrings" />
+          <ScalarProperty Name="PropertyValueBinary" ColumnName="PropertyValueBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="greenMoneyModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="greenMoneyModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="greenMoneyModel.Addresses">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="StreetType" ColumnName="StreetType" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="Instance_Id" ColumnName="Instance_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartItems">
+      <EntityTypeMapping TypeName="greenMoneyModel.CartItems">
+        <MappingFragment StoreEntitySet="CartItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Reward_Id" ColumnName="Reward_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS">
+      <EntityTypeMapping TypeName="greenMoneyModel.CMS">
+        <MappingFragment StoreEntitySet="CMS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="HTML" ColumnName="HTML" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instance">
+      <EntityTypeMapping TypeName="greenMoneyModel.Instance">
+        <MappingFragment StoreEntitySet="Instance">
+          <ScalarProperty Name="LogoImageId" ColumnName="LogoImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="postcodes" ColumnName="postcodes" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestedPeople">
+      <EntityTypeMapping TypeName="greenMoneyModel.InterestedPeople">
+        <MappingFragment StoreEntitySet="InterestedPeople">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="StreetType" ColumnName="StreetType" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FreeStandingHome" ColumnName="FreeStandingHome" />
+          <ScalarProperty Name="HasRfidTag" ColumnName="HasRfidTag" />
+          <ScalarProperty Name="SendEmailOffers" ColumnName="SendEmailOffers" />
+          <ScalarProperty Name="SendEmailUpdates" ColumnName="SendEmailUpdates" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvitedNeighbours">
+      <EntityTypeMapping TypeName="greenMoneyModel.InvitedNeighbours">
+        <MappingFragment StoreEntitySet="InvitedNeighbours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvitedUsers">
+      <EntityTypeMapping TypeName="greenMoneyModel.InvitedUsers">
+        <MappingFragment StoreEntitySet="InvitedUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailAccountUpdates" ColumnName="EmailAccountUpdates" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginToken">
+      <EntityTypeMapping TypeName="greenMoneyModel.LoginToken">
+        <MappingFragment StoreEntitySet="LoginToken">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="greenMoneyModel.Pages">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="URLValue" ColumnName="URLValue" />
+          <ScalarProperty Name="Hidden" ColumnName="Hidden" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Section_Id" ColumnName="Section_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resources">
+      <EntityTypeMapping TypeName="greenMoneyModel.Resources">
+        <MappingFragment StoreEntitySet="Resources">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Page_Id" ColumnName="Page_Id" />
+          <ScalarProperty Name="ResourceType_Id" ColumnName="ResourceType_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResourceTypes">
+      <EntityTypeMapping TypeName="greenMoneyModel.ResourceTypes">
+        <MappingFragment StoreEntitySet="ResourceTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RewardCategories">
+      <EntityTypeMapping TypeName="greenMoneyModel.RewardCategories">
+        <MappingFragment StoreEntitySet="RewardCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rewards">
+      <EntityTypeMapping TypeName="greenMoneyModel.Rewards">
+        <MappingFragment StoreEntitySet="Rewards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+          <ScalarProperty Name="AvailableFrom" ColumnName="AvailableFrom" />
+          <ScalarProperty Name="AvailableTo" ColumnName="AvailableTo" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="PartnerLocation" ColumnName="PartnerLocation" />
+          <ScalarProperty Name="PartnerHours" ColumnName="PartnerHours" />
+          <ScalarProperty Name="PartnerPhone" ColumnName="PartnerPhone" />
+          <ScalarProperty Name="PartnerEmail" ColumnName="PartnerEmail" />
+          <ScalarProperty Name="PartnerUrl" ColumnName="PartnerUrl" />
+          <ScalarProperty Name="PartnerDescription" ColumnName="PartnerDescription" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TermsAndConditions" ColumnName="TermsAndConditions" />
+          <ScalarProperty Name="Faq" ColumnName="Faq" />
+          <ScalarProperty Name="HowToRedeem" ColumnName="HowToRedeem" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageSmallId" ColumnName="ImageSmallId" />
+          <ScalarProperty Name="VoucherBarcodeId" ColumnName="VoucherBarcodeId" />
+          <ScalarProperty Name="ImageHomeId" ColumnName="ImageHomeId" />
+          <ScalarProperty Name="DollarPrice" ColumnName="DollarPrice" />
+          <ScalarProperty Name="M" ColumnName="M" />
+          <ScalarProperty Name="NotifyOnRedeem" ColumnName="NotifyOnRedeem" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Owner_Id" ColumnName="Owner_Id" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+          <ScalarProperty Name="Instance_Id" ColumnName="Instance_Id" />
+          <ScalarProperty Name="Image1Id" ColumnName="Image1Id" />
+          <ScalarProperty Name="Image2Id" ColumnName="Image2Id" />
+          <ScalarProperty Name="Image3Id" ColumnName="Image3Id" />
+          <ScalarProperty Name="Image4Id" ColumnName="Image4Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="greenMoneyModel.Sections">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="Instance_Id" ColumnName="Instance_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="URLValue" ColumnName="URLValue" />
+          <ScalarProperty Name="Hidden" ColumnName="Hidden" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="greenMoneyModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionTypeID" ColumnName="TransactionTypeID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uploads">
+      <EntityTypeMapping TypeName="greenMoneyModel.Uploads">
+        <MappingFragment StoreEntitySet="Uploads">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="UploadedBy_Id" ColumnName="UploadedBy_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users1">
+      <EntityTypeMapping TypeName="greenMoneyModel.Users1">
+        <MappingFragment StoreEntitySet="Users1">
+          <ScalarProperty Name="EmploymentType" ColumnName="EmploymentType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SendEmailOffers" ColumnName="SendEmailOffers" />
+          <ScalarProperty Name="SendEmailUpdates" ColumnName="SendEmailUpdates" />
+          <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+          <ScalarProperty Name="IsFBAccount" ColumnName="IsFBAccount" />
+          <ScalarProperty Name="FBUserId" ColumnName="FBUserId" />
+          <ScalarProperty Name="IsAdditionalAccountHolder" ColumnName="IsAdditionalAccountHolder" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="PushNotifications" ColumnName="PushNotifications" />
+          <ScalarProperty Name="Instance_Id" ColumnName="Instance_Id" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="BusinessNumberABN" ColumnName="BusinessNumberABN" />
+          <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+          <ScalarProperty Name="BussinesWebSite" ColumnName="BussinesWebSite" />
+          <ScalarProperty Name="BussinesEmail" ColumnName="BussinesEmail" />
+          <ScalarProperty Name="BussinesPhone" ColumnName="BussinesPhone" />
+          <ScalarProperty Name="BussinesPhoneArea" ColumnName="BussinesPhoneArea" />
+          <ScalarProperty Name="BussinesPhoneMobile" ColumnName="BussinesPhoneMobile" />
+          <ScalarProperty Name="BussinesLocation" ColumnName="BussinesLocation" />
+          <ScalarProperty Name="EmailBussinesOnVoucherRedeem" ColumnName="EmailBussinesOnVoucherRedeem" />
+          <ScalarProperty Name="PostToFacebook" ColumnName="PostToFacebook" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserToken">
+      <EntityTypeMapping TypeName="greenMoneyModel.UserToken">
+        <MappingFragment StoreEntitySet="UserToken">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="greenMoneyModel.Vouchers">
+        <MappingFragment StoreEntitySet="Vouchers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Issued" ColumnName="Issued" />
+          <ScalarProperty Name="Reward_Id" ColumnName="Reward_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AwardPointsOptions">
+      <EntityTypeMapping TypeName="greenMoneyModel.AwardPointsOptions">
+        <MappingFragment StoreEntitySet="AwardPointsOptions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChallengeCategories">
+      <EntityTypeMapping TypeName="greenMoneyModel.ChallengeCategories">
+        <MappingFragment StoreEntitySet="ChallengeCategories">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Challenges">
+      <EntityTypeMapping TypeName="greenMoneyModel.Challenges">
+        <MappingFragment StoreEntitySet="Challenges">
+          <ScalarProperty Name="DurationInDays" ColumnName="DurationInDays" />
+          <ScalarProperty Name="Instance_Id" ColumnName="Instance_Id" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+          <ScalarProperty Name="SendEmailTo" ColumnName="SendEmailTo" />
+          <ScalarProperty Name="SendEmailNotifications" ColumnName="SendEmailNotifications" />
+          <ScalarProperty Name="Web" ColumnName="Web" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateHoursTime" ColumnName="DateHoursTime" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="LocationOptionId" ColumnName="LocationOptionId" />
+          <ScalarProperty Name="TermsAndConditions" ColumnName="TermsAndConditions" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="ParticipationFrequencyId" ColumnName="ParticipationFrequencyId" />
+          <ScalarProperty Name="AwardPointsOptionId" ColumnName="AwardPointsOptionId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Article" ColumnName="Article" />
+          <ScalarProperty Name="PromoCode" ColumnName="PromoCode" />
+          <ScalarProperty Name="ChallengeCategoryId" ColumnName="ChallengeCategoryId" />
+          <ScalarProperty Name="ImageId4" ColumnName="ImageId4" />
+          <ScalarProperty Name="ImageId3" ColumnName="ImageId3" />
+          <ScalarProperty Name="ImageId2" ColumnName="ImageId2" />
+          <ScalarProperty Name="ImageId1" ColumnName="ImageId1" />
+          <ScalarProperty Name="LogoImageId" ColumnName="LogoImageId" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="EarnAmount" ColumnName="EarnAmount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Owner_Id" ColumnName="Owner_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationOptions">
+      <EntityTypeMapping TypeName="greenMoneyModel.LocationOptions">
+        <MappingFragment StoreEntitySet="LocationOptions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipationFrequency">
+      <EntityTypeMapping TypeName="greenMoneyModel.ParticipationFrequency">
+        <MappingFragment StoreEntitySet="ParticipationFrequency">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserChallenges">
+      <EntityTypeMapping TypeName="greenMoneyModel.UserChallenges">
+        <MappingFragment StoreEntitySet="UserChallenges">
+          <ScalarProperty Name="PointsClaimed" ColumnName="PointsClaimed" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ChallengeId" ColumnName="ChallengeId" />
+          <ScalarProperty Name="Issued" ColumnName="Issued" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UsersInRoles" TypeName="greenMoneyModel.UsersInRoles" StoreEntitySet="UsersInRoles">
+      <EndProperty Name="Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

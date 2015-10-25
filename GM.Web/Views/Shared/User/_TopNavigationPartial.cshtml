@@ -1,0 +1,63 @@
+@using System.Globalization
+@using GM.ViewModels.Shared
+@model LayoutViewModel
+@{
+    Layout = null;
+}
+
+<div class="navbar-right" id="header-acount-details">
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="#"> Points &nbsp;<span> @String.Format(new CultureInfo("en-US"), "{0:#,##0}", Model.CurrentUserTotalPoints)
+	&nbsp; <img src="/Images/add-another-user-icon.png" alt="">
+	</span>
+            </a>
+        </li>
+	<li>
+		<a class="shopping-cart" href="https://itunes.apple.com/au/artist/greenmoney-pty-ltd/id969817561" target="_blank" >
+                  <img src="/Images/mobile-whitesharp.png" alt="">
+                 My Apps
+                 </a>
+	</li>
+
+ 	<li>
+           	 <a class="shopping-cart" href="@Url.Action("Wallet", "Account", new { challenges = true })">
+                <img alt="" src="~/Images/cup.png">
+                <span class="counter-challenge badge js-added-challenge@(Model.CurrentUserTotalChallenges==0? " hide" : null)">@Model.CurrentUserTotalChallenges</span>
+            	&nbsp; Challenges
+		</a>
+        </li>
+	
+        <li>
+            <a class="shopping-cart" href="@Url.Action("Cart", "Account")">
+                <img src="~/Images/shopping-cart.png" alt="">
+                <span class="counter-challenge badge js-added-reward@(Model.CurrentUserTotalCart==0? " hide" : null)">@Model.CurrentUserTotalCart</span>
+		&nbsp; Cart &nbsp;  &#124;         
+		</a>
+        </li>
+	
+        <li class="dropdown">
+            <a class="user-pic-small dropdown-toggle" href="@Url.Action("MyProfile", "Account")" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="@(Model.CurrentUserPhotoId != null ? Url.Action("Upload", "General", new {id = Model.CurrentUserPhotoId}) : "/Images/default-admin-user-pic.png")">
+                Hi @Model.CurrentFirstName
+                <span class="dropdownarrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="@(Model.ActiveLink == Links.AccountMyProfile ? "active" : null)">
+                    <a href="@Url.Action("MyProfile", "Account")">My account</a>
+                </li>
+                <li class="@(Model.ActiveLink == Links.AccountUpdateProfile ? "active" : null)">
+                    <a href="@Url.Action("UpdateProfile", "Account")">Update profile</a>
+                </li>
+                <li class="@(Model.ActiveLink == Links.AccountMyCart ? "active" : null)">
+                    <a href="@Url.Action("Wallet", "Account")">My wallet</a>
+                </li>
+                <li class="divider"></li>
+		<li><a href="https://greenmoney.desk.com/customer/portal/emails/new">Ask for help</a>
+		</li>
+
+                <li><a href="@Url.Action("Logout", "Account")">Log out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

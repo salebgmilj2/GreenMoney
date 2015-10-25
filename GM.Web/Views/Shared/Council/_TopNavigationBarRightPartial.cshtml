@@ -1,0 +1,24 @@
+@model GM.ViewModels.Shared.LayoutViewModel
+@using GM.ViewModels.Shared
+@{
+    Layout = null;
+}
+
+
+@*<div class="navbar-inner navbar-left">
+    <a class="brand logo" href="#">
+        <img src="~/Images/logo.png" alt="">
+    </a>
+</div>*@
+<div class="navbar-right navbar-main">
+    <ul class="nav navbar-nav">
+	<li><a href="@Url.Action("Index", "ChallengesAdmin")">Manage challenges</a></li>
+        <li class="@(Model.ActiveLink == Links.CreateChallenge ? "new-reward" : null)"><a href="@Url.Action("Create", "ChallengesAdmin", new { id = ""})">Create new challenge</a>
+        </li>
+   @*     <li><a href="#">Dashboard</a>
+        </li>*@
+	
+        <li><a href="https://greenmoney.desk.com/?b_id=9831" target="_blank">Support</a>
+        </li>
+    </ul>
+</div>

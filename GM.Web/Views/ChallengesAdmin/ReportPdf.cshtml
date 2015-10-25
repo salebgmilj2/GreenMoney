@@ -1,0 +1,116 @@
+﻿@model GM.ViewModels.Council.ChallengeReportViewModel
+@{
+    
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/css/report.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div class="wrapper" style="margin-top:80px;">
+
+	<header class="header">
+		<div class="container">
+			@*<div class="row" style="padding-top: 10px;">
+				<div class="col-md-5"><h2 style="padding-left: 10px; font-size: 28px;"><strong>Report</strong></h2></div>			
+                <div class="col-md-3" style="padding-top: 21px;"><p>@DateTime.Now.ToString("dd/MM/yyyy hh:mm")</p></div>
+				<div class="col-md-4" style="padding-top: 24px; text-align: right;"><img src="~/Images/PDF-logo-black.png" alt=""></div>
+			</div>*@
+            <div  style="padding-top: 10px; width:100%;">
+				<span style="display:inline-block; width:32%;"><span style="padding-left: 10px; font-size: 28px"><strong>Report</strong></span>	</span>		
+                <span style="display:inline-block; width:33%; text-align: center;"><span  style="padding-top: 21px; ">@DateTime.Now.ToString("dd/MM/yyyy hh:mm")</span></span>
+				<span style="display:inline-block; width:33%; text-align: right;"><span  style="padding-top: 24px; text-align: right; padding-right:0px "><img src="~/Images/PDF-logo-black.png" alt=""></span></span>
+			</div>
+		</div>
+	</header><!-- .header-->
+
+	<main class="content">
+		<div class="container" style="background-color: #f3f3f4; padding: 15px 15px;">
+			<div class="row">
+				<div class="col-md-12">
+					<table class="tg">
+					  <tr>
+					    <th class="tg-k6pi">Challenge</th>
+					    <th class="tg-031e">@Model.Challenge.Name</th>
+					  </tr>
+					  <tr>
+					    <td class="tg-031a">Code</td>
+					    <td class="tg-031e">@Model.Challenge.PromoCode</td>
+					  </tr>
+					  <tr>
+					    <td class="tg-031a">Date range</td>
+					    <td class="tg-031e"> 
+                            @Model.DateRange
+                          @*@(Model.Challenge.StartDate != null ? ((DateTime)Model.Challenge.StartDate).ToString("dd/MM/yyyy") +  " - " : "")
+                          @(Model.Challenge.EndDate != null ? ((DateTime)Model.Challenge.EndDate).ToString("dd/MM/yyyy") : "")*@
+                        </td>  
+					  </tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+                <div class="col-md-12 col-lg-12" style="margin-top: 27px;">
+					<table id="challenge-report-pdf" class="table table-hover table-condensed">
+						<thead>
+						    <tr>
+						        <th style="width:11%">Date/time</th>
+						        <th style="width:12%" class="text-center">Participant</th>
+                                @if (Model.Challenge.Instance_Id == 5)
+                                { 
+                                 <th style="width:12%" class="text-center">Workplace</th>
+                                }
+                                else
+                                {
+						         <th style="width:12%" class="text-center">Suburb</th>
+                                }
+						        <th style="width:3%" class="text-center">Status</th>
+						    </tr>
+						</thead>
+						<tbody>
+
+                        @foreach (var item in Model.UsersList.UserChallengeList)
+                        {
+
+						    <tr>
+						        <td style="text-align:center" data-th="Date/time">@item.Issued.ToString("dd/MM/yyyy hh:mm")</td>
+						        <td style="text-align:center" data-th="Participant" class="text-center">@item.UserName</td>
+                                @if (Model.Challenge.Instance_Id == 5)
+                                    { 
+                                         <td style="text-align:center" data-th="Suburb" class="text-center">@item.Workplace</td>
+                                     }
+                               else
+                                     {
+						                 <td style="text-align:center" data-th="Suburb" class="text-center">@item.Suburb</td>
+                                     }   
+						       
+						        <td style="text-align:center" data-th="Status" class="remove-actions text-center status-active" > @(item.PointsClaimed ? "Completed" :  "Not completed")</td>
+						    </tr>
+                         }
+						   
+
+						</tbody>
+					</table>
+            	</div><!-- /.col-lg-12 -->
+        	</div><!-- /.row -->
+		</div>
+	</main><!-- .content -->
+
+</div><!-- .wrapper -->
+
+</body>
+</html>

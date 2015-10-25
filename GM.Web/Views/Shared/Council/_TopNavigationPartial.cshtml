@@ -1,0 +1,73 @@
+@using System.Globalization
+@using GM.ViewModels.Shared
+@model LayoutViewModel
+@{
+    Layout = null;
+}
+
+<div class="navbar-right" id="header-admin-create-challenge">
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="@Url.Action("Index", "ChallengesAdmin")" class="shopping-cart">
+                <img src="~/Images/challenges-icon-white.png" style="position: relative; top: -2px">
+                <span class="counter-challenge badge">@Model.UserChallengesCount.ToString()</span>
+		&nbsp; My Challenges
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle user-pic-small" data-toggle="dropdown" aria-expanded="false">
+                <img src="@(Model.CurrentUserPhotoId != null ? Url.Action("Upload", "General", new { id = Model.CurrentUserPhotoId }) : "/Images/default-admin-user-pic.png")">
+                <strong class="admin-challenge">@Model.CurrentFirstName &nbsp;</strong>
+                
+                @if (Model.Instance_Id !=5)
+                {
+                     <span class="admin-council-separator">|</span>
+                }
+               
+
+
+                @if (Model.Instance_Id == 1)
+                {
+                    <strong class="citycouncil">City of Melbourne</strong>
+                }
+                else if (Model.Instance_Id == 2)
+                { 
+                    <strong class="citycouncil">City of Randwick</strong>
+                }
+                else if (Model.Instance_Id == 4)
+                { 
+                    <strong class="citycouncil">City of Blacktown</strong>
+                }
+                           
+                
+                  <span class="dropdownarrow"></span>
+               
+            </a>
+            @if (Model.Instance_Id == 5)
+                {
+                    <ul class="dropdown-menu">
+                        @* <li><a href="#">My account</a></li>
+                                                    <li><a href="#">Dashboard</a></li>
+                                                    <li><a href="#">Profile</a></li>
+                                                    <li class="divider"></li>*@
+                        <li><a href="@Url.Action("Index", "ChallengesAdmin")">Manage Challenges</a></li>
+                    <li><a href="@Url.Action("Logout", "Account")">Log Out</a></li>
+                    </ul>
+                }
+                else
+                {
+                     <ul class="dropdown-menu manage-report-dropdown">
+                         @* <li><a href="#">My account</a></li>
+                                                    <li><a href="#">Dashboard</a></li>
+                                                    <li><a href="#">Profile</a></li>
+                                                    <li class="divider"></li>*@
+                         <li><a href="@Url.Action("Index", "ChallengesAdmin")">Manage Challenges</a></li>
+			<li><a href="https://greenmoney.desk.com/customer/portal/emails/new">Help request</a></li>
+                     <li><a href="@Url.Action("Logout", "Account")">Log Out</a></li>
+                     </ul>
+                }
+
+                
+        </li>
+    </ul>
+</div>

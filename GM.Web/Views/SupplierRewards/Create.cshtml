@@ -1,0 +1,766 @@
+﻿@model GM.ViewModels.Supplier.CreateRewardViewModel
+
+@{
+    ViewBag.Title = "Create Reward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @if (!Model.IsInitialRegistrationStep)
+        {
+            @Html.Partial("_LeftNavigation", Model)
+        }
+        else
+        {
+            @Html.Partial("~/Views/Shared/Supplier/_TopRegistrationStepsPartial.cshtml", Model)
+        }
+        @using (Html.BeginForm("Create", "SupplierRewards", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data", id = "rewardSubmit" }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.IsUpdate)
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.IsInitialRegistrationStep)
+            @Html.HiddenFor(model => model.IsSentForApprove)
+            <div class="container partner-business-details">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">@(!Model.IsUpdate ? "Create reward" : "Edit reward page")</h1>
+                            <p>1. Business details</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-business-adress">
+                                <div class="col-md-12 col-lg-12">
+
+                                    <div class="form-group p-biss-location">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Location</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            <p class="form-control-static">@Model.PartnerLocationCurrent @*Unit 7, 2 Cherry Street, Kingsford NSW 2072*@</p>
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-md-offset-4">
+                                            <div class="pull-right ">
+                                                <input id="trigger-change-address-section" type="submit" class="btn changeBtn" value="Change address" />
+                                            </div>
+                                        </div>
+                                        <div class="row p-business-street hide" id="change-address-section">
+                                            <div class="col-md-offset-3 col-md-5 col-lg-5">
+                                                @Html.TextBoxFor(model => model.PartnerLocationNewAddress, new { @class = "form-control password-field input-resizeW", placeholder = "Street address", autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.PartnerLocationNewAddress)
+                                                @*<span id="street_validation" class="error"></span>*@
+                                            </div>
+                                            <div class="col-md-4 col-lg-4">
+                                                <h6 class="field-descr">This location will be displayed on your reward page and provided as a Google Maps location.</h6>
+                                            </div>
+                                            <div class="name-field col-md-offset-3 col-md-2 col-lg-2">
+                                                <select class="empty custom-dropdown biss-state" data-val="true" data-val-required="The Select gender field is required." id="SelectGender" name="SelectGender">
+                                                    <option value="" class="empty" selected disabled>Select state</option>
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="name-field col-md-2 col-lg-2">
+                                                @Html.TextBoxFor(model => model.PartnerLocationNewPostCode, new { placeholder = "Post code", @class = "form-control text-field" })
+                                                @Html.ValidationMessageFor(model => model.PartnerLocationNewPostCode)
+                                                @*<span id="street_validation" class="error"></span>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group p-biss-hours">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Hours</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.PartnerHours, new { @class = "biss-hours", rows = "5", cols = "40" })
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Use separate lines to clearly state your hours of trade, for example
+                                                <br>
+                                                <span>Open 7 days
+                                                    <br>
+                                                    11am – 11pm</span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="form-group p-biss-web">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Website</label>
+                                        <div class="col-md-5 col-lg-5 resizeW">
+                                            @Html.TextBoxFor(model => model.PartnerUrl, new { @class = "form-control text-field", placeholder = "http://" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group p-biss-descr">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Business or venue description</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.PartnerDescription, new { @class = "biss-descr", rows = "5", cols = "40", maxlength = "500" })
+                                            @Html.ValidationMessageFor(model => model.PartnerDescription)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Include a description about your business for new customer to see when they visit your business page. 500 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Business details -->
+
+
+            <div class="container partner-reward-descriptions">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>2. Reward description</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-reward-descr">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-name">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Business name</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.PartnerName, new { @class = "form-control password-field input-resizeW" })
+                                            @Html.ValidationMessageFor(model => model.PartnerName)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">This business name will appear in the rewards list. If you have multiple store locations, use a dash, and then the location name. E.g. Boost Juice &#8211 Melbourne CBD, Boost Juice &#8211 St Kilda.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-reward-amount">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Reward amount</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control password-field input-resizeW", placeholder = "e.g. $10 off lunch or dinner voucher" })
+                                            @Html.ValidationMessageFor(model => model.Name)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">35 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-hours">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Reward details</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control password-field biss-hours", rows = "5", cols = "40", placeholder = "e.g. $10 Enjoy off lunch or dinner when you spend $50 or more at the stunning Restaurant One." })
+                                            @Html.ValidationMessageFor(model => model.Description)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">200 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-points">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">No. of points required to redeem your voucher</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            @Html.TextBoxFor(model => model.Price, new { @class = "form-control password-field", type = "number" })
+                                            @Html.ValidationMessageFor(model => model.Price)
+                                        </div>
+                                        <div class="col-md-offset-2 col-md-4 col-lg-4">
+                                            <h6 class="field-descr">As a guide, a $10 off discount should be listed as 100 points. The higher the value, the higher the points, for example a free ticket valued at $24 equates to 240 points.</h6>
+                                        </div>
+                                    </div>
+                                    <div class="form-group p-biss-cat_list">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Category listing</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.DropDownListFor(m => m.CategoryId, Model.Categories, "Category", new { @class = "empty custom-dropdown cat_list", data_placeholder = "Select category" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row password-change-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Reward description -->
+ 
+            <div class="container partner-profile-images">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>3. Business images</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-profile-images">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-logo">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Your Logo</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            @if (Model.ImageSmallId != null)
+                                            {
+                                                @Html.HiddenFor(model => model.ImageSmallId)
+                                                <img src="@Url.Action("Upload", "General", new { id = Model.ImageSmallId })?width=158" width="158" class="partner-logo-size" alt="Logo" />
+                                                <span class="delete"></span>                                            
+                                            }
+                                            else
+                                            {
+                                                <img class="partner-logo-size" src="~/Images/partner-profile-logo.jpg" alt="" />
+                                                <span class="photoicon"></span>                                                      
+                                            }
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 img-descr-size">
+                                            <h6>Correct image size
+                                        is 139 x 139 pixels.</h6>
+                                        </div>
+
+                                         <div class="col-md-2 col-lg-2 col-md-offset-4 change-image-button">
+                                            <div class="pull-right file-input-wrapper">
+                                                <button class="btn-file-input btn changeBtn">Upload image</button>
+                                                <input type="file" name="LogoPhoto" id="photoUpload" class="btn changeBtn" value="Upload image" />
+                                            </div>
+                                        </div> 
+
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-profile-image">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Your business images</label>
+                                        <div class="col-md-5 col-lg-5 profile-image-holder">
+                                            <div class="imgbox-hover white-space-r-b">
+                                                @if (Model.ImageId == null)
+                                                {             
+                                                    <img class="profile-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo1" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.ImageId)
+                                                    <img class="profile-images" src="@Url.Action("Upload", "General", new { id = Model.ImageId })?width=148" alt="" />
+                                                    <span class="delete"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo1" name="ProfileImage" type="file" value="" />
+                                                }
+                                            </div>
+                                            <div class="imgbox-hover white-space-b">                                                
+                                                @if (Model.Image2Id == null)
+                                                {             
+                                                    <img class="profile-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo2" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.Image2Id)
+                                                    <img class="profile-images" src="@Url.Action("Upload", "General", new { id = Model.Image2Id })?width=148" alt="" />
+                                                    <span class="delete"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo2" name="ProfileImage" type="file" value="" />
+                                                }
+                                            </div>
+                                            <div class="imgbox-hover white-space">
+                                                @if (Model.Image3Id == null)
+                                                {             
+                                                    <img class="profile-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo3" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.Image3Id)
+                                                    <img class="profile-images" src="@Url.Action("Upload", "General", new { id = Model.Image3Id })?width=148" alt="" />
+                                                    <span class="delete"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo3" name="ProfileImage" type="file" value="" />
+                                                }
+                                            </div>
+                                            <div class="imgbox-hover">
+                                                @if (Model.Image4Id == null)
+                                                {             
+                                                    <img class="profile-imagebox" src="~/Images/partner-profile-image-static.jpg" alt="" />
+                                                    <div class="img-overlay"></div>
+                                                    <input id="Photo4" class="btn changeBtn custom-file-upload" type="file" value="" name="ProfileImage" />
+                                                    <label class="uploadphotos" for="Photo">Upload image</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => model.Image4Id)
+                                                    <img class="profile-images" src="@Url.Action("Upload", "General", new { id = Model.Image4Id })?width=148" alt="" />
+                                                    <span class="delete"></span>
+                                                    <input class="btn changeBtn custom-file-upload" id="Photo4" name="ProfileImage" type="file" value="" />
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Add up to 4 images of your business or product. The images will appear on your page in order of sequence from top left (in a clockwise direction). Correct image size is 480 x 330 pixels.</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Images-->
+           
+            <div class="container partner-redemptions-details">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>4. Redemption details</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-redemptions-redeem">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-redeem">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">How to redeem instructions</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(
+                                    model => model.HowToRedeem,
+                                    new
+                                    {
+                                        @class = "biss-redeem",
+                                        rows = "6",
+                                        cols = "40",
+                                        maxlength = "500"
+                                    })
+                                            @Html.ValidationMessageFor(model => model.HowToRedeem)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">You can leave these instructions as your default, or make changes. 300 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-special-instrc">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Special instructions</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextBoxFor(model => model.Instructions, new { @class = "form-control password-field biss-special-instrc", placeholder = "e.g. Enter promo code YGM188 at checkout" })
+                                            @Html.ValidationMessageFor(model => model.Instructions)
+                                            @*<span id="newpass_validation" class="error"></span>*@
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Provide any special instructions. For example, a promo code may be required at checkout for any online purchases. 100 character limit.</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group p-biss-terms">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Terms and conditions</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            @Html.TextAreaFor(
+                                    model => model.TermsAndConditions,
+                                    new
+                                    {
+                                        @class = "biss-terms",
+                                        rows = "5",
+                                        cols = "40",
+                                        maxlength = "500"
+                                    })
+                                            @Html.ValidationMessageFor(model => model.TermsAndConditions)
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">If unedited example text will be listed as a default. 500 character limit.
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-barcode">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Upload barcode image file (This is optional)</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            @if (Model.VoucherBarcodeId != null)
+                                            {
+                                                @Html.HiddenFor(model => model.VoucherBarcodeId)
+                                                <img id="barcodeImg" src="@Url.Action("Upload", "General", new { id = Model.VoucherBarcodeId })?width=158" width="158" class="profile-imagebox" alt="Barcode" />
+                                                <span class="delete"></span>                                        
+                                            }
+                                            else
+                                            {
+                                                <img id="barcodeImg" src="~/Images/reward-page-barcode.jpg" alt="" />
+                                                <span class="photoicon"></span>                                                        
+                                            }
+                                        </div>
+                                        <div class="col-md-offset-3 col-md-4 col-lg-4">
+                                            <h6 class="field-descr">If uploaded, a barcode image will be displayed on your vouchers. Image file type is .PNG or .JPG. Maximum image size is 286 x 90px.
+                                            </h6>
+                                            <div class="pull-right file-input-wrapper">
+                                                <button class="btn-file-input btn changeBtn">Upload image</button>
+                                                <input type="file" name="BarCodeImage" id="photoBarCodeUpload" class="btn changeBtn" value="Upload image" />
+                                            </div>
+                                        </div>                                       
+
+                                    </div>
+
+                                    <div class="form-group p-biss-mobile-redeem">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Allow instore mobile app redemptions</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+                                                <div class="toggle">
+                                                    @if (Model.Mobile)
+                                                    {
+                                                        <input id="toggleOne" type="checkbox" value="true" name="Mobile" data-val="true" />
+                                                        <input type="hidden" value="true" name="Mobile" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="toggleOne" type="checkbox" value="false" checked="checked" name="Mobile" data-val="false" />
+                                                        <input type="hidden" value="false" name="Mobile" />
+                                                    }
+                                                    <label for="toggleOne">
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+                                                <!-- /toggle -->
+                                            </div>
+                                        </div>
+                                        <span class="col-md-3 col-lg-3 help-inline"></span>
+                                        <div class="col-md-offset-3 col-md-4 col-lg-4">
+                                            <h6 class="field-descr">In addition to printed vouchers, you can accept redemptions from new customers using the <a href="https://itunes.apple.com/au/app/greenmoney/id969817562?mt=8" class="links">GreenMoney App</a>.
+
+
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Redemptions details -->
+            <div class="container partner-settings-and-notifications">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>5. Redemption notifications</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-revard-owner">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-owner">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Send redemption notifications to this email address</label>
+                                        <div class="col-md-5 col-lg-5">
+                                            <select class="empty custom-dropdown biss-owner" name="PartnerEmail">
+                                                <option value="" class="empty" selected="" disabled="">@(Model.PartnerEmail ?? Model.CurrentUserEmail)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4">
+                                            <h6 class="field-descr">Only the listed owner is able receive notifications and edit this reward page.</h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-toggle">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Redemption notifications</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+                                                <div class="toggle">
+                                                    @if (Model.NotifyOnRedeem)
+                                                    {
+                                                        <input id="toggleThree" type="checkbox" value="true" name="NotifyOnRedeem" data-val="true" />
+                                                        <input type="hidden" value="true" name="NotifyOnRedeem" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="toggleThree" type="checkbox" value="false" checked="checked" name="NotifyOnRedeem" data-val="false" />
+                                                        <input type="hidden" value="false" name="NotifyOnRedeem" />
+                                                    }
+                                                    <label for="toggleThree">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>
+                                                <!-- /toggle -->
+                                            </div>
+                                        </div>
+                                        <h6 class="col-md-offset-3 col-md-4 col-lg-4 field-descr">Send an email to the above account each time a voucher is redeemed by a customer.</h6>
+                                    </div>
+
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings and notifications -->
+            <div class="container partner-finalise-and-display">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>6. Finalise and display page</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row p-finalise-steps">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-status">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Current approval status</label>
+                                        <div class="container partner-reg-wizard">
+                                            <div class="col-md-5 reg-wizard-step complete">
+                                                <!-- active -->
+                                                <div class="progress">
+                                                    <div class="progress-bar"></div>
+                                                </div>
+                                                <a href="#" class="reg-wizard-dot"></a>
+                                                <div class="reg-wizard-info text-center">Create page</div>
+                                            </div>
+
+                                            <div class="col-md-5 reg-wizard-step active">
+                                                <!-- active -->
+                                                <div class="progress">
+                                                    <div class="progress-bar"></div>
+                                                </div>
+                                                <a href="#" class="reg-wizard-dot"></a>
+                                                <div class="reg-wizard-info text-center">Approval sent</div>
+                                            </div>
+
+                                            <div class="col-md-1 reg-wizard-step active">
+                                                <!-- active -->
+                                                <div class="progress">
+                                                    <div class="progress-bar"></div>
+                                                </div>
+                                                <a href="#" class="reg-wizard-dot"></a>
+                                                <div class="reg-wizard-info text-center">Approved</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-reward-valid">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Reward valid from (optional)</label>
+                                        <div class="col-md-5 col-lg-5 date-form resizeW">
+
+                                            <div class="form-horizontal">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        @Html.TextBoxFor(model => model.ValidFrom, new { @class = "date-picker form-control text-field", @placeholder = "Start date" })
+                                                        @*<input id="date-picker-1" type="text" class="date-picker form-control text-field"/>*@
+                                                    </div>
+                                                    <label for="date-picker-1" class="control-label">
+                                                        <span class="calendar-dropdown-arrow arrow-l1"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        @Html.TextBoxFor(model => model.ValidTo, new { @class = "date-picker form-control text-field", @placeholder = "End date" })
+                                                        @*<input id="date-picker-2" type="text" class="date-picker form-control text-field"/>*@
+                                                    </div>
+                                                    <label for="date-picker-2" class="control-label">
+                                                        <span class="calendar-dropdown-arrow arrow-l2"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group p-biss-submit-approval">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Submit this page for approval</label>
+                                        <div class="col-md-3 col-lg-3">
+                                            <input type="submit" name="saveAndApproveButton" action="" class="btn mainBtn" value="Submit" />
+                                        </div>
+                                        <h6 class="col-md-offset-2 col-md-3 col-lg-3 field-descr">Finished editing your page? Submit for approval. (Approval within 24hrs)</h6>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-toggle-display-p">
+                                        <label class="col-md-3 col-lg-3 label-form" for="textinput">Display this page to customers</label>
+                                        <div class="col-md-2 col-lg-2">
+                                            <div class="input-group">
+                                                @if (!Model.EnableDisplayRewardOption)
+                                                {
+                                                    @Html.HiddenFor(m=>m.Display)
+                                                    <div class="display-page-toggle">
+                                                        <input @(Model.EnableDisplayRewardOption ? null : "disabled") type="checkbox" id="p-toggleThree"/>
+                                                        <label for="p-toggleThree">
+                                                            <!-- class="attention" -->
+                                                            <i></i>
+                                                        </label>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                 <div class="toggle">
+                                                    @if (Model.Display)
+                                                    {
+                                                        <input id="toggleTwo" type="checkbox" value="true" name="Display" data-val="true" />
+                                                        <input type="hidden" value="true" name="Display" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="toggleTwo" type="checkbox" value="false" checked="checked" name="Display" data-val="false" />
+                                                        <input type="hidden" value="false" name="Display" />
+                                                    }
+                                                    <label for="toggleTwo">
+                                                        <!-- class="attention" -->
+                                                        <i></i>
+                                                    </label>
+                                                </div>     
+                                                <!-- /toggle -->
+                                                }
+                                            </div>
+                                        </div>
+                                        <h6 class="col-md-offset-3 col-md-4 col-lg-4 field-descr">Your page will be displayed once approved. Tip - use this switch to turn page on or off.</h6>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group p-biss-save-bar">
+                                        <div class="row">
+                                            <div class="col-md-5 col-lg-5">
+                                                <button type="button" action="" id="cancelActionTrigger" class="btn skipBtn">Cancel</button>
+                                            </div>
+                                            <div class="col-md-7 col-lg-7 pull-right">
+                                                <input type="submit" name="saveAndExitButton" value="Save and exit" class="btn check-outBtn pull-right" />
+
+                                                @if (Model.IsUpdate)
+                                                {
+                                                    <div class="dropdown">
+                                                        <button type="button" action="" class="btn continueShoppingBtn" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                            Preview
+                                                       <span class="btn-dropdown"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu reward-create" role="menu" aria-labelledby="dropdownMenu1">
+                                                            <li role="presentation"><a target="_blank" role="menuitem" tabindex="-1" href="@Url.Action("Details", "Rewards", new { id = Model.Id })">Preview reward page</a></li>
+                                                            <li role="presentation">
+                                                                <a role="menuitem" tabindex="-1" href="@Url.Action("Voucher", "Rewards", new { id = new Guid(), rewardId = Model.Id })" target="_blank">Preview voucher</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>                                                       
+                                                    
+                                                }
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12">
+                                                <h6 class="terms-bar">By clicking Save you agree to the <a href="http://greenmoney.desk.com/customer/portal/articles/2089817-terms" class="links" target="_blank">Terms of use </a>. Failure to comply with the terms of use may result in the cancellation of your page and account.</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finalise and display -->
+            <div class="container partner-validating">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <h6 class="terms-bar">By clicking Save you agree to the <a href="http://greenmoney.desk.com/customer/portal/articles/2089817-terms" class="links" target="_blank">Terms of use </a>. Failure to comply with the terms of use may result in the cancellation of your page and account.</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+</div>
+<!-- *************** Submitted for approval popup -->
+<div id="submitted-for-approval-popup" class="popup">
+    <div class="popup-body">
+        <span class="popup-exit"></span>
+        <div class="popup-content">
+            <span class="popup-img"></span>
+            <h2 class="popup-title">Your page has been submitted for approval.</h2>
+            <hr>
+            <p class="popup-subtitle">
+                Approval can take up to 48-hours. 
+                If you made edits to your existing reward page, your current details will be displayed until approved by GreenMoney.
+            </p>
+            <a href="@Url.Action("Index", "Supplier")" class="btn popupBtn">Go to your Account</a>
+        </div>
+    </div>
+</div>
+<!-- *************** Cancel page popup -->
+<div id="cancel-page-popup" class="popup">
+    <div class="popup-body">
+        <span class="popup-exit"></span>
+        <div class="popup-content">
+            <h2 class="popup-title">Are you sure?</h2>
+            <hr>
+            <p class="popup-subtitle">You’re about to cancel and not save, are you sure you want to do that?</p>
+            <a id="cancelEditReward" class="btn popupBtn">Save page before closing</a>
+            <a class="btn popupBtnCancel">Don’t save</a>
+        </div>
+    </div>
+</div>
+<!-- <div class="popup-overlay"></div> -->
+<!-- *************** -->
+<div class="popup-overlay"></div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="mobile-redeem-tooltip"]').tooltip();
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $( ".date-picker" ).datepicker({ firstDay: 1 });
+            $( ".date-picker" ).on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+            });
+
+            //Show notification popup if reward is sent for approval
+            if ($("#IsSentForApprove").val() == "True") {
+                $("#submitted-for-approval-popup").addClass("visible");
+            }
+
+            //create reward
+            $("#cancelActionTrigger").on("click", function () {
+                $("#cancel-page-popup").addClass("visible");
+            });
+
+            $(".popupBtnCancel").on("click", function () {
+                $("#cancel-page-popup").removeClass("visible");
+                return false;
+            });
+            $("#cancelEditReward").on("click", function () {
+                $("#rewardSubmit").submit();
+            });
+
+
+        });
+
+    </script>
+}
+
+<style type="text/css">
+    .p-profile-images .profile-images {
+        height: 100px;
+        width: 148px;
+    }
+ 
+    .p-profile-images .profile-imagebox {
+        height: 100px;
+        width: 148px;
+    }
+    #barcodeImg {
+        width: 148px; 
+        height: 53px;
+    }
+
+    #photoUpload {
+        height: 40px;
+    }
+</style>

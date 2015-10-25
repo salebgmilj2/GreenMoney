@@ -1,0 +1,76 @@
+﻿@model GM.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<div class="row">
+    <div class="myaccountmenu">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new {Class = "form-horizontal", role = "form" }))
+        {
+            <div class="container update-account">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading main-login-title">
+                            <h1 class="panel-title">Log in to GreenMoney</h1>
+                            @if (Model.IsVerified)
+                            {
+                                <p>Congratulations! Your verification was successful</p>
+                            }
+                            <span class="main-login-title-subtitle">Please enter your user name and password.</span>
+                            <span class="main-login-title-subtitle"><a href="https://www.greenmoney.com.au/" class="links">Register</a> if you don&#39t have an account.</span>
+<br>
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                        </div>
+                        <div class="panel-body">
+                            <div class="row main-login-info">
+                                <div class="col-md-12 col-lg-12">
+                                    <!-- Text input-->
+                                    <div class="mainlogin-field mainlogin--email">
+                                        <label for="Email" class="label-form">Email</label>
+                                        @Html.TextBoxFor(m => m.UserName, new { Class = "form-control text-field"})
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </div>
+                                    <div class="mainlogin-field mainlogin--password">
+                                        <label for="Password" class="label-form">Password</label>
+                                        @Html.PasswordFor(m => m.Password, new { Class = "form-control text-field"})
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </div>
+                                    <div class="mainlogin-button-holder">  
+                                        @Html.Hidden("ReturnUrl", Request.QueryString["ReturnUrl"])
+                                        <input type="submit" class="btn mainBtn main-login--button" value="Log in"/>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row personal-info -->
+                        </div>
+                    </div>
+                </div>
+                            <div class="container submiting">
+                    <div class="row verify-next-page">
+                        <p class="col-md-7 pull-left need-help">
+                            <img src="~/Images/question-mark.png">
+                            Need help? <a href="https://greenmoney.desk.com/" target="external">Contact support</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Update profile - personal and contact information-->
+
+        }
+        
+
+    </div>
+</div>
+
+<style type="text/css">
+    .validation-summary-errors li {
+        margin-left: 10px; 
+        color: #f05b59;
+        list-style: outside none none;
+    }
+</style>

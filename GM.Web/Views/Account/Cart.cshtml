@@ -1,0 +1,90 @@
+﻿@using System.Globalization
+@model GM.ViewModels.MyCartViewModel
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation")
+        <div class="container my-cart-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div id="mycart" class="col-md-4 col-lg-4 hidden-xs">My cart</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                @if (Model.CartModel.Items.Any())
+                                {
+                                    using (Html.BeginForm("Cart", "Account", FormMethod.Post, new {Class = "form-horizontal", role = "form", id = "myCartForm"}))
+                                    {
+                                        <table id="cart" class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 72%">Reward</th>
+                                                <th style="width: 10%">Quantity</th>
+                                                <th style="width: 10%" class="text-center">Points</th>
+                                                <th style="width: 13%"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for (int i = 0; i < Model.CartModel.Items.Count(); i++)
+                                            {
+                                                <tr>
+                                                    <td data-th="Reward">
+                                                        @Html.HiddenFor(m => m.CartModel.Items[i].Id)
+                                                        <div class="row">
+                                                            <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                                <img src="@Url.Action("Upload", "General", new {id = Model.CartModel.Items[i].ImageId })?width=139" alt="" class="img-responsive checkout-reward-img"/>
+                                                            </div>
+                                                            <div class="col-sm-10">
+                                                                <h5 class="nomargin">@Model.CartModel.Items[i].Name</h5>
+                                                                <p>@Model.CartModel.Items[i].Description</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td data-th="Quantity" class="js-quantity-update">
+                                                        @Html.TextBoxFor(m => m.CartModel.Items[i].Quantity, new {@class = "form-control text-left", type = "number"})
+                                                    </td>
+                                                    <td data-th="Points" class="text-center">@Model.CartModel.Items[i].Price</td>
+                                                    <td class="remove-actions text-right" data-th="">
+                                                        <input name="rewardId" type="hidden" value="@Model.CartModel.Items[i].Id"/>
+                                                        <button type="submit" class="remove-reward js-reward-remove"><span></span></button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                        <div class="row claim-bar">
+                                            <div class="col-xs-12 col-md-6 col-lg-6 claim-bar-points">
+                                                <h4>You have <a href="#"></a><span class="total-points">@String.Format(new CultureInfo("en-US"), "{0:#,##0}", Model.CartModel.PointsAvailable) </span>points remaining.</h4>
+                                            </div>
+                                            <div class="col-md-6 col-lg-6 pull-right claim-bar-buttons hidden-xs">
+                                                <a href="@Url.Action("Checkout")" class="btn pull-right check-outBtn">Check out</a>
+                                                <a href="@Url.Action("Index", "Rewards")" class="btn continueShoppingBtn">Continue shopping</a>
+                                            </div>
+                                            @*Cart on mobile*@
+                                            <div class="col-xs-12 claim-bar-buttons visible-xs">
+                                                <a href="@Url.Action("Index", "Rewards")" class="btn continueShoppingBtn">Continue shopping</a>
+                                            </div>
+                                            <div class="col-xs-12 claim-bar-buttons visible-xs">
+                                                <a href="@Url.Action("Checkout")" class="btn check-outBtn">Check out</a>
+                                            </div>
+
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>You have (0) items in your cart.</p>
+                                }
+                            </div><!-- /.col-lg-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container My cart -->
+    </div>
+</div>

@@ -1,0 +1,121 @@
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\Base32Encoder.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\EntityFramework.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\GM.Models.dll
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\AplikacijeRazvoj\GM Agata\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\GMAgata\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\AgataGMResolved\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\AgataGM\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\AgataGM\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\AgataGM\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\AgataGM\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150602\GM.DataAccess\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\Base32Encoder.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\EntityFramework.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\obj\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150702\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150713\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\obj\Release\GM.DataAccess.dll
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\GM.DataAccess.dll
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\Base32Encoder.dll
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\EntityFramework.dll
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\GM.Models.dll
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\GM.Models.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\bin\Release\EntityFramework.xml
+C:\Aplikacije\GreenMoneyWeb\GM.DataAccess\obj\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\GM.DataAccess.dll.config
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\bin\Release\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\obj\Release\GM.DataAccess.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\obj\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150730\GM.DataAccess\obj\Release\GM.DataAccess.pdb

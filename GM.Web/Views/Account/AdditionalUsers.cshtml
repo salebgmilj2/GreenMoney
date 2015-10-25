@@ -1,0 +1,158 @@
+﻿@model GM.ViewModels.AdditionalAccountsViewModel
+@{
+    ViewBag.Title = "AdditionalUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation")
+         <div class="container p-additional-users-container">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div id="additional-users-header" class="col-md-12 col-lg-12">
+                                <h1 class="panel-title">Add additional members to your account</h1>
+                                <a href="/Account/AdditionalUsers" data-popup-target="#add-user-popup" class="addUserBtn btn pull-right"><span></span>Add member</a>
+                            </div>
+                        </div>
+                        <div class="panel-body additional-users-content">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <table id="additional-users-details" class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:12%">Email address</th>
+                                            <th style="width:8%">Name</th>
+                                            <th style="width:14%" class="text-center">Mobile phone</th>
+                                            <th style="width:8%">Status</th>
+                                            <th style="width:2%" class="text-right"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="additional-users-body">
+                                        @foreach (var item in Model.AdditionalAccounts)
+                                        {
+                                        <tr>
+                                            <td data-th="Email address" class="links">@item.Email</td>
+                                            <td data-th="Name">@item.FirstName @item.LastName</td>
+                                            <td data-th="Mobile phone" class="text-center">@item.PhoneNumber</td>
+                                            <td data-th="Status" class="remove-actions status-live">Active</td>
+                                            <td data-th="" class="remove-actions text-right">
+                                                <div class="dropdown reward-buttons">
+                                                    <button class="dropdown-users-edit" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="edit"></span></button>
+@*                                                    <ul class="dropdown-menu reward-edit" role="menu" aria-labelledby="dropdownMenu2">
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
+                                                    </ul>*@
+                                                </div>
+                                            </td>
+                                        </tr>                                        
+                                        }
+                                        @foreach (var item in Model.InvitedUsersAccounts)
+                                        {
+                                        <tr>
+                                            <td data-th="Email address" class="links">@item.Email</td>
+                                            <td data-th="Name">@item.FirstName @item.LastName</td>
+                                            <td data-th="Mobile phone" class="text-center">@item.PhoneNumber</td>
+                                            <td data-th="Status" class="remove-actions">Invitation sent</td>
+                                            <td data-th="" class="remove-actions text-right">
+                                                <div class="dropdown reward-buttons">
+                                                    <button class="dropdown-users-edit" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="edit"></span></button>
+@*                                                    <ul class="dropdown-menu reward-edit" role="menu" aria-labelledby="dropdownMenu2">
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
+                                                    </ul>*@
+                                                </div>
+                                            </td>
+                                        </tr>                                        
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="row add-other-members text-center">
+                                        <a href="#" data-popup-target="#add-user-popup"><span></span></a>
+                                        <p class="add-user">Add member</p>
+                                    </div>
+                                </div>
+                            </div><!-- /.col-lg-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+                    </div><!-- /.container My wallet  -->
+    </div>
+</div>
+
+<!-- *************** Add user popup -->
+    <div id="add-user-popup" class="popup">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <span class="popup-img"></span>
+                <h2 class="popup-title">Add new member</h2>
+                <hr>
+                <p class="popup-subtitle">Invite the following person to access this account by email invitation.</p>
+                @using (Html.BeginForm("AdditionalUsers", "Account", FormMethod.Post, new { role = "form", id = "addUserRgtrForm" }))
+                {
+                    <p class="form-group error">
+                        <label class="popup-input-labels">First name</label>
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.FirstName, new { Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.FirstName)
+@*                        <input data-content="" data-val="true" data-val-required="The First name field is required." id="RegistrationViewModel_FirstName" name="RegistrationViewModel.FirstName" placeholder="First name" type="text" value="" class="mailRgtrForm-field">
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.FirstName" data-valmsg-replace="true"></span>*@
+                    </p>
+                    <p class="form-group error">
+                        <label class="popup-input-labels">Last name</label>
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.LastName, new { Class = "mailRgtrForm-field" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.LastName)                        
+@*                        <input data-content="" data-val="true" data-val-required="The Last name field is required." id="RegistrationViewModel_LastName" name="RegistrationViewModel.LastName" placeholder="Last name" type="text" value="" class="mailRgtrForm-field">  
+                        <span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.LastName" data-valmsg-replace="true"></span>   *@                       
+                    </p>
+                    <p class="form-group error">
+                        <label class="popup-input-labels">Email address</label>
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.Email, new { Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.Email)                        
+                        @*<input data-content="" data-val="true" data-val-required="The Email address field is required." id="RegistrationViewModel_Email" name="RegistrationViewModel.Email" placeholder="Email address" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.Email" data-valmsg-replace="true"></span>*@                        
+                    </p>
+                    <p class="form-group error">
+                        <label class="popup-input-labels">Confirmation email</label>
+                        @Html.TextBoxFor(m => m.HouseholdMemberModel.ConfirmEmail, new { Class = "mailRgtrForm-field", type = "email" })
+                        @Html.ValidationMessageFor(m => m.HouseholdMemberModel.ConfirmEmail)                           
+                        @*<input data-content="" data-val="true" data-val-equalto="Email and confirmation email do not match." data-val-equalto-other="*.Email" id="RegistrationViewModel_ConfirmEmail" name="RegistrationViewModel.ConfirmEmail" placeholder="Confirmation email" type="email" value="" class="mailRgtrForm-field">*@  
+                        @*<span class="field-validation-valid" data-valmsg-for="RegistrationViewModel.ConfirmEmail" data-valmsg-replace="true"></span>*@                                                     
+                    </p>
+                        <input type="submit" class="btn popupBtn" value="Send invitation"/>
+                        @*<a href="#" class="btn popupBtn">Send invitation</a>*@
+                        <a href="" class="btn popupBtnCancel">Cancel</a>
+                }
+                
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+@*<script type="text/javascript">
+    //$(function () {
+    //    alert("ss");
+        
+    //    //$("#invitation-sent-popup").addClass("visible");
+    //});
+</script>*@
+}
+<!-- *************** Invitation sent popup -->
+<div id="invitation-sent-popup" class="popup">
+    <div class="popup-body"><span class="popup-exit"></span>
+        <div class="popup-content">
+            <span class="popup-img"></span>
+            <h2 class="popup-title">Invitation sent</h2>
+            <hr>
+            <a href="@Url.Action("AdditionalUsers", "Account")" class="btn popupBtn">Return to Manage users</a>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .field-validation-error {
+        font-size: 10px;
+    }
+</style>

@@ -1,0 +1,72 @@
+﻿@using GM.ViewModels.Shared
+@model LayoutViewModel
+@{
+    Layout = null;
+}
+
+@if (Model.IsSuplier)
+{
+    <div class="navbar-inner navbar-left hidden-xs">
+        <nav class="nav-sidebar">
+            <div class="brand">My account</div>
+            <ul class="nav">
+                <li class="@(Model.ActiveLink == Links.SupplierDashboard ? "active" : null)"><a href="@Url.Action("Dashboard", "Supplier")">Dashboard</a></li>
+                <li class="@(Model.ActiveLink == Links.SupplierUpdateProfile ? "active" : null)"><a href="@Url.Action("Index", "Supplier")">Update profile</a></li>
+                <li class="@(Model.ActiveLink == Links.SupplierRedemptions ? "active" : null)"><a href="@Url.Action("Redemptions", "SupplierRewards")">Redemptions</a></li>
+                <li class="@(Model.ActiveLink == Links.SupplierRewards ? "active" : null)"><a href="@Url.Action("Index", "SupplierRewards")">Manage rewards</a></li>
+                <li class="@(Model.ActiveLink == Links.CreateReward ? "active" : null)"><a href="@Url.Action("Create", "SupplierRewards", new {id=""})">Create new reward</a></li>
+                <li class="@(Model.ActiveLink == Links.AccountAdditionalUsers ? "active" : null)"><a href="@Url.Action("AdditionalUsers", "Account")">Additional users</a></li>
+                <li><a href="@Url.Action("Logout", "Account")">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+}
+else if (Model.IsCouncil)
+{
+    <div class="navbar-inner navbar-left hidden-xs">
+        <nav class="nav-sidebar">
+            <div class="brand">Account</div>
+            <ul class="nav">
+                @*  <li><a href="#">Dashboard</a></li>
+                                                <li><a href="#">Settings</a></li>
+                                                <li><a href="#">Admin users</a></li>*@
+                <li class="@(Model.ActiveLink == Links.Challenges ? "active" : null)"><a href="@Url.Action("Index", "ChallengesAdmin")">Manage challenges</a></li>
+                <li class="@(Model.ActiveLink == Links.CreateChallenge ? "active" : null)"><a href="@Url.Action("Create", "ChallengesAdmin", new { id = "" })">Create challenge</a></li>
+                <li><a href="@Url.Action("Logout", "Account")">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+}
+else
+{
+    <div class="navbar-inner navbar-left hidden-xs">
+        <nav class="nav-sidebar">
+            <div class="brand">My account</div>
+            <ul class="nav">
+                <li class="@(Model.ActiveLink == Links.AccountMyProfile ? "active" : null)"><a href="@Url.Action("MyProfile", "Account")">My profile</a></li>
+                <li class="@(Model.ActiveLink == Links.AccountUpdateProfile ? "active" : null)"><a href="@Url.Action("UpdateProfile", "Account")">Update profile</a></li>
+                <li class="@(Model.ActiveLink == Links.AccountMyCart ? "active" : null)"><a href="@Url.Action("Cart", "Account")">My cart
+                    @if (Model.CurrentUserTotalCart > 0)
+                    {
+                        <span class="counter badge">@Model.CurrentUserTotalCart</span>
+                    }
+                    </a>
+                </li>
+                <li class="@(Model.ActiveLink == Links.AccountMyWallet ? "active" : null)"><a href="@Url.Action("Wallet", "Account")">My wallet
+                    @if (Model.CurrentUserTotalChallenges > 0)
+                    {
+                        <span class="counter badge">@Model.CurrentUserTotalChallenges</span>
+                    }
+                    </a>
+                </li>
+                @if (!Model.IsAusPost)
+                {
+                    <li class="@(Model.ActiveLink == Links.AccountAdditionalUsers ? "active" : null)"><a href="@Url.Action("AdditionalUsers", "Account")">Additional users</a></li>
+                }
+                @* <li><a href="#">Invite neighbours</a></li>*@
+                <li><a href="@Url.Action("Logout", "Account")">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+}
+

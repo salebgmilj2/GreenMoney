@@ -1,0 +1,153 @@
+﻿@using GM.Models.Public
+@using GM.Utility
+@model GM.ViewModels.Supplier.SupplierRewardsViewModel
+
+@{
+    ViewBag.Title = "Supplier Rewards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@helper StateDescription(int? state)
+{
+    if (state == null)
+    {
+        <text> @EnumUtils.GetDescription(RewardState.NotModerated)</text>
+    }
+    else
+    {
+        <text> @EnumUtils.GetDescription((RewardState) state)</text>
+    }   
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation", Model)
+        <div class="container p-manage-reward-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div id="manage-reward-header" class="col-md-12 col-lg-12">
+                            <h1 class="panel-title">Manage rewards</h1>
+                            <a href="@Url.Action("Create", "SupplierRewards")" class="btn mainBtn pull-right">Create new reward</a>
+                            @*<input class="btn mainBtn pull-right" value="Create new reward">*@
+                            <p>Reward list</p>
+                        </div>
+                    </div>
+                    <div class="panel-body manage-reward-content">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <table id="reward-details" class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 23%">Reward details</th>
+                                            <th style="width: 6%" class="text-center">Points</th>
+                                            <th style="width: 13%" class="">Redemptions sent to</th>
+                                            <th style="width: 9%" class="">Status</th>
+                                            <th style="width: 5%" class="text-center"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var reward in Model.Rewards.RewardsList)
+                                        {
+                                            <tr data-id="@reward.Id">
+                                                <td data-th="Reward">
+                                                    <div class="row">
+                                                        <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                            <img src="@Url.Action("Upload", "General", new {id = reward.ImageSmallId ?? reward.ImageId})?width=139" alt="" class="img-responsive"/>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <h5 class="nomargin"><a href="@Url.Action("RedemptionDetails", "SupplierRewards", new { id = reward.Id })" style="color: #333">@reward.PartnerName</a></h5>
+                                                            <p>@reward.Name</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-th="Points" class="text-center">@reward.Price.ToString("#,##0")</td>
+                                                <td data-th="Redemptions sent to">@reward.PartnerEmail</td>
+                                                <td data-th="Status" class="remove-actions@((RewardState) reward.State == RewardState.Approved ? " status-live" : null)">@StateDescription(reward.State)@*Live*@</td>
+                                                <td data-th="" class="remove-actions text-center">
+                                                    <div class="dropdown reward-buttons">
+                                                        <button class="dropdown-preview" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><span class="preview"></span></button>
+                                                        <ul class="dropdown-menu reward-preview" role="menu" aria-labelledby="dropdownMenu1">
+                                                            <li role="presentation"><a href="@Url.Action("Details","Rewards", new { id = reward.Id })" role="menuitem" tabindex="-1">Preview reward page</a></li>
+                                                            <li role="presentation"><a href="@Url.Action("Voucher", "Rewards", new {id= new Guid(), rewardId = reward.Id})" role="menuitem" tabindex="-1" target="_blank">Preview voucher</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="dropdown reward-buttons">
+                                                        <button class="dropdown-edit" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"><span class="edit"></span></button>
+                                                        <ul class="dropdown-menu reward-edit" role="menu" aria-labelledby="dropdownMenu2">
+                                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Create", new { id= reward.Id})">Edit reward</a></li>
+                                                            @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Duplicate reward?? - needs expl.</a></li>*@
+                                                            <li role="presentation"><a id="deleteRewardTriger" role="menuitem" tabindex="-1" href="@Url.Action("Delete", new { id= reward.Id})">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 col-lg-12 bottom-pagination">
+                                    @if (Model.Rewards.NumPages > 0)
+                                    {
+                                        if (Model.Rewards.Page > 1)
+                                        {
+                                            <a href="@Url.Action("Index",
+                                                         new
+                                                         {
+                                                             page = Model.Rewards.Page - 1
+                                                         })" class="previous" data-action="previous"><span></span></a>
+                                        }
+                                        <span>Page</span>
+                                        <input type="text" data-url="@Url.Action("Index")" class="js-page-change-submit" name="Page" value="@Model.Rewards.Page"/>                                       
+                                        <span>of @Model.Rewards.NumPages</span>
+                                        if (Model.Rewards.Page < Model.Rewards.NumPages)
+                                        {
+                                            <a href="@Url.Action("Index",
+                                                         new
+                                                         {
+                                                             page = Model.Rewards.Page + 1
+                                                         })" class="next pull-right" data-action="next"><span></span></a>
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        <p>No results</p>
+                                    }
+                                </div>
+
+                            </div><!-- /.col-lg-12 -->
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container My wallet -->
+    </div>
+</div>
+
+<!-- *************** Delete reward page popup -->
+<div id="delete-reward-page-popup" class="popup">
+    <div class="popup-body">
+        <span class="popup-exit"></span>
+        <div class="popup-content">
+            <h2 class="popup-title">Confirm deletion</h2>
+            <hr>
+            <p class="popup-subtitle">Are you sure you want to delete this reward</p>
+            <a id="cancelEditReward" class="btn popupBtn">Delete reward page</a>
+            <a class="btn popupBtnCancel">Cancel</a>
+        </div>
+    </div>
+</div>
+<!-- <div class="popup-overlay"></div> -->
+<script type="text/javascript">
+
+        $(document).ready(function () {
+
+            //Delete reward
+            $("#deleteRewardTrigger").on("click", function () {
+                $("#cancel-page-popup").addClass("visible");
+            });
+
+        });
+
+    </script>

@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using GM.DataAccess;
+using GM.Models.Public;
+
+namespace GM.BusinessLogic
+{
+    public class ChallengesService
+    {
+        private readonly ChallengeRepository _challengeRepository;
+
+        public ChallengesService()
+        {
+            _challengeRepository = new ChallengeRepository();
+        }
+
+        public ChallengeListModel GetChallenges(string sortBy, string category, string filter, int page, int pageSize)
+        {
+            var challenges = _challengeRepository.GetChallenges();
+
+            if (pageSize == 0)
+            {
+                pageSize = 10;
+            }
+
+            //Filter all by text query
+            if (!string.IsNullOrEmpty(filter))
+                challenges =
+                    challenges.Where(
+                        r =>
+                            r.Name.ToLower().Contains(filter.ToLower())|| r.EarnAmount.ToLower().Contains(filter.ToLower())).ToList();
+
+
+            var selected = new List<ChallengeModel>();
+            //Filter all by selected category
+            if (category != null)
+            {
+                var selectedCategory = _challengeRepository.GetChallengeCategoryByName(category);
+                if (selectedCategory == null)
+                {
+                    throw new Exception("challenge category not found");
+                }
+
+                selected = challenges.Where(r => r.ChallengeCategoryId.Equals(selectedCategory.Id)).ToList();
+            }
+            else
+            {
+                selected = challenges.ToList();
+            }
+
+            switch (sortBy)
+            {
+                case "newest":
+                    selected = selected.OrderByDescending(r => r.DateAdded).ThenByDescending(r => r.Id).ToList();
+                    break;
+                case "oldest":
+                    selected = selected.OrderBy(r => r.DateAdded).ThenBy(r => r.Id).ToList();
+                    break;
+                case "cheapest":
+                    selected = selected.OrderBy(r => r.Points).ToList();
+                    break;
+                case "expensive":
+                    selected = selected.OrderByDescending(r => r.Points).ToList();
+                    break;
+                case "popular":
+                    selected = selected.OrderByDescending(r => r.Popularity).ToList();
+                    break;
+                default:
+                    selected = selected.OrderByDescending(r => r.Popularity).ToList();
+                    break;
+            }
+
+            //Include pagination
+            var list = selected.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+
+            var model = new ChallengeListModel
+            {
+                ChallengesList = list,
+                NumPages = (int)Math.Ceiling((double)selected.Count() / pageSize),
+                NumRewards = selected.Count(),
+                Page = page
+            };
+
+            return model;
+        }
+
+        public List<ChallengeCategory> GetChallengeCategories()
+        {
+            return _challengeRepository.GetChallengeCategories();
+        }
+<<<<<<< local
+
+        public ChallengeModel GetChallengeDetails(int id)
+        {
+            return _challengeRepository.GetChallengeDetails(id);
+        }
+=======
+
+        public CheckoutModel GetMyChallenges(string providerUserKey)
+        {
+            return _challengeRepository.GetMyChallenges(providerUserKey);
+        }
+
+>>>>>>> other
+    }
+}

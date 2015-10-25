@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "EmailChangeSuccess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="myaccountmenu">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new {Class = "form-horizontal", role = "form"}))
+        {
+            <div class="container update-account">
+                <div class="navbar-main">
+                    <div class="panel panel-info">
+                        <p>Email address is now changed but user
+                            is now not approved and has to approve it's email address,
+                            email has to be sent and validated after that by user...</p>
+                        <p>
+                            @if (TempData["VerifyCode"] != null)
+                            {
+                                <text>Click <a href="@Url.Action("Verify", "Account", new {code = TempData["VerifyCode"]})">HERE</a> to verify email change... </text>
+                            }
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

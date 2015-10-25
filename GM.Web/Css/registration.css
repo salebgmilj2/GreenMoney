@@ -1,0 +1,1496 @@
+﻿body {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+}
+body {
+    line-height: 15px;
+}
+
+.signup-wizard {
+    margin-top: 25px;
+    margin-left: 70px;
+}
+hr.devide-sections {
+    position: relative;
+    right: 35%;
+    width: 168%;
+}
+h4.verify-more-about {
+    font-weight: 400;
+      margin-bottom: 40px;
+}
+h4.verify-more-about > span {
+    font-size: 8.5pt;
+    color: #939598;
+}
+.registration-gender-dropdown {
+    margin-bottom: 10px;
+}
+.registration-gender-dropdown > div {
+    padding-left: 0;
+    text-align: left;
+}
+.registration-gender-dropdown > div label {
+    font-weight: 400;
+    padding-top: 4px;
+}
+/*ul.rc {
+    list-style: none;
+}
+.rc li {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.rc label.radio {
+    padding-left: 4px;
+    padding-top: 6px;
+    display: inline-block;
+    font-weight: 400;
+}
+.rc input[type="radio"] {
+    width: 15px;
+    height: 15px;
+}*/
+
+.btn {
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+}
+.verify-next-page a.mainBtn {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+/*input[type="checkbox"]:checked:before {
+    content: "\2713";
+    position: absolute;
+    font-size: 0.85em;
+    left: 1px;
+    text-align: center;
+    width: 1.25em;
+    color: #5bcaf4;
+}*/
+/*.btn:hover, .btn:focus {
+    color: #ffffff;
+}*/
+
+p, .content_area, .flash {
+    margin-bottom: 1em;
+}
+
+.oxygen.oxygen_main_heading {
+    margin-top: 0;
+}
+   /*select div in last container */
+body div:nth-of-type(4) > div.row {
+    padding-bottom: 23px;
+}
+.add-other-members a span {
+    background: url(../images/add-new-user.png) 0px 0px;
+    cursor: pointer;
+    display: inline-block;
+    height: 38px;
+    margin-top: 3px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 38px;
+}
+.add-other-members a span:hover {
+    background: url(../images/add-new-user.png) 0px 38px;
+}
+
+.change-image-button {
+    margin-top: 72px;
+}
+
+.file-input-wrapper > input[type="file"] {
+    font-size: 200px;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.file-input-wrapper > input[type="file"]:hover {
+    background-color: #939598;
+    box-shadow: none;
+    outline: none;
+}
+
+.personal-info > div:nth-of-type(3) > div:nth-of-type(2) {
+    margin-top: 4px;
+}
+
+.password-fields {
+    padding-left: 16px;
+}
+
+.name label,
+.profile-image label,
+.address label,
+.email-address label,
+.update-profile-mobile label,
+.birthdate-dropdown label,
+.gender-dropdown label,
+.old-password label,
+.new-password label,
+.confirm-password label {
+    padding-top: 0px;
+    padding-left: 0;
+    color: #929497;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/*Registration steps labels*/
+.registration-labels {
+    font-size: 12px;
+    font-weight: 300;
+    float: left;
+    padding: 0 10px;
+}
+
+.main-login-info {
+    width: 45%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.personal-info div div.form-group,
+.notification-checkbox div div.form-group,
+.password-change div div.form-group,
+.submit-form-buttons div div.form-group {
+    border-bottom: 1px solid #D0D2D3; 
+    padding-bottom: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+div.profile-image {
+    padding-bottom: 15px;
+    margin-bottom: 12px;
+}
+
+.personal-info > div:nth-of-type(3) {
+    padding-bottom: 24px;
+}
+
+.personal-info > div:nth-of-type(4) {
+    padding-bottom: 24px;
+}
+
+.personal-info > div:nth-of-type(5) {
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+}
+
+div.account-holder div:last-child,
+div.account-updates-checkboxes div:last-child,
+div.password-fields div:last-child {
+    border: none;
+}
+
+/*div.birthdate-dropdown {
+    padding-bottom: 24px;
+}*/
+.unitNumber div:nth-of-type(1) {
+    padding-left: 0
+}
+.personal-info > div:last-child {
+    border-bottom: none;
+}
+
+.personal-info > div:nth-of-type(2) img {
+    width: 98px;
+    height: 98px;
+    border: 1px solid #C5C7C9;
+    border-radius: 4px;
+}
+
+.personal-info > div:nth-of-type(2) span.photoicon {
+    background-image: url(../images/update-profile-pic-photoicon.png);
+    position: absolute;
+    top: 76px;
+    left:86px;
+    width: 21px;
+    height: 17px;
+}
+
+.password-change > div:nth-of-type(2) > div:nth-of-type(2) {
+    padding-left: 15px;
+}
+
+.personal-info > div:nth-of-type(2) > div:nth-of-type(2) {
+    padding-left: 0px;
+}
+
+div.profile-image h6 {
+    padding-right: 5px;
+    margin-top: 0;
+    color: #BBBDBF;
+}
+
+div.email-address h6 {
+    padding-right: 5px;
+    margin-top: 0px;
+    color: #BBBDBF; 
+}
+
+.gender-dropdown select.custom-dropdown {
+    background-position: 216px 19px;
+    padding: 0 0 0 5px;
+}
+.custom-dropdown {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    /*background-size: 13px 10px;*/
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    color: #929497;
+    border-radius: 1px;
+    border: none;
+    text-shadow: none;
+    font-size: 12px;
+    height: 40px;
+    margin-right: 9px;
+}
+
+.birthdate-dropdown select.birth-day {
+    background-position: 46px 19px;
+    padding: 0px 0px 0px 5px;  
+}
+
+.birthdate-dropdown select.birth-month
+.birthdate-dropdown select.birth-year {
+    background-position: 64px 19px;
+    padding: 0px 0px 0px 8px;  
+}
+
+/*#navbar-main > div.panel-info > div:nth-of-type(2) > div.row > div > form.form-horizontal > fieldset > div:nth-of-type(6) select:nth-of-type(3) {
+    background-position: 64px 19px;
+    padding: 0px 0px 0px 8px;  
+}*/
+
+.registration-birthdate-dropdown select:active,
+.registration-birthdate-dropdown select:focus {
+    outline: none;
+}
+.registration-birthdate-dropdown select.birth-day {
+    padding-right: 7px;
+    background-position: 46px 19px;
+}
+.registration-birthdate-dropdown select.birth-month {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* add your own arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background-position: 70px 20px;
+   /* background-size: 13px 10px;*/
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    border: none;
+    text-shadow: none;
+    border-radius: 1px;
+    padding: 0px 20px 0px 4px;
+    color: #939598;
+}
+.registration-birthdate-dropdown select.birth-year {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* add your own arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background-position: 70px 20px;
+   /* background-size: 13px 10px;*/
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    border: none;
+    text-shadow: none;
+    border-radius: 1px;
+    padding: 0px 20px 0px 4px;
+    margin-right: 0;
+    color: #939598;
+}
+
+
+.registration-gender-dropdown > div {
+    margin-left: 71.2; 
+}
+
+.registration-birthdate-dropdown {
+    width: 115%;
+}
+.registration-birthdate-dropdown > div {
+    padding-right: 0;
+}
+.registration-birthdate-dropdown > label {
+    padding-top: 12px!important;
+    font-size: 14px;
+    padding-left: 0;
+    font-weight: normal;
+}
+.registration-gender-dropdown select {
+    background-position: 330px 19px;
+    padding-right: 6px;
+}
+.registration-gender-dropdown select:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}
+.registration-streettype-dropdown select {
+    background-position: 330px 19px;
+    padding-right: 6px;
+}
+
+.registration-streettype-dropdown select:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}
+.registration-suburb-dropdown select {
+    background-position: 330px 19px;
+    padding-right: 6px;
+}
+.registration-suburb-dropdown select:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}
+
+/*.birthdate-dropdown select:active,
+.birthdate-dropdown select:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}*/
+/*.gender-dropdown select:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}*/
+
+.gender-dropdown > div {
+    margin-left: 71.2;
+    padding: 0 20px 0 7px; 
+}
+
+.birthdate-dropdown {
+    width: 117%;
+}
+.birthdate-dropdown > div {
+    padding-right: 0px;
+    padding-left: 7px;
+}
+/*.birthdate-dropdown > label {
+    padding-top: 12px!important;
+    /*font-size: 14px;*/
+    /*padding-left: 15px;
+}*/
+/*customized dropdown arrow*/
+.birthdate-dropdown select.birth-month {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* add your own arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background-position: 60px 20px;
+   /* background-size: 13px 10px;*/
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    border: none;
+    text-shadow: none;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+    color: #939598;
+}
+.birthdate-dropdown select.birth-year {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* add your own arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background-position: 60px 20px;
+   /* background-size: 13px 10px;*/
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    border: none;
+    text-shadow: none;
+    border-radius: 1px;
+    padding: 0px 4px 0px 4px;
+    margin-right: 0;
+    color: #939598;
+}
+
+select.birth-day {
+    width: 14%;
+    margin-right: 40px;
+}
+
+select.birth-month {
+    width: 20%;
+    margin-right: 40px;
+}
+select.birth-year {
+    width: 20%;
+}
+/*select.birth-month:focus,
+select.birth-year:focus,
+select.birth-day:focus {
+    border: 1px solid rgba(87, 203, 245, 1);
+}*/
+.container.submiting {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    /*position: absolute;*/
+    bottom: 0;
+}
+
+.need-help {
+    position: relative;
+    left: 22px;
+    margin-bottom: 0;
+    padding-top: 12px;
+}
+
+.need-help > a {
+    text-decoration: none;
+    color: #57CBF5;
+}
+/*buttons SKIP, SEND, NEXT*/
+.need-help > a:hover, a:focus {
+    text-decoration: none;
+    color: #00b4f1;
+}
+
+a.btn.col-md-3.skip {
+    background-color: #F2F3F3;
+    margin-left: 0;
+}
+
+a.btn.col-md-3.skip:hover {
+    background-color: #939598;
+    margin-left: 0;
+}
+
+/* Hidden placeholder */
+option[disabled]: first-child {
+    display: none;
+}
+
+.empty {
+    width: 100%;
+}
+
+option.empty {
+    color: grey;
+}
+    /*input color*/
+.password-field,
+.text-field {
+   background: #f3f3f4;
+   height: 40px;
+   color: #58595B;
+   padding: 0px 0px 0 10px;
+   margin-bottom:10px;
+   border: none;
+   border-radius: 2px;
+   font-size: 12px;
+}
+.password-field:focus {
+    background-color: #fff;
+}
+
+textarea:focus {
+    background-color: #fff;
+    border: 1px solid #00b4f1;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #f3f3f4;
+    color: #58595B;
+}
+
+.name-field {
+    width: 19.2%;
+}
+.unit-number {
+    background: #f3f3f4;
+   height: 40px;
+   width: 93%;
+   color: #58595B;
+   padding:0px 10px;
+   margin-bottom:10px;
+   border: none;
+   border-radius: 2px;
+   font-size: 14px;
+}
+.unit-number:focus,
+.street-number:focus,
+.street-name:focus,
+.mobile-number:focus {
+    background: #fff;
+    border: 1px solid rgba(87, 203, 245, 1);
+}
+.street-number {
+    background: #f3f3f4;
+   height: 40px;
+   color: #58595B;
+   padding:0px 10px;
+   margin-bottom:10px;
+   border: none;
+   border-radius: 2px;
+   font-size: 14px;
+}
+.street-name {
+    background: #f3f3f4;
+   height: 40px;
+   /*width: 95%;*/
+   color: #58595B;
+   padding:0px 6px;
+   margin-bottom:10px;
+   border: none;
+   border-radius: 2px;
+   font-size: 14px;
+}
+.streettype-regist-field {
+    padding: 0 0;
+    width: 75%;
+}
+.suburb-regist-field {
+    padding: 0 0;
+    width: 75%;
+}
+.gender-regist-field {
+    padding: 0 0;
+    width: 75%;
+}
+.birthday-regist-field {
+    padding: 0 0;
+    width: 75%;
+}
+.phone-regist-field {
+    padding: 0 0;
+    width: 75%;
+}
+.mobile-number {
+    background: #f3f3f4;
+    height: 40px;
+    color: #58595B;
+   padding: 0px 0px 0px 10px;
+   margin-bottom:10px;
+   border: none;
+   border-radius: 2px;
+   font-size: 14px;
+}
+/*Registration labels each
+    ---------------------------------*/
+.streetname-label {
+    padding: 0 16px;
+}
+.streettype-label {
+    padding: 0 20px;
+}
+.suburb-label {
+    padding: 0 29px;
+}
+.gender-label {
+    padding-top: 15px;
+}
+.birthday-label {
+    padding-top: 15px;
+}
+.contactno-label {
+    padding-top: 15px;
+}
+
+.mailRgtrForm-field {
+    font-size: 14px;
+    background: #f3f3f4;
+    width: 260px;
+    height: 30px;
+    color: #58595B;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    padding-left: 10px;
+}
+.areaRgtrForm-field {
+    font-size: 14px;
+    background: #f3f3f4;
+    width: 37px;
+    height: 30px;
+    color: #58595B;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    padding-left: 10px;
+}
+.businessPhoneRgtrForm-field {
+    font-size: 14px;
+    background: #f3f3f4;
+    width: 192px;
+    height: 30px;
+    color: #58595B;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    padding-left: 10px;
+}
+
+/*color of input in focus*/
+textarea:focus,
+input[type="text"]:focus,
+.uneditable-input:focus {   
+    outline: 1px solid #5EC9F4;
+    background-color: #F1F1F2;
+}
+input[type="submit"]:focus {
+  background-color: #00b4f1;
+  color: #000;
+}
+input[type="submit"].changeBtn:focus {
+  background-color: #F1F1F2;
+  color: #939598;
+  border: none;
+  outline: none;
+}
+input[type="file"].changeBtn:focus {
+    background-color: #F1F1F2;
+    color: transparent;
+    border: none;
+}
+
+.dropdown > select {
+    background: url('../images/dropdown-arrow.png') no-repeat 100%; /* add your own arrow image */
+    background-image:none; /* turn bg image for IE7 */
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4; /* fallback bg image*/
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background: url('../images/dropdown-arrow.png') no-repeat 100% #f3f3f4;
+    background-position: 295px 20px;
+    background-size: 14px 10px;
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+    border: none;
+    border-radius: 1px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: 500;
+    font-size: 11pt;
+    color: #939598;
+}
+    /* style the dropdown bg color */
+select option {
+    background: #F1F1F2;
+
+}
+div.navbar.registration {
+    min-height: 100px;
+}
+.reg-wizard {
+    margin-top: 20px;
+}
+
+/*Form Wizard*/
+.reg-wizard {
+    padding: 0 0 10px 0;
+    margin-left: 40px;
+}
+.reg-wizard > .reg-wizard-step {
+    padding: 0;
+    position: relative;
+}
+.reg-wizard > .reg-wizard-step + .reg-wizard-step {}
+.reg-wizard > .reg-wizard-step .reg-wizard-stepnum {
+    color: #595959;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.reg-wizard > .reg-wizard-step .reg-wizard-info {
+    position: absolute;
+    left: -10px;
+    color: #999;
+    font-size: 14px;
+}
+.reg-wizard > .reg-wizard-step.complete > .reg-wizard-dot {
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/check-mark-completed.png");
+    background-repeat: no-repeat;
+} 
+.reg-wizard > .reg-wizard-step.complete > .reg-wizard-info {
+    left: -14px;
+}
+.reg-wizard > .reg-wizard-step.active > .reg-wizard-info {
+    left: -30px;
+}
+.reg-wizard > .reg-wizard-step.active > .reg-wizard-dot {
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/check-mark-steps.png");
+    background-repeat: no-repeat;
+} 
+.reg-wizard > .reg-wizard-step > .progress {
+    position: relative;
+    border-radius: 0px;
+    height: 4px;
+    box-shadow: none;
+    margin: 22px 0;
+}
+
+.reg-wizard > .reg-wizard-step > .progress > .progress-bar {
+    width:0px;
+    box-shadow: none;
+    background: #fbe8aa;
+}
+.reg-wizard > .reg-wizard-step.complete,
+.reg-wizard > .reg-wizard-step.active,
+.reg-wizard > .reg-wizard-step.disabled {
+    margin-left: 0px
+}
+.reg-wizard > .reg-wizard-step.complete > .progress > .progress-bar {
+    width:0%;
+}
+.reg-wizard > .reg-wizard-step.active > .progress > .progress-bar {
+    width:0%;
+}
+.reg-wizard > .reg-wizard-step:first-child.active > .progress > .progress-bar {
+    width:0%;
+}
+.reg-wizard > .reg-wizard-step:last-child.active > .progress > .progress-bar {
+    width: 100%;
+}
+.reg-wizard > .reg-wizard-step.disabled > .reg-wizard-dot {
+    background: #ccc;
+}
+.reg-wizard > .reg-wizard-step.disabled > .reg-wizard-dot:after {
+    opacity: 0;
+}
+.reg-wizard > .reg-wizard-step:first-child  > .progress {
+    left: 3%;
+    width: 100%;
+}
+/*completed sign up proces*/
+.reg-wizard > .reg-wizard-step:first-child.completed-step1  > .progress,
+.reg-wizard > .reg-wizard-step:first-child.completed-step2  > .progress,
+.reg-wizard > div.complete:nth-of-type(2) > div.progress-completed {
+    background: #57cbf5; 
+}
+
+.reg-wizard > .reg-wizard-step:last-child  > .progress {
+    width: 3%;
+}
+.reg-wizard > .reg-wizard-step.disabled a.reg-wizard-dot{ 
+    pointer-events: none; 
+}
+/*END Form Wizard*/
+
+legend {
+    border-bottom: none;
+}
+select {
+    width: 100%;
+}
+div#birthday {
+    margin-left: 32px;
+}
+.personal-info .control-label {
+    width: 120px;
+    text-align: left;
+}
+/*.form-horizontal .controls {
+    margin-left: 125px;
+}*/
+.auto {
+    padding: 0;
+}
+
+
+.verify-next-page a.next {
+    background-color: #57cbf5;
+    position: relative;
+    right: 29px;
+}
+
+.verify-next-page a.next:hover {
+    background-color: #00b4f1;
+}
+
+/* Modal problem with address */
+
+.modal {
+    width: 360px;
+    margin: -200px;
+    margin-top: 0;
+    color: #58595a;
+    z-index: 20;
+}
+
+.modal form {
+    margin-bottom: 8px;
+}
+
+.modal input[type="text"], .modal input[type="password"], .modal input[type="email"] {
+    box-sizing: initial;
+    border-radius: 2px;
+    background-color: #f4f6f9;
+    width: 296px;
+    height: 30px;
+    margin-bottom: 2px;
+    padding-left: 10px;
+}
+
+.modal .checkbox {
+    padding-top: 8px;
+    line-height: 20px;
+}
+
+.modal input[type="checkbox"] {
+    margin-top: 2px;
+    margin-right: 8px;
+    padding-right: 20px;
+}
+
+.modal-body {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.modal-body {
+    max-height: 600px;
+}
+
+.modal p.privacy {
+    width: 240px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-left: 36px;
+}
+
+.modal p.memberlogin {
+    font-size: 14px;
+}
+
+.modal hr {
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 16px 6px;
+    padding-bottom: 6px;
+    margin-left: 38px;
+    margin-right: 12px;
+}
+
+.modal .btn {
+    height: 40px;
+    width: 312px;
+    font-size: 16px;
+    border-top-width: 1px;
+}
+
+.modal a:link {
+    color: #5bcaf5;
+    text-decoration: none;
+}
+
+.modal .btnFbRgtr {
+    background-color: #3b5999;
+    margin-bottom: 12px;
+}
+
+.modal h2#myModalLabel {
+    margin-bottom: 2px;
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.modal label, .modal fieldset p {
+    color: #58595a;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    padding-bottom: 4px;
+}
+
+.modal p {
+    margin-bottom: 0;
+}
+
+.modal .error {
+    border: none;
+}
+
+.modal .field-validation-error {
+    display: none;
+}
+
+.modal.fade.in {
+    top: 5%;
+}
+
+.modal#mdlProblemWithAddress .btn-primary {
+    background-color: #5bcaf5;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.modal#mdlProblemWithAddress .btn.close {
+    text-shadow: none;
+    background-color: #d1d3d4;
+    color: white;
+    font-weight: normal;
+    opacity: 1;
+}
+
+.modal#mdlProblemWithAddress p {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 10px;
+    padding-bottom: 8px;
+}
+
+.modal#mdlProblemWithAddress h2 {
+    margin-right: 14px;
+    margin-top: 14px;
+    padding-bottom: 10px;
+    font-weight: normal;
+}
+
+.modal#mdlProblemWithAddress header {
+    padding-left: 0;
+}
+
+.modal#mdlProblemWithAddress .modal-header {
+    margin-left: 22px;
+    padding-bottom: 0;
+}
+
+.modal#mdlProblemWithAddress .modal-body {
+    margin-left: 22px;
+    padding-bottom: 20px;
+}
+
+.content-form {
+    margin-bottom: 55px;
+}
+
+.content-form.social {
+    margin-bottom: 5px;
+}
+
+body > div:nth-of-type(2) > div.container-inner > div.content-form > hr {
+    position: relative;
+    top: -24px;
+}
+
+/*.gender-dropdown {
+    position: relative;
+    top: -50px;
+}*/
+
+form#mails {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+input.invite {
+    margin-top: 3px;
+}
+.send-mail-field {
+    background: #f3f3f4;
+    height: 40px;
+    width: 70%;
+    color: #58595B;
+    padding:0px 10px;
+    margin-bottom:10px;
+    margin-right: 13px;
+    border: none;
+    border-radius: 2px;
+    font-size: 14px;
+}
+.css_fbbutton {
+    display: block;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: inherit;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 18px 0px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #3b5999;
+}
+.css_mailbutton {
+    display: block;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: inherit;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 18px 0px;
+    cursor: auto;
+    color: #ffffff;
+    background-color: #3b5999;
+}
+/*.css_button span {
+    background-image: url(../images/fb-icon.png);
+    background-repeat: no-repeat;
+}*/
+
+.invite-email-contacts {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+}
+.invite-email-contacts p {
+    margin-bottom: 5px;
+}
+ul.mails-list {
+    margin-top: 10px;
+    border: 1px solid #C5C7C9;
+    border-radius: 3px;
+    padding: 10px 17px 20px 17px;
+    list-style: none;
+}
+ul.mails-list a {
+    font-size: 14px;
+    vertical-align: middle;
+}
+ul.mails-list div span {
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+ul.mails-list div {
+    line-height: 23px;
+}
+ul.mails-list div img {
+    vertical-align: middle;
+}
+.submiting .verify-next-page {
+    margin-right: 35px;
+}
+button {
+    border: none; 
+}
+
+.css_button:active {
+    position:relative;
+    top: 1px;
+}
+
+body div.container:nth-of-type(3){
+    padding-top: 0px;
+}
+
+/*body div:nth-of-type(2) > div:nth-of-type(2) > p {
+    width: 2%;
+    display: inline-block;
+    float: none;
+    margin: 0;
+    padding-left: 9px;
+    padding-top: 13px;
+    font-weight: bold;
+    font-size: large;
+}*/
+body div:nth-of-type(2) > div.row > button:first-child {
+    width: 100%;
+    /*margin-left: 30px;*/
+}
+body div:nth-of-type(2) > div.row > button:first-child > span > img {
+    position: relative;
+    left: -50px;
+    /*width: 15px;
+    height: 33px;*/
+}
+body div:nth-of-type(2) > div.row > button:last-child {
+    width: 100%;
+    float: right;
+    margin: 25px 0px 0 0;
+    background-color: #00b4f1;
+}
+body div:nth-of-type(2) > div.row > button:last-child > span > img {
+    position: relative;
+    left: -60px;
+    /*width: 15px;
+    height: 33px;*/
+}
+/*facebook field "fb-root"*/
+/*body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(1) {
+    width: 100%;
+    visibility: hidden;
+}*/
+/*subscribe field row*/
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(2) {
+    width: 100%;
+}
+/*subscribe field form*/
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(2) > form  {
+    margin: 15px 0 0 0;
+}
+/*subscribe field input*/
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(2) > form > input.password-field {
+    width: 72%;
+    float: left;
+    padding: 13px 5px 15px;
+    font-size: 13pt;
+    margin-bottom: 10px 0 0 0;
+}
+/*subscribe field button*/
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(2) > form > button {
+    position: relative;
+    top: 7px;
+    float: right;
+    background: #f3f3f4;
+    color: #939598;
+    border: none;
+    text-shadow: none;
+    border-radius: 1px;
+}
+/*Search contacts by field*/
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) {
+    width: 100%;
+    /*float: right;*/
+    margin: 18px 30px 0 0;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) {
+    border: 1px solid #e5e6e7;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding-bottom: 15px;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > p:nth-of-type(1) {
+    display: inline-block;
+    margin: 0 0 12px 0;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul{
+    margin: 0 25px 10px 25px;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li{
+    padding-left: 0;
+    background: transparent;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > hr {
+    position: relative;
+    top: 14px;
+    width: 100%;
+    border-width: 2px;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > a,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > a,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > div > a,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(4) > div > a {
+    position: relative;
+    top: 11px;
+    float: right;
+    background: #f3f3f4;
+    color: #939598;
+    border: none;
+    text-shadow: none;
+    border-radius: 2px;
+    padding: 10px 0;
+    font-size: larger;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > img,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > img,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > div > img,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(4) > div > img {
+    position: relative;
+    top: 15px;
+    width: 40px;
+}
+
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > span,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > span,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > div > span,
+body div:nth-of-type(2) > div > div > div > div:nth-of-type(2) >div:nth-of-type(2) >div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(4) > div > span {
+    position: relative;
+    top: 17px;
+    left: 20px;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+hr.devider {
+    width: 30%;
+    border: none;
+    display: block;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    top: 17px;
+    margin: 12px auto;
+    overflow: visible;
+}
+hr.devider:after {
+    content: 'or';
+    width: 3.125em;
+    height: 25px;
+    position: relative;
+    left: 45%;
+    margin-left: -1.5625em;
+    top: -0.6875em;
+    background-color: white;
+    padding: 0 20px 0 20px;
+}
+/*login popup devider -or-
+----------------------------------------------*/
+hr.loginpopup {
+    width: 14%;
+    border: none;
+    display: block;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    top: -2px;
+    margin: 16px auto;
+    overflow: visible;
+}
+hr.loginpopup:after {
+    content: 'or';
+    width: 3.125em;
+    height: 25px;
+    position: relative;
+    left: 27%;
+    margin-left: -1.5625em;
+    top: -0.6875em;
+    background-color: rgb(251, 251, 251);
+    padding: 0px 5px 0 5px;
+}
+/*validating field error
+------------------------------------*/
+.input-validation-error {
+    color: #ec1b31;
+    border: 1px solid #ec1b31;
+}
+.field-validation-error {
+    color: #ec1b31;
+}
+
+#addUserRgtrForm .field-validation-error {
+    font-size: 10px;
+}
+
+/*Merchant, Supplier, Business registration steps
+------------------------------------------------------------------*/
+.business-registration {
+    min-height: 100px;
+}
+
+.business-registration .navbar-brand {
+    padding: 14px 22px;
+}
+
+.business-registration .business-reg-logo {
+    margin-left: 0px;
+}
+
+/*Form Wizard*/
+.business-reg-wizard {
+    padding: 0 0 10px 0;
+    margin-left: 20px;
+}
+.business-reg-wizard > .business-reg-wizard-step {
+    padding: 0;
+    position: relative;
+}
+.business-reg-wizard > .business-reg-wizard-step + .business-reg-wizard-step {}
+.business-reg-wizard > .business-reg-wizard-step .business-reg-wizard-stepnum {
+    color: #595959;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.business-reg-wizard > .business-reg-wizard-step .business-reg-wizard-info {
+    position: absolute;
+    left: -10px;
+    color: #999;
+    font-size: 14px;
+}
+.business-reg-wizard > .business-reg-wizard-step.complete > .business-reg-wizard-dot {
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/check-mark-completed.png");
+    background-repeat: no-repeat;
+} 
+.business-reg-wizard > .business-reg-wizard-step.complete > .business-reg-wizard-info {
+    left: -14px;
+}
+.business-reg-wizard > .business-reg-wizard-step.active > .business-reg-wizard-info {
+    left: -35px;
+}
+.business-reg-wizard > .business-reg-wizard-step.active > .business-reg-wizard-dot {
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/check-mark-steps.png");
+    background-repeat: no-repeat;
+} 
+.business-reg-wizard > .business-reg-wizard-step > .progress {
+    position: relative;
+    border-radius: 0px;
+    height: 4px;
+    box-shadow: none;
+    margin: 22px 0;
+}
+
+.business-reg-wizard > .business-reg-wizard-step > .progress > .progress-bar {
+    width:0px;
+    box-shadow: none;
+    background: #fbe8aa;
+}
+.business-reg-wizard > .business-reg-wizard-step.complete,
+.business-reg-wizard > .business-reg-wizard-step.active,
+.business-reg-wizard > .business-reg-wizard-step.disabled {
+    margin-left: 0px
+}
+.business-reg-wizard > .business-reg-wizard-step.complete > .progress > .progress-bar {
+    width:0%;
+}
+.business-reg-wizard > .business-reg-wizard-step.active > .progress > .progress-bar {
+    width:0%;
+}
+.business-reg-wizard > .business-reg-wizard-step:first-child.active > .progress > .progress-bar {
+    width:0%;
+}
+.business-reg-wizard > .business-reg-wizard-step:last-child.active > .progress > .progress-bar {
+    width: 100%;
+}
+.business-reg-wizard > .business-reg-wizard-step.disabled > .business-reg-wizard-dot {
+    background: #ccc;
+}
+.business-reg-wizard > .business-reg-wizard-step.disabled > .business-reg-wizard-dot:after {
+    opacity: 0;
+}
+.business-reg-wizard > .business-reg-wizard-step:first-child  > .progress {
+    left: 3%;
+    width: 100%;
+}
+/*completed sign up proces*/
+.business-reg-wizard > .business-reg-wizard-step:first-child.completed-step1  > .progress,
+.business-reg-wizard > .business-reg-wizard-step:first-child.completed-step2  > .progress,
+.business-reg-wizard > div.complete:nth-of-type(2) > div.progress-completed {
+    background: #57cbf5; 
+}
+
+.business-reg-wizard > .business-reg-wizard-step:last-child  > .progress {
+    width: 3%;
+}
+.business-reg-wizard > .business-reg-wizard-step.disabled a.business-reg-wizard-dot{ 
+    pointer-events: none; 
+}
+/*END Form Wizard*/
+.additional-information {
+    margin-bottom: 35px;
+}
+
+/*==========  Media Queries  ==========*/
+/*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, .visible-lg-* */
+    @media (min-width: 1200px) {
+
+    }
+
+    /* Medium Devices, .visible-md-* */
+    @media (min-width: 992px) and (max-width: 1199px) {
+
+    }
+
+    /* Small Devices, .visible-sm-* */
+    @media (min-width: 768px) and (max-width: 991px) {
+        
+
+    }
+
+   /* Extra Small Devices, .visible-xs-* */
+    @media (max-width: 767px) {
+
+        .name-field {
+            width: 100%;
+        }
+
+        .personal-info .control-label {
+            width: 100%;
+            text-align: center;
+        }
+
+        .change-image-button {
+            margin-top: 5px;
+        }
+
+        select.birth-day {
+            width: 20%;
+            margin-right: 30px;
+        }
+
+        select.birth-month {
+            width: 22%;
+            margin-right: 30px;
+        }
+
+        select.birth-year {
+            width: 22%;
+        }
+
+        .birthdate-dropdown select.birth-month,
+        .birthdate-dropdown select.birth-year {
+            background-position: 48px 20px;
+        }
+    }

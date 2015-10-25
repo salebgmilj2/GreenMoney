@@ -1,0 +1,149 @@
+@model GM.ViewModels.AuspostHomeViewModel
+@{
+    ViewBag.Title = "GreenMoney Work - Account Login";
+    Layout = "~/Views/Shared/Auspost/_Layout.cshtml";    
+}
+
+@functions{
+    public string CheckValidationErrors(string propertyKey){
+        string errorState = ViewData.ModelState[propertyKey] != null && ViewData.ModelState[propertyKey].Errors.Count > 0
+            ? ViewData.ModelState[propertyKey].Errors[0].ErrorMessage
+            : null;
+        return errorState;
+    }
+}
+	<!--Header part starts here -->
+
+<!—Optimizely script here -->
+<script src="//cdn.optimizely.com/js/3027340575.js"></script>
+
+	<div class="header ausposthomePage">
+		<div class="container ausposthomePage navigation-login">
+			<div class="logo ausposthomePage">
+				<a class="ausposthomepagelogo" href="@Url.Action("Index", "Home")"><img src="Images/logo-white-notext.png"/></a>
+				<a class="ausposthomepagesignup" href="https://greenmoney.desk.com/?b_id=9831" target="_blank">Support</a>
+				<a class="ausposthomepagelogin" href="https://itunes.apple.com/au/app/greenmoney-work-workplace/id1022743805?mt=8" target="_blank">Get App </a>
+			</div>
+		</div>
+	 <!-- Full Page Image Background Carousel Header -->
+	    <header id="myCarousel" class="carousel slide carousel-fade">
+	        <!-- Wrapper for Slides -->
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <!-- Set the first background image using inline CSS below. -->
+	                <img src="~/Images/auspost-homepage-bckg.jpg" class="fill">
+	                <div class="login-content-box">
+		                <div id="auspost-log-in-content" class="auspost-login">
+					        <div class="login-body">
+					            <div class="login-content">
+					            	<span class="popup-img" ></span>
+					                <h2 class="login-title">Log in to AusPost</h2>
+
+                                    @using (Html.BeginForm("Index", "Auspost", FormMethod.Post, new { role = "form",  id="signUpRgtrForm"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationMessage("CustomError")
+                                        @*@Html.ValidationSummary()*@
+                                        <p class="form-group">
+					<label class="popup-input-labels">Work email</label>
+                                            @Html.TextBoxFor(m => m.LoginViewModel.UserName, new {placeholder = "Email address", Class = "mailRgtrForm-field js-email", type="email"})
+                                            @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                                        </p>
+                                        <p class="form-group">
+						 <label class="popup-input-labels">Password</label>
+                                            @Html.PasswordFor(m => m.LoginViewModel.Password, new {placeholder = "Password", Class = "mailRgtrForm-field"})
+                                            @Html.ValidationMessageFor(m => m.LoginViewModel.Password)                            
+                                        </p>
+
+					                    <a class="links" href="@Url.Action("ForgotPassword", "Account")" target="_blank">Forgot your password?</a><p></p>
+
+					                    @*<a href="#" class="btn popupBtn">Log in</a>*@
+                                        <input type="submit" class="btn popupBtn" value="Log in"/>
+                        
+					                	@*<p class="create-account">Don’t have an account? <a href="#" class="links">Create one now</a></p>
+					                	<hr class="auspost-breakline">*@
+					                   
+                                    }
+
+					            </div>
+					        </div>
+					    </div>
+					</div>
+	            </div>
+	    </header>
+	</div>
+ 
+<!-- *************** Log in(fb or member) popup -->
+    <div id="log-in-fb-or-member-popup" class="popup js-auspost">
+        <div class="popup-body"><span class="popup-exit"></span>
+            <div class="popup-content">
+                <h2 class="popup-title">Log in</h2>
+                    @using (Html.BeginForm("LoginTop", "Account", FormMethod.Post, new { role = "form"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p class="form-group">
+                            <label class="popup-input-labels">Email address</label>
+                            @Html.TextBoxFor(m => m.LoginViewModel.UserName, new {placeholder = "Email address", Class = "mailRgtrForm-field js-email", type="email"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                        </p>
+                        <p class="form-group">
+                            <label class="popup-input-labels">Password</label>
+                            @Html.PasswordFor(m => m.LoginViewModel.Password, new {placeholder = "Password", Class = "mailRgtrForm-field"})
+                            @Html.ValidationMessageFor(m => m.LoginViewModel.Password)                            
+                        </p>
+
+                        <input type="submit" class="btn popupBtn" value="Log in"/>
+                        <input type="checkbox" name="remember" id="remember" class="vhide">
+                        <label class="rememberme-checkbox-label" for="remember">
+                            <i class="octicon octicon-check"></i>Remember me
+                        </label>
+                        <a class="links pull-right" href="@Url.Action("ForgotPassword", "Account")">Forgot password?</a>
+                    }
+            </div>
+        </div>
+    </div>
+    <!-- <div class="popup-overlay"></div> -->
+    <!-- *************** -->
+ 
+
+<style type="text/css">
+.form-group.error input {
+    border: 1px solid #f05b59;
+}
+.js-email.error {
+    border: 1px solid #f05b59;
+}
+.field-validation-error {
+    font-size: 10px;
+    color: #f05b59;
+
+}
+.field-validation-error {
+    padding-bottom: 10px; 
+    float: left;
+}
+.custom-dropdown
+{
+    background: url("../Images/dropdown-arrow.png") no-repeat scroll 100% center #f3f3f4;
+}
+.validation-summary-errors li {
+    margin-left: 10px; 
+    color: #f05b59;
+    list-style: outside none none;
+}
+.input-validation-error {
+    border: 1px solid #f05b59;
+    color: #f05b59;
+}
+/*.form-group {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+.field-validation-error > span {
+    float: left;
+}*/
+</style>
+@section Styles {
+   <link href="~/Css/auspost.css" rel="stylesheet" />
+   <link href="~/Css/ausPostregistration.css" rel="stylesheet" />
+}

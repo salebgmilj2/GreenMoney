@@ -1,0 +1,35 @@
+﻿@using System.Globalization
+@using GM.ViewModels.Shared
+@model LayoutViewModel
+@{
+    Layout = null;
+}
+
+<div class="navbar-right" id="header-reward-partner-acount-details">
+    <ul class="nav navbar-nav">
+        <li>
+            <a class="document-icon" href="@Url.Action("Redemptions", "SupplierRewards")"><img src="~/Images/document-icon-white.png" alt="">@*<span class="counter badge">11</span>*@</a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle user-pic-small" data-toggle="dropdown" aria-expanded="false">
+                <img src="@(Model.CurrentUserPhotoId != null ? Url.Action("Upload", "General", new {id = Model.CurrentUserPhotoId}) : "/Images/default-admin-user-pic.png")">
+                <strong>Hi @Model.CurrentFirstName</strong>
+                <span class="dropdownarrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="@(Model.ActiveLink == Links.AccountMyProfile ? "active" : null)">
+                    <a href="@Url.Action("Index", "SupplierRewards")">My account</a>
+                </li>
+                <li class="@(Model.ActiveLink == Links.SupplierDashboard ? "active" : null)">
+                    <a href="@Url.Action("Dashboard", "Supplier")">Dashboard</a>
+                </li>
+                <li class="@(Model.ActiveLink == Links.SupplierUpdateProfile ? "active" : null)">
+                    <a href="@Url.Action("Index", "Supplier")">Profile</a>@*manage rewards*@
+                </li>
+                <li class="divider"></li>
+                <li><a href="@Url.Action("Logout", "Account")">Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+                                    

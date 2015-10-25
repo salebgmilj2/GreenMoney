@@ -1,0 +1,118 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using GM.DataAccess.Entities;
+using GM.Models.Public;
+using GM.Models;
+
+namespace GM.DataAccess
+{
+    public class ChallengeRepository
+    {
+        public List<ChallengeModel> GetChallenges()
+        {
+            using (var context = new greenMoneyEntities())
+            {
+                //Get all rewards
+                var challenges = context.Challenges.ToList();
+                var list = new List<ChallengeModel>();
+                foreach (var challenge in challenges)
+                {
+                    var model = new ChallengeModel();
+                    Utils.CopyProperties(challenge, model);
+                    if (challenge.Status != null) model.State = (ChallengeState)challenge.Status;
+
+                    list.Add(model);
+                }
+
+                return list;
+            }
+        }
+
+        public List<ChallengeCategory> GetChallengeCategories()
+        {
+            using (var context = new greenMoneyEntities())
+            {
+                var categories = context.ChallengeCategories
+                    .OrderBy(c => c.Name);
+
+                var list = new List<ChallengeCategory>();
+
+                foreach (var category in categories)
+                {
+                    var model = new ChallengeCategory();
+                    Utils.CopyProperties(category, model);
+                    list.Add(model);
+                }
+
+                return list;
+            }
+        }
+
+        public ChallengeCategory GetChallengeCategoryByName(string category)
+        {
+            using (var context = new greenMoneyEntities())
+            {
+                var selectedCategory = context.ChallengeCategories
+                    .FirstOrDefault(x => x.ShortName.ToLower().Equals(category.ToLower()));
+
+                if (category != null)
+                {
+                    var model = new ChallengeCategory();
+                    Utils.CopyProperties(selectedCategory, model);
+                    return model;
+                }
+
+                return null;
+            }
+        }
+<<<<<<< local
+
+        public ChallengeModel GetChallengeDetails(int id)
+        {
+            using (var context = new greenMoneyEntities())
+            {
+                var challenge = context.Challenges.SingleOrDefault(x => x.Id == id);
+                var model = new ChallengeModel();
+
+                Utils.CopyProperties(challenge, model);
+
+                return model;
+            }
+        }
+=======
+
+        public CheckoutModel GetMyChallenges(string providerUserKey)
+        {
+            using (var context = new greenMoneyEntities())
+            {
+                var userChallenges = context.UserChallenges.Where(c => c.UserId == new Guid(providerUserKey));
+
+                List<WalletItemSummary> challenges = new List<WalletItemSummary>();
+                foreach (var challenge in userChallenges)
+                {
+                    WalletItemSummary summaryModel = new WalletItemSummary
+                    {
+                        Id = challenge.Id,
+                        Name = challenge.Challenges.Name,
+                        Description = challenge.Challenges.EarnAmount,
+                        ImageId = challenge.Challenges.ChallengeCategories.ImageId,
+                        DateAdded = challenge.Issued,
+                        DateExpired = challenge.Challenges.EndDate,
+                        PointsClaimed = challenge.PointsClaimed != null && (bool) challenge.PointsClaimed
+                    };
+                    challenges.Add(summaryModel);
+                }
+
+                var model = new CheckoutModel
+                {
+                    Items = challenges.OrderBy(c=>c.DateExpired).ThenBy(c=>c.DateAdded)
+                };
+
+                return model;
+            }
+        }
+
+>>>>>>> other
+    }
+}

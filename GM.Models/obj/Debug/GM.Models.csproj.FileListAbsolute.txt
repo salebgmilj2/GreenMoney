@@ -1,0 +1,18 @@
+E:\GM new\GM SOLUTION\gm6\GM.Models\bin\Debug\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.Models\bin\Debug\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.Models\obj\Debug\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.Models\obj\Debug\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Models\bin\Debug\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Models\bin\Debug\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.Models\obj\Debug\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.Models\obj\Debug\GM.Models.pdb
+E:\Projects\Project\GM.Models\bin\Debug\GM.Models.dll
+E:\Projects\Project\GM.Models\bin\Debug\GM.Models.pdb
+E:\Projects\Project\GM.Models\obj\Debug\GM.Models.csprojResolveAssemblyReference.cache
+E:\Projects\Project\GM.Models\obj\Debug\GM.Models.dll
+E:\Projects\Project\GM.Models\obj\Debug\GM.Models.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.Models\bin\Debug\GM.Models.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.Models\bin\Debug\GM.Models.pdb
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.Models\obj\Debug\GM.Models.csprojResolveAssemblyReference.cache
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.Models\obj\Debug\GM.Models.dll
+D:\!RADNO\GreenMoneyAu\GMrepository\GM.Models\obj\Debug\GM.Models.pdb

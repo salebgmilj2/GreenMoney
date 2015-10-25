@@ -1,0 +1,108 @@
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\EntityFramework.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\gm6\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\bin\Release\EntityFramework.xml
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoneyAgata\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\bin\Release\EntityFramework.xml
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\AgataGMResolved\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150602\GM.BusinessLogic\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.Models.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\EntityFramework.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\GM.Models.pdb
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\bin\Release\EntityFramework.xml
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+E:\GM new\GM SOLUTION\Bitbucket\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\bin\Release\EntityFramework.xml
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GMAgata20150702\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\bin\Release\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150713\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.Models.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\EntityFramework.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\GM.Models.pdb
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\bin\Release\EntityFramework.xml
+C:\Aplikacije\GreenMoneyWeb\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.BusinessLogic.pdb
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.DataAccess.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.Models.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\EntityFramework.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\Base32Encoder.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.DataAccess.pdb
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\GM.Models.pdb
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\bin\Release\EntityFramework.xml
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\obj\Release\GM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\obj\Release\GM.BusinessLogic.dll
+D:\Aplikacije\GreenMoney20150730\GM.BusinessLogic\obj\Release\GM.BusinessLogic.pdb

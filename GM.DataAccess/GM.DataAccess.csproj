@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2227430-2BC1-4A28-9023-9C8997B962B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GM.DataAccess</RootNamespace>
+    <AssemblyName>GM.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Base32Encoder">
+      <HintPath>..\libs\Base32Encoder.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChallengeRepository.cs" />
+    <Compile Include="ChallengesAdminRepository.cs" />
+    <Compile Include="CMSRepository.cs" />
+    <Compile Include="Entities\Addresses.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Applications.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AwardPointsOptions.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CartItems.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChallengeCategories.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Challenges.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CMS.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\C__MigrationHistory.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GreenMoneyDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenMoneyDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GreenMoneyDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GreenMoneyDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenMoneyDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Instance.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InterestedPeople.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvitedNeighbours.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvitedUsers.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LocationOptions.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LoginToken.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Memberships.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Pages.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ParticipationFrequency.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Profiles.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Resources.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResourceTypes.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RewardCategories.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Rewards.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Roles.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Sections.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Transactions.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Uploads.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserChallenges.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Users.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Users1.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserToken.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Vouchers.cs">
+      <DependentUpon>GreenMoneyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICMSRepository.cs" />
+    <Compile Include="UploadsRepository.cs" />
+    <Compile Include="Interfaces\IUploadsRepository.cs" />
+    <Compile Include="RewardsRepository.cs" />
+    <Compile Include="Interfaces\IRewardsRepository.cs" />
+    <Compile Include="Interfaces\IProfileRepository.cs" />
+    <Compile Include="ProfileRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="Utility\MD5.cs" />
+    <Compile Include="Utility\ZBase32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GM.Models\GM.Models.csproj">
+      <Project>{556f4724-8364-46b4-bf8c-5a18932c6809}</Project>
+      <Name>GM.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Entities\GreenMoneyDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GreenMoneyDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="bin\Debug\GM.DataAccess.dll.config" />
+    <None Include="Entities\GreenMoneyDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GreenMoneyDataModel.edmx</DependentUpon>
+      <LastGenOutput>GreenMoneyDataModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\GreenMoneyDataModel.edmx.diagram">
+      <DependentUpon>GreenMoneyDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\GreenMoneyDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GreenMoneyDataModel.edmx</DependentUpon>
+      <LastGenOutput>GreenMoneyDataModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Base32Encoder.dll" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\GM.DataAccess.dll" />
+    <Content Include="bin\Debug\GM.DataAccess.pdb" />
+    <Content Include="bin\Debug\GM.Models.dll" />
+    <Content Include="bin\Debug\GM.Models.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

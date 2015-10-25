@@ -1,0 +1,108 @@
+﻿@model GM.ViewModels.MyWalletViewModel
+@{
+    ViewBag.Title = "MyWallet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row my-wallet-mobile-cover visible-xs">
+    <img src="~/Images/mywallet-page.png" alt="" />
+    <h3>Manage active rewards and challenges</h3>
+</div>
+<div class="row">
+    <div class="myaccountmenu">
+        @Html.Partial("_LeftNavigation")
+        <div class="container my-wallet-container">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div id="mycart" class="col-md-4 col-lg-4 hidden-xs">My wallet</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row rewards-table">
+                            <div class="rewards-bar col-md-12 col-lg-12">
+                                <ul class="visible-xs category-tabs-mobile">
+                                    <li class="@(!Model.ShowChallengesView ? "active" : null)" style="padding: 15px;"><a href="@Url.Action("Wallet")"><img alt="" src="/Images/redeem-mob.png" style="width: 40px;">My Rewards</a><span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></li>
+                                    <li class="@(Model.ShowChallengesView ? "active" : null)" style="padding: 15px;"><a href="@Url.Action("Wallet", new {challenges = true})"><img alt="" src="/Images/earn-mob.png" style="width: 40px;">My Challenges</a><span class="glyphicon glyphicon-menu-right" style="float:right;right: 0;"></span></li>
+                                </ul>
+                                <ul class="nav nav-pills category-tabs hidden-xs">
+                                    <li class="@(!Model.ShowChallengesView ? "active" : null)"><a href="@Url.Action("Wallet")">Rewards</a></li>
+                                    <li class="@(Model.ShowChallengesView ? "active" : null)"><a href="@Url.Action("Wallet", new {challenges = true})">Challenges</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12 col-lg-12 table-container">
+                                <table id="wallet" class="table table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 30%">Reward</th>
+                                        <th style="width: 12%" class="text-center">Date redeemed</th>
+                                        <th style="width: 10%" class="text-center">Expiry date</th>
+                                        <th style="width: 8%" class="text-center">Method</th>
+                                        <th style="width: 8%" class="text-center">Download</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (var item in Model.CartModel.Items)
+                                    {
+                                        <tr>
+                                            <td data-th="Reward">
+                                                <div class="row">
+                                                    <div class="col-sm-2 col-md-2 col-lg-2 hidden-xs">
+                                                        <img src="@Url.Action("Upload", "General", new {id = item.ImageId })?width=139" alt="" class="img-responsive"/>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <h5 class="nomargin">@item.Name@*<span class="new-reward-label">New</span>*@</h5>
+                                                        <p>@item.Description</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Date redeemed" class="text-center">@(item.DateAdded.HasValue ? item.DateAdded.Value.ToString("dd MMM yyyy") : null)</td>
+                                            <td data-th="Expiry date" class="text-center">@(item.DateAdded.HasValue ? item.DateAdded.Value.AddDays(30).ToString("dd MMM yyyy") : null)</td>
+                                            @{
+                                                var isMobile = item.Mobile != null && (bool) item.Mobile;
+                                            }    
+                                            @if (isMobile)
+                                            {
+                                                <td data-th="" class="remove-actions text-center" >
+                                                    <a href="https://itunes.apple.com/au/app/greenmoney/id969817562?mt=8" target="_blank" class="method-reward-mobile wrapper">
+                                                        <span></span>
+                                                        <div class="tooltip">
+                                                            <img src="~/Images/mobile-white.png" alt="">
+                                                            <p>Download App<span><br>to redeem on the go</span></p>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td data-th="" class="remove-actions text-center" >
+                                                    <a class="textBtn" href="@Url.Action("Voucher", "Rewards", new {id = item.VoucherId})" target="_blank">Download</a>
+                                                </td>   
+                                            }
+                                            else
+                                            {
+                                                <td data-th="" class="remove-actions text-center" >
+                                                    <button class="method-reward-document"><span class="document"></span></button>
+                                                </td>
+                                                <td data-th="" class="remove-actions text-center" >
+                                                    <a class="textBtn" href="@Url.Action("Voucher", "Rewards", new {id = item.VoucherId})" target="_blank">Download</a>
+                                                </td>                                                
+                                            }                                     
+                                        </tr>
+                                    }
+
+                                    </tbody>
+                                </table>
+                                @if (!Model.CartModel.Items.Any())
+                                {
+                                    <p>You have (0) rewards in your wallet.</p>
+                                }
+                            </div><!-- /.col-lg-12 -->
+                            <div class="continue-shopping">
+                            <div class="col-md-12 col-lg-12 pull-right">
+                                <a href="@Url.Action("Index", "Rewards")" class="btn mainBtn pull-right">Continue shopping</a>
+                            </div>
+                        </div> 
+                        </div><!-- /.row -->
+                                           
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container My wallet -->
+    </div>
+</div>

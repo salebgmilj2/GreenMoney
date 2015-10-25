@@ -1,0 +1,341 @@
+﻿@using GM.ViewModels
+@model RewardsViewModel
+@{
+    ViewBag.Title = "Rewards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="redeemRewards">
+        <div class="navbar-inner navbar-left">
+            <nav class="nav-sidebar">
+                <div class="brand">Redeem rewards</div>
+                <ul class="nav">
+                    @if (Model.ShowDropdownCity)
+                    {
+                        if (Model.InstanceId == null)
+                        {
+                            <li class="active">
+                                <a href="#" data-toggle="collapse" data-target="#selectcity" data-parent="#sidenav01" class="collapsed">
+                                    Select city <span class="selectcity-dropdownarrow pull-right"></span>
+                                </a>
+                                <div class="collapse" id="selectcity" style="height: 0px;">
+                                    <ul class="nav nav-list">
+                                        <li>
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             instId = 1
+                                                         })">Melbourne</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             instId = 2
+                                                         })">Randwick, Sydney</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             instId = 4
+                                                         })">Blacktown, Sydney</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="active">
+                                <a class="" data-parent="#sidenav01" data-target="#selectcity" data-toggle="collapse" href="#" aria-expanded="true">
+                                    Select city
+                                    <span class="selectcity-dropdownarrow pull-right"></span>
+                                </a>
+                                <div style="" id="selectcity" class="collapse in" aria-expanded="true">
+                                    <ul class="nav nav-list">
+                                        <li class="@(Model.InstanceId == 1 ? "selected" : null)">
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             category = Model.Category == null ? null : Model.Category.Slug,
+                                                             instId = Model.InstanceId == 1 ? null : "1"
+                                                         })">Melbourne</a>
+                                        </li>
+                                        <li class="@(Model.InstanceId == 2 ? "selected" : null)">
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             category = Model.Category == null ? null : Model.Category.Slug,
+                                                             instId = Model.InstanceId == 2 ? null : "2"
+                                                         })">Randwick, Sydney</a>
+                                        </li>
+                                        <li class="@(Model.InstanceId == 4 ? "selected" : null)">
+                                            <a href="@Url.Action("Index", "Rewards",
+                                                         new
+                                                         {
+                                                             filter = Model.Filter,
+                                                             sortBy = Model.SortBy,
+                                                             category = Model.Category == null ? null : Model.Category.Slug,
+                                                             instId = Model.InstanceId == 4 ? null : "4"
+                                                         })">Blacktown, Sydney</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                    }     
+                    <li class="@(!Model.HasCategorySelected? "active" : null)">
+                        <a href="@Url.Action("Index", "Rewards", 
+                        new
+                        {
+                            filter = Model.Filter,
+                            sortBy = Model.SortBy,
+                            instId = Model.InstanceId
+                        })">View all rewards</a>
+                    </li>                    
+                    @foreach (var categoryItem in Model.Categories)
+                    {
+                        <li class="@(Model.HasCategorySelected && Model.Category.Id == categoryItem.Id? "active" : null)">
+                            <a href="@Url.Action("Index", "Rewards", 
+                            new
+                            {
+                                category = categoryItem.Slug,
+                                filter = Model.Filter,
+                                sortBy = Model.SortBy,
+                                instId = Model.InstanceId
+                            })">@categoryItem.Name</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+        <div class="container redeemAllRewards">
+            <div class="navbar-main">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">@(Model.Category!= null? Model.Category.Name : "All rewards")</h1>
+                        <div id="custom-search-input" class="col-md-5 pull-right">
+                            @using (Html.BeginForm("Index", "Rewards", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.Filter, new {@class = "search-query form-control", placeholder = "Search rewards"})
+                                    <span class="input-group-btn">
+@*                                    <input type ="submit" class="btn btn-danger"/>
+                                        <span class="icon-search"></span>*@
+                                        <button class="btn btn-danger" type="submit">
+                                            <span class="icon-search"></span>
+                                        </button>
+                                </span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    @if (Model.Category != null && Model.SubCategories.Any())
+                    {
+                        <div class="eatingout-bar col-md-12 col-lg-12">
+                            <ul class="nav nav-pills category-tabs">
+                                <li class="@(!Model.SubCategories.Any(c => c.IsSelected) ? "active" : null)"
+                                    style="width: @(100/(Model.SubCategories.Count+1))%">
+                                    <a href="@Url.Action("Index", "Rewards",
+                                                    new
+                                                    {
+                                                        category = Model.Category.Slug,
+                                                        filter = Model.Filter,
+                                                        sortBy = Model.SortBy,
+                                                        instId = Model.InstanceId
+                                                    })">All</a>
+                                </li>
+                                @foreach (var subCategory in Model.SubCategories)
+                                {
+                                    <li class="@(subCategory.IsSelected ? "active" : null)" style="width: @(100/(Model.SubCategories.Count+1))%">
+                                        <a href="@Url.Action("Index", "Rewards",
+                                                     new
+                                                     {
+                                                         category = subCategory.Slug,
+                                                         filter = Model.Filter,
+                                                         sortBy = Model.SortBy,
+                                                         instId = Model.InstanceId
+                                                     })">@subCategory.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="well redeem-all-rewards">
+                                <h5 class="col-md-5 col-lg-5">@Model.SortByText</h5>
+                                <div class="col-md-2 col-lg-2 text-right">
+                                    <div id="admin"><b id="admin_text">Sort by</b>
+                                    </div>
+                                    <div id="settings"></div>
+                                    <div id="menu">
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         sortBy = SortByEnum.popular,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })">Popularity</a>
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         sortBy = SortByEnum.newest,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })">Newest to oldest</a>
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         sortBy = SortByEnum.expensive,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })">Points: High to low</a>
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         sortBy = SortByEnum.cheapest,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })">Points: Low to high</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3 pull-right top-pagination">
+                                    <p>(@Model.NumRewards rewards found)</p>
+                                    @if (Model.Page > 1)
+                                    {
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         page = Model.Page - 1, sort = Model.SortBy,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })" class="previous" data-action="previous"><span></span></a>
+                                    }
+                                    @if (Model.Page < Model.NumPages)
+                                    {
+                                        <a href="@Url.Action("Index",
+                                                     new
+                                                     {
+                                                         category = Model.Category == null ? null : Model.Category.Slug,
+                                                         page = Model.Page + 1, sort = Model.SortBy,
+                                                         filter = Model.Filter,
+                                                         instId = Model.InstanceId
+                                                     })" class="next@(Model.Page == 1 ? " first": null)" data-action="next"><span></span></a>
+                                    }
+                                </div>
+
+                                <div class="col-md-12">
+                                    <ul class="list-group">
+                                        @foreach (var item in Model.Rewards)
+                                        {
+                                            <li class="list-group-item reward-item" data-id="@item.Id">
+                                                <div class="media col-md-3">
+                                                    <figure class="pull-left">
+                                                        <a href="@Url.Action("Details", new { id= item.Id })">
+                                                          <img class="media-object img-rounded img-responsive" src="@Url.Action("Upload", "General", new {id = item.ImageSmallId ?? item.ImageId})?width=139" alt="@item.Name">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h4 class="list-group-item-heading"> @item.Name </h4>
+                                                    <p class="list-group-item-text reward-description-txt"> @item.Description<br>
+                                                        <a href="@Url.Action("Details", new { id= item.Id })"><span>View reward</span></a>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3 pull-right">
+                                                    <h2 class="RewardItemPoints"> @item.Price <small> points </small>
+                                                    </h2>
+                                                    <button type="button" class="btn mainBtn btn-lg btn-block add-to-cart js-add-to-cart"> Add to cart </button>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-12 col-lg-12 bottom-pagination">
+                                    @if (Model.NumPages > 0)
+                                    {
+                                        if (Model.Page > 1)
+                                        {
+                                            <a href="@Url.Action("Index",
+                                                         new
+                                                         {
+                                                             category = Model.Category == null ? null : Model.Category.Slug,
+                                                             page = Model.Page - 1, sort = Model.SortBy,
+                                                             filter = Model.Filter,
+                                                             instId = Model.InstanceId
+                                                         })" class="previous" data-action="previous"><span></span></a>
+                                        }
+                                        <span>Page</span>
+                                        <input type="text" data-url="@Url.Action("Index")" class="js-page-change-submit" name="Page" value="@Model.Page"/>                                       
+                                        <span>of @Model.NumPages</span>
+                                        if (Model.Page < Model.NumPages)
+                                        {
+                                            <a href="@Url.Action("Index",
+                                                         new
+                                                         {
+                                                             category = Model.Category == null ? null : Model.Category.Slug,
+                                                             page = Model.Page + 1, sort = Model.SortBy,
+                                                             filter = Model.Filter,
+                                                             instId = Model.InstanceId
+                                                         })" class="next pull-right" data-action="next"><span></span></a>
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        <p>No results</p>
+                                    }
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Update profile - personal and contact information-->
+    </div>
+</div>
+
+
+<style type="text/css">
+    #custom-search-input form {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .eatingout-bar ul.category-tabs li a, div.eatingout-bar ul.category-tabs li:last-child a {
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border-left: 1px solid #bbbdbf;
+    }
+
+    div.eatingout-bar ul.category-tabs li:first-child a {
+        border-left: none;
+    }
+
+    #selectcity li.selected a {
+        color: #58595b!important;
+    }
+</style>

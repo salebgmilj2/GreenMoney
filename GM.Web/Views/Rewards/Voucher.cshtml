@@ -1,0 +1,130 @@
+﻿@model GM.ViewModels.VoucherHtmlViewModel
+@using GM.Utility
+@{
+    Layout = null;
+    ViewBag.Title = "VoucherHtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Voucher</title>
+    <link href="/css/voucher.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="header">
+        <img src="~/Images/logo-colour-voucher.jpg" width="auto" height="auto" alt="GreenMoney" style="top: 0px;" />
+        <div id="code">
+            <h3>Voucher number</h3>
+            <p>@(ZBase32.Encode(Model.VoucherModel.VoucherId.ToByteArray()))</p>
+        </div>
+    </div>
+
+    <div id="main">
+
+        <div id="voucher">
+            <img src="@Url.Action("Upload", "General", new { id = Model.VoucherModel.RewardModel.ImageId })?width=191" width="191" alt="@Model.VoucherModel.RewardModel.PartnerName" />
+            <div>
+                <h1>@Model.VoucherModel.RewardModel.Name</h1>
+                <p>@Html.Raw(Model.VoucherModel.RewardModel.Description)</p>
+            </div>
+        </div>
+
+        <div class="col"  style="width: 300px;">
+            @if (Model.VoucherModel.RewardModel.HowToRedeem != null)
+            {
+                <h2>How to use this:</h2>
+                @Html.Raw(Model.VoucherModel.RewardModel.HowToRedeem)
+            }
+
+            @if (Model.VoucherModel.RewardModel.PartnerLocation != null)
+            {
+                var address = System.Text.RegularExpressions.Regex.Replace(Model.VoucherModel.RewardModel.PartnerLocation, @"<[^>]*>", "");
+			
+                <h2>Map</h2>
+			
+                <p>
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=@Url.Encode(address)&amp;zoom=15&amp;size=306x306&amp;sensor=false&amp;markers=color:red|@Url.Encode(address)" width="280" height="280" alt="Google Map" /></p>
+            }
+
+            @if (Model.VoucherModel.RewardModel.VoucherBarcodeId != null)
+            {
+                <p>
+                    <img src="@Url.Action("Upload", "General", new { id = Model.VoucherModel.RewardModel.VoucherBarcodeId })?width=158" width="158" alt="Barcode" />
+                </p>
+            }
+        </div>
+
+        <div class="col last">
+            <h2>Details</h2>
+
+            <h3>Recipient</h3>
+            <p>@Model.VoucherModel.UserFirstName @Model.VoucherModel.UserLastName</p>
+
+            @if (Model.VoucherModel.RewardModel.PartnerLocation != null || Model.VoucherModel.RewardModel.PartnerPhone != null || Model.VoucherModel.RewardModel.PartnerUrl != null)
+            {
+                <h3>Redeem at</h3>
+                <p><b>@Model.VoucherModel.RewardModel.PartnerName</b></p>
+			
+                if (Model.VoucherModel.RewardModel.PartnerLocation != null)
+                {
+                @Html.Raw(Model.VoucherModel.RewardModel.PartnerLocation)
+                }
+
+                <p>
+                    @if (Model.VoucherModel.RewardModel.PartnerPhone != null)
+                    {
+                        @Model.VoucherModel.RewardModel.PartnerPhone
+                    }
+                    @if (Model.VoucherModel.RewardModel.PartnerUrl != null)
+                    {
+                        if (Model.VoucherModel.RewardModel.PartnerPhone != null || Model.VoucherModel.RewardModel.PartnerEmail != null)
+                        {
+                        <br />
+                        }
+                        <span class="link">@Model.VoucherModel.RewardModel.PartnerUrl</span>
+                    }
+                </p>
+            }
+
+            @if (Model.VoucherModel.RewardModel.ValidFrom != null)
+            {
+                <h3>Valid from</h3>
+                <p>@Model.VoucherModel.RewardModel.ValidFrom.Value.ToString("dd MMM yyyy")</p>
+            }
+
+            @if (Model.VoucherModel.RewardModel.ValidTo != null)
+            {
+                <h3>Expires on</h3>
+                <p>@Model.VoucherModel.RewardModel.ValidTo.Value.ToString("dd MMM yyyy")</p>
+            }
+
+            <h3>Date issued</h3>
+            <p>@Model.VoucherModel.Issued.ToString("dd MMM yyyy")</p>
+
+            @if (Model.VoucherModel.RewardModel.TermsAndConditions != null)
+            {
+                <h3>Terms</h3>
+                @Html.Raw(Model.VoucherModel.RewardModel.TermsAndConditions)
+            }
+
+            <h2>Need help?</h2>
+            <p class="link">Email help@greenmoney.com.au</p>
+        </div>
+
+        <div id="fine_print">
+            <div>
+                <h4>Fine print</h4>
+                <p>This offer cannot be multiplied or exchanged for cash. The offer is not valid towards pervious purchases. Void if copied or transferred. One voucher per customer. Limit one voucher per transaction. Not to be combined with any other offers</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

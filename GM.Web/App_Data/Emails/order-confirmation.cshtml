@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Order Confirmation Email</title>
+</head>
+
+<body style="background:#e9f2fb;padding:0;">
+
+<table width="90%" cellpadding="0" cellspacing="0" align="center" style="max-width:900px;">
+	<thead>
+		<tr>
+			<td colspan="2" bgcolor="#e9f2fb" style="height:10px;font-size:1px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="middle" bgcolor="#ffffff" style="padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:10px;">
+				<img src="http://www.greenmoney.com.au/images/logo-voucher.png" width="71" height="59" alt="GreenMoney" />
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="2" bgcolor="#e9f2fb" style="height:10px;font-size:1px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff" style="height:10px;font-size:1px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff" style="color:#000;font-family:Arial, Helvetica, sans-serif;font-size:14px;padding-bottom:0;padding-left:12px;padding-right:12px;padding-top:0;line-height:20px;">
+				<p style="margin-top:0;">Hi @Model.FirstName</p>
+
+				<p>Congratulations! You have redeemed the following rewards on @Model.Time.ToString("dd-MM-yyyy"):</p>
+				
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th style="text-align:left; padding-bottom:7px;padding-top:7px;">Reward</th>
+							<th style="text-align:left; padding-bottom:7px;padding-left:7px;padding-top:7px;padding-right:7px;">Points</th>
+							<th style="text-align:right; padding-bottom:7px;padding-top:7px;white-space:nowrap;">Your voucher</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model.Items) {
+							<tr>
+								<td style="text-align:left; padding-bottom:7px;padding-top:7px;">@item.Name</td>
+								<td style="text-align:left; padding-bottom:7px;padding-left:7px;padding-top:7px;padding-right:7px;">@item.Points.ToString("#,##0")</td>
+								<td style="text-align:right; padding-bottom:7px;padding-top:7px;white-space:nowrap;"><a href="@(Model.VoucherUrl)/@(item.VoucherId)" style="color:#5da9dd;text-decoration:underline;"><b>View voucher</b></a></td>
+							</tr>
+						}
+						<tr>
+							<th style="text-align:left; padding-bottom:7px;padding-top:7px;">Total</th>
+							<td style="text-align:left; padding-bottom:7px;padding-left:7px;padding-top:7px;padding-right:7px;"><b>@Model.Total.ToString("#,##0")</b></td>
+							<td colspan="2"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>Click <b>View voucher</b> to view the instructions on how to redeem each reward.</p>
+				
+				<p>Your voucher has also been stored in <a href="https://www.greenmoney.com.au/Account/Wallet" style="color:#5da9dd;text-decoration:underline;">My Wallet</a> which is located in your GreenMoney account.</p>
+				
+				<p>♥ <a href="http://j.mp/GreenMoneyApp" style="color:#5da9dd;text-decoration:underline;">Download the GreenMoney App to use your rewards on the go</a></p> 
+				
+				<p>
+					Best regards<br>
+					The GreenMoney team<br>
+					<a href="http://www.greenmoney.com.au" style="color:#5da9dd;text-decoration:underline;">www.greenmoney.com.au</a>
+				</p>
+				</p>
+				
+				<p style="color:#666666;font-size:12px;margin-bottom:0;">
+					<br>
+					<a href="http://www.greenmoney.com.au/privacy-policy" style="color:#5da9dd;text-decoration:underline;">Privacy policy</a> &nbsp;|&nbsp;<a href="http://www.greenmoney.com.au/learn-more/faq" style="color:#5da9dd;text-decoration:underline;">FAQ</a> &nbsp;|&nbsp;<a href="http://www.greenmoney.com.au/learn-more/contact-us" style="color:#5da9dd;text-decoration:underline;">Contact us</a>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff" style="height:10px;font-size:1px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#e9f2fb" style="height:10px;font-size:1px;">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+
+</html>

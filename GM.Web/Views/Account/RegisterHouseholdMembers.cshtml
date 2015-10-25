@@ -1,0 +1,80 @@
+﻿@using GM.ViewModels
+@model  HouseholdMemberModel
+@{
+    ViewBag.Title = "Register Household Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("RegisterHouseholdMembers", "Account", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.HiddenFor(model => model.AddressId)
+    
+    <div class="container main-form">
+        <div class="container-inner">
+            <div class="content-form text-center">
+                <div class="row">
+                     <div class="float-none row">
+                        <h2>Account information</h2>
+		                @Html.ValidationSummary(true, "Additional Account Holder addition unsuccessful. Please correct the errors and try again.")
+                    </div>
+ 
+                    <div class="float-none col-md-5">
+                        <div>
+                            @Html.LabelFor(m => m.FirstName)
+                            @Html.TextBoxFor(m => m.FirstName, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.FirstName)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.LastName)
+                            @Html.TextBoxFor(m => m.LastName, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.LastName)
+                        </div>
+                    </div>
+
+                    <div class="float-none col-md-5">
+                        <div>
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.Email)
+                        </div>
+
+                        <div class="hide">
+                            @Html.LabelFor(m => m.ConfirmEmail)
+                            @Html.TextBoxFor(m => m.ConfirmEmail, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.ConfirmEmail)
+                        </div>
+                			
+                        <div class="w20">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        <div class="w20">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class="form-field form-control unit-number"})
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                        </div>
+			
+                    </div>
+
+                    <div class="float-none col-md-5">
+                        @Html.CheckBoxFor(m => m.SendEmailOffers)
+                        <label for="SendEmailOffers">Receive the latest GreenMoney bonus offers and updates via email</label>
+                        @Html.ValidationMessageFor(m => m.SendEmailOffers)
+                    </div>
+
+                    <div class="float-none col-md-5">
+                        @Html.CheckBoxFor(m => m.SendEmailUpdates)
+                        <label for="SendEmailUpdates">Receive Council updates and newsletters</label>
+                        @Html.ValidationMessageFor(m => m.SendEmailUpdates)
+                    </div>
+
+                    <div class="float-none col-md-5">
+                        <input type="submit" class="btn col-md-8 mainBtn col-md-offset-2" value="Add"/>
+                    </div>	
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
